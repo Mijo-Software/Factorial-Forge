@@ -10,7 +10,7 @@ namespace FactorialForge
 
 		private void NumericUpDownFactorial_ValueChanged(object? sender, EventArgs e)
 		{
-			labelFactorial.Text = $"Factorial: {Factorializer.Factorial(n: (int)numericUpDownFactorial.Value)}";
+			textBoxFactorial.Text = $"Factorial: {Factorializer.FactorialBig(n: (int)numericUpDownFactorial.Value)}";
 		}
 	}
 }

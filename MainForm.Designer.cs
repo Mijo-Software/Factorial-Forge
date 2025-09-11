@@ -30,8 +30,9 @@
 		{
 			this.tabControl = new TabControl();
 			this.tabPageFactorial = new TabPage();
-			this.labelFactorial = new Label();
+			this.textBoxFactorial = new TextBox();
 			this.numericUpDownFactorial = new NumericUpDown();
+			this.labelNumber = new Label();
 			this.tabControl.SuspendLayout();
 			this.tabPageFactorial.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownFactorial).BeginInit();
@@ -46,45 +47,54 @@
 			this.tabControl.Name = "tabControl";
 			this.tabControl.SelectedIndex = 0;
 			this.tabControl.ShowToolTips = true;
-			this.tabControl.Size = new Size(253, 95);
+			this.tabControl.Size = new Size(253, 223);
 			this.tabControl.TabIndex = 0;
 			// 
 			// tabPageFactorial
 			// 
-			this.tabPageFactorial.Controls.Add(this.labelFactorial);
+			this.tabPageFactorial.Controls.Add(this.labelNumber);
+			this.tabPageFactorial.Controls.Add(this.textBoxFactorial);
 			this.tabPageFactorial.Controls.Add(this.numericUpDownFactorial);
 			this.tabPageFactorial.Location = new Point(4, 27);
 			this.tabPageFactorial.Name = "tabPageFactorial";
 			this.tabPageFactorial.Padding = new Padding(3);
-			this.tabPageFactorial.Size = new Size(245, 64);
+			this.tabPageFactorial.Size = new Size(245, 192);
 			this.tabPageFactorial.TabIndex = 0;
 			this.tabPageFactorial.Text = "Factorial";
 			this.tabPageFactorial.UseVisualStyleBackColor = true;
 			// 
-			// labelFactorial
+			// textBoxFactorial
 			// 
-			this.labelFactorial.AutoSize = true;
-			this.labelFactorial.Location = new Point(6, 32);
-			this.labelFactorial.Name = "labelFactorial";
-			this.labelFactorial.Size = new Size(38, 15);
-			this.labelFactorial.TabIndex = 1;
-			this.labelFactorial.Text = "label1";
+			this.textBoxFactorial.Location = new Point(6, 35);
+			this.textBoxFactorial.Multiline = true;
+			this.textBoxFactorial.Name = "textBoxFactorial";
+			this.textBoxFactorial.Size = new Size(231, 149);
+			this.textBoxFactorial.TabIndex = 2;
 			// 
 			// numericUpDownFactorial
 			// 
-			this.numericUpDownFactorial.Location = new Point(6, 6);
-			this.numericUpDownFactorial.Maximum = new decimal(new int[] { 20, 0, 0, 0 });
+			this.numericUpDownFactorial.Location = new Point(31, 6);
+			this.numericUpDownFactorial.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
 			this.numericUpDownFactorial.Name = "numericUpDownFactorial";
 			this.numericUpDownFactorial.Size = new Size(69, 23);
 			this.numericUpDownFactorial.TabIndex = 0;
 			this.numericUpDownFactorial.TextAlign = HorizontalAlignment.Center;
 			this.numericUpDownFactorial.ValueChanged += this.NumericUpDownFactorial_ValueChanged;
 			// 
+			// labelNumber
+			// 
+			this.labelNumber.AutoSize = true;
+			this.labelNumber.Location = new Point(8, 8);
+			this.labelNumber.Name = "labelNumber";
+			this.labelNumber.Size = new Size(17, 15);
+			this.labelNumber.TabIndex = 3;
+			this.labelNumber.Text = "n:";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new SizeF(7F, 15F);
 			this.AutoScaleMode = AutoScaleMode.Font;
-			this.ClientSize = new Size(253, 95);
+			this.ClientSize = new Size(253, 223);
 			this.Controls.Add(this.tabControl);
 			this.MaximizeBox = false;
 			this.Name = "MainForm";
@@ -102,6 +112,7 @@
 		private TabControl tabControl;
 		private TabPage tabPageFactorial;
 		private NumericUpDown numericUpDownFactorial;
-		private Label labelFactorial;
+		private TextBox textBoxFactorial;
+		private Label labelNumber;
 	}
 }
