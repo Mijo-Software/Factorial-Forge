@@ -30,9 +30,9 @@
 		{
 			this.tabControl = new TabControl();
 			this.tabPageFactorial = new TabPage();
+			this.labelNumber = new Label();
 			this.textBoxFactorial = new TextBox();
 			this.numericUpDownFactorial = new NumericUpDown();
-			this.labelNumber = new Label();
 			this.tabControl.SuspendLayout();
 			this.tabPageFactorial.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownFactorial).BeginInit();
@@ -63,24 +63,6 @@
 			this.tabPageFactorial.Text = "Factorial";
 			this.tabPageFactorial.UseVisualStyleBackColor = true;
 			// 
-			// textBoxFactorial
-			// 
-			this.textBoxFactorial.Location = new Point(6, 35);
-			this.textBoxFactorial.Multiline = true;
-			this.textBoxFactorial.Name = "textBoxFactorial";
-			this.textBoxFactorial.Size = new Size(231, 149);
-			this.textBoxFactorial.TabIndex = 2;
-			// 
-			// numericUpDownFactorial
-			// 
-			this.numericUpDownFactorial.Location = new Point(31, 6);
-			this.numericUpDownFactorial.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
-			this.numericUpDownFactorial.Name = "numericUpDownFactorial";
-			this.numericUpDownFactorial.Size = new Size(69, 23);
-			this.numericUpDownFactorial.TabIndex = 0;
-			this.numericUpDownFactorial.TextAlign = HorizontalAlignment.Center;
-			this.numericUpDownFactorial.ValueChanged += this.NumericUpDownFactorial_ValueChanged;
-			// 
 			// labelNumber
 			// 
 			this.labelNumber.AutoSize = true;
@@ -89,6 +71,27 @@
 			this.labelNumber.Size = new Size(17, 15);
 			this.labelNumber.TabIndex = 3;
 			this.labelNumber.Text = "n:";
+			// 
+			// textBoxFactorial
+			// 
+			this.textBoxFactorial.Location = new Point(6, 35);
+			this.textBoxFactorial.MaxLength = int.MaxValue;
+			this.textBoxFactorial.Multiline = true;
+			this.textBoxFactorial.Name = "textBoxFactorial";
+			this.textBoxFactorial.PlaceholderText = "Factorial";
+			this.textBoxFactorial.ScrollBars = ScrollBars.Vertical;
+			this.textBoxFactorial.Size = new Size(231, 149);
+			this.textBoxFactorial.TabIndex = 2;
+			// 
+			// numericUpDownFactorial
+			// 
+			this.numericUpDownFactorial.Location = new Point(31, 6);
+			this.numericUpDownFactorial.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			this.numericUpDownFactorial.Name = "numericUpDownFactorial";
+			this.numericUpDownFactorial.Size = new Size(69, 23);
+			this.numericUpDownFactorial.TabIndex = 0;
+			this.numericUpDownFactorial.TextAlign = HorizontalAlignment.Center;
+			this.numericUpDownFactorial.ValueChanged += this.NumericUpDownFactorial_ValueChanged;
 			// 
 			// MainForm
 			// 
