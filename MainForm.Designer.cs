@@ -33,9 +33,16 @@
 			this.labelNumber = new Label();
 			this.textBoxFactorial = new TextBox();
 			this.numericUpDownFactorial = new NumericUpDown();
+			this.statusStrip = new StatusStrip();
+			this.toolStripProgressBar = new ToolStripProgressBar();
+			this.toolStripContainer = new ToolStripContainer();
 			this.tabControl.SuspendLayout();
 			this.tabPageFactorial.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownFactorial).BeginInit();
+			this.statusStrip.SuspendLayout();
+			this.toolStripContainer.BottomToolStripPanel.SuspendLayout();
+			this.toolStripContainer.ContentPanel.SuspendLayout();
+			this.toolStripContainer.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabControl
@@ -47,7 +54,7 @@
 			this.tabControl.Name = "tabControl";
 			this.tabControl.SelectedIndex = 0;
 			this.tabControl.ShowToolTips = true;
-			this.tabControl.Size = new Size(253, 223);
+			this.tabControl.Size = new Size(253, 227);
 			this.tabControl.TabIndex = 0;
 			// 
 			// tabPageFactorial
@@ -58,7 +65,7 @@
 			this.tabPageFactorial.Location = new Point(4, 27);
 			this.tabPageFactorial.Name = "tabPageFactorial";
 			this.tabPageFactorial.Padding = new Padding(3);
-			this.tabPageFactorial.Size = new Size(245, 192);
+			this.tabPageFactorial.Size = new Size(245, 196);
 			this.tabPageFactorial.TabIndex = 0;
 			this.tabPageFactorial.Text = "Factorial";
 			this.tabPageFactorial.UseVisualStyleBackColor = true;
@@ -74,13 +81,14 @@
 			// 
 			// textBoxFactorial
 			// 
-			this.textBoxFactorial.Location = new Point(6, 35);
+			this.textBoxFactorial.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			this.textBoxFactorial.Location = new Point(3, 35);
 			this.textBoxFactorial.MaxLength = int.MaxValue;
 			this.textBoxFactorial.Multiline = true;
 			this.textBoxFactorial.Name = "textBoxFactorial";
 			this.textBoxFactorial.PlaceholderText = "Factorial";
 			this.textBoxFactorial.ScrollBars = ScrollBars.Vertical;
-			this.textBoxFactorial.Size = new Size(231, 149);
+			this.textBoxFactorial.Size = new Size(239, 158);
 			this.textBoxFactorial.TabIndex = 2;
 			// 
 			// numericUpDownFactorial
@@ -93,12 +101,44 @@
 			this.numericUpDownFactorial.TextAlign = HorizontalAlignment.Center;
 			this.numericUpDownFactorial.ValueChanged += this.NumericUpDownFactorial_ValueChanged;
 			// 
+			// statusStrip
+			// 
+			this.statusStrip.Dock = DockStyle.None;
+			this.statusStrip.Items.AddRange(new ToolStripItem[] { this.toolStripProgressBar });
+			this.statusStrip.Location = new Point(0, 0);
+			this.statusStrip.Name = "statusStrip";
+			this.statusStrip.Size = new Size(253, 22);
+			this.statusStrip.TabIndex = 4;
+			// 
+			// toolStripProgressBar
+			// 
+			this.toolStripProgressBar.Name = "toolStripProgressBar";
+			this.toolStripProgressBar.Size = new Size(100, 16);
+			// 
+			// toolStripContainer
+			// 
+			// 
+			// toolStripContainer.BottomToolStripPanel
+			// 
+			this.toolStripContainer.BottomToolStripPanel.Controls.Add(this.statusStrip);
+			// 
+			// toolStripContainer.ContentPanel
+			// 
+			this.toolStripContainer.ContentPanel.Controls.Add(this.tabControl);
+			this.toolStripContainer.ContentPanel.Size = new Size(253, 227);
+			this.toolStripContainer.Dock = DockStyle.Fill;
+			this.toolStripContainer.Location = new Point(0, 0);
+			this.toolStripContainer.Name = "toolStripContainer";
+			this.toolStripContainer.Size = new Size(253, 249);
+			this.toolStripContainer.TabIndex = 1;
+			this.toolStripContainer.TopToolStripPanelVisible = false;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new SizeF(7F, 15F);
 			this.AutoScaleMode = AutoScaleMode.Font;
-			this.ClientSize = new Size(253, 223);
-			this.Controls.Add(this.tabControl);
+			this.ClientSize = new Size(253, 249);
+			this.Controls.Add(this.toolStripContainer);
 			this.MaximizeBox = false;
 			this.Name = "MainForm";
 			this.StartPosition = FormStartPosition.CenterScreen;
@@ -107,6 +147,13 @@
 			this.tabPageFactorial.ResumeLayout(false);
 			this.tabPageFactorial.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownFactorial).EndInit();
+			this.statusStrip.ResumeLayout(false);
+			this.statusStrip.PerformLayout();
+			this.toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
+			this.toolStripContainer.BottomToolStripPanel.PerformLayout();
+			this.toolStripContainer.ContentPanel.ResumeLayout(false);
+			this.toolStripContainer.ResumeLayout(false);
+			this.toolStripContainer.PerformLayout();
 			this.ResumeLayout(false);
 		}
 
@@ -117,5 +164,8 @@
 		private NumericUpDown numericUpDownFactorial;
 		private TextBox textBoxFactorial;
 		private Label labelNumber;
+		private StatusStrip statusStrip;
+		private ToolStripProgressBar toolStripProgressBar;
+		private ToolStripContainer toolStripContainer;
 	}
 }
