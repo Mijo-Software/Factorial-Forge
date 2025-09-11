@@ -1,4 +1,6 @@
-﻿namespace FactorialForge
+﻿using System.Numerics;
+
+namespace FactorialForge
 {
 	internal class Factorializer
 	{
@@ -10,6 +12,21 @@
 			}
 
 			long result = 1;
+			for (int i = 2; i <= n; i++)
+			{
+				result *= i;
+			}
+			return result;
+		}
+
+		public static BigInteger FactorialBig(int n)
+		{
+			if (n < 0)
+			{
+				throw new ArgumentException(message: "Factorial is only defined for non-negative integers.");
+			}
+
+			BigInteger result = BigInteger.One;
 			for (int i = 2; i <= n; i++)
 			{
 				result *= i;

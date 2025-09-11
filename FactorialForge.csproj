@@ -9,8 +9,8 @@
     <StartupObject>FactorialForge.Program</StartupObject>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <Title>Facultas</Title>
-    <Version>1.0.0</Version>
+    <Title>Factorial Forge</Title>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
