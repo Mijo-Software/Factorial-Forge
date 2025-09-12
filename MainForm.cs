@@ -130,5 +130,59 @@ namespace FactorialForge
 			}
 			toolStripProgressBar.Visible = false;
 		}
+
+		private void ButtonCopyToClipboardFactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxFactorial.Text))
+			{
+				Clipboard.SetText(text: textBoxFactorial.Text);
+			}
+			toolStripStatusLabelTime.Text = "Copied to clipboard.";
+		}
+
+		private void ButtonCopyToClipboardOddFactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxOddFactorial.Text))
+			{
+				Clipboard.SetText(text: textBoxOddFactorial.Text);
+			}
+			toolStripStatusLabelTime.Text = "Copied to clipboard.";
+		}
+
+		private void ButtonCopyToClipboardEvenFactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxEvenFactorial.Text))
+			{
+				Clipboard.SetText(text: textBoxEvenFactorial.Text);
+			}
+			toolStripStatusLabelTime.Text = "Copied to clipboard.";
+		}
+
+		private void ButtonCopyToClipboardPrimeFactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxPrimeFactorial.Text))
+			{
+				Clipboard.SetText(text: textBoxPrimeFactorial.Text);
+			}
+			toolStripStatusLabelTime.Text = "Copied to clipboard.";
+		}
+
+		private void ButtonCopyToClipboardSubfactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxSubfactorial.Text))
+			{
+				Clipboard.SetText(text: textBoxSubfactorial.Text);
+			}
+			toolStripStatusLabelTime.Text = "Copied to clipboard.";
+		}
+
+		private void ButtonCopyToClipboardDoubleFactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxDoubleFactorial.Text))
+			{
+				Clipboard.SetText(text: textBoxDoubleFactorial.Text);
+			}
+			toolStripStatusLabelTime.Text = "Copied to clipboard.";
+		}
 	}
 }
