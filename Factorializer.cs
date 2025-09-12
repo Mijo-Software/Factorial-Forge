@@ -35,10 +35,29 @@ namespace FactorialForge
 
 		private static List<long> PrimesUpTo(long n)
 		{
+			if (n < 2)
+			{
+				return [];
+			}
+			bool[] isPrime = new bool[n + 1];
+			for (long i = 2; i <= n; i++)
+			{
+				isPrime[i] = true;
+			}
+			for (long i = 2; i * i <= n; i++)
+			{
+				if (isPrime[i])
+				{
+					for (long j = i * i; j <= n; j += i)
+					{
+						isPrime[j] = false;
+					}
+				}
+			}
 			List<long> primes = [];
 			for (long i = 2; i <= n; i++)
 			{
-				if (IsPrime(number: i))
+				if (isPrime[i])
 				{
 					primes.Add(item: i);
 				}
@@ -136,6 +155,12 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Returns the product of all prime numbers up to n.
+		/// WARNING: The result will overflow for relatively small values of n (e.g., n > 43).
+		/// For larger n, use PrimeFactorialBig instead.
+		/// Throws OverflowException if the result exceeds the range of a long.
+		/// </summary>
 		public static long PrimeFactorial(long n)
 		{
 			if (n < 2)
