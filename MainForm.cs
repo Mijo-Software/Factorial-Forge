@@ -24,7 +24,7 @@ namespace FactorialForge
 			StringBuilder sb = new();
 			for (int i = 0; i < counts.Length; i++)
 			{
-				_ = sb.AppendLine(handler: $"{i}: {counts[i]}");
+				_ = sb.AppendLine(value: $"{i}: {counts[i]}");
 			}
 
 			_ = MessageBox.Show(text: sb.ToString(), caption: "Digit statistics", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
