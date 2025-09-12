@@ -73,7 +73,7 @@
 			this.textBoxDoubleFactorial = new TextBox();
 			this.numericUpDownDoubleFactorial = new NumericUpDown();
 			this.statusStrip = new StatusStrip();
-			this.toolStripStatusLabelTime = new ToolStripStatusLabel();
+			this.toolStripStatusLabelInfo = new ToolStripStatusLabel();
 			this.toolStripProgressBar = new ToolStripProgressBar();
 			this.toolStripContainer = new ToolStripContainer();
 			this.tabControl.SuspendLayout();
@@ -627,19 +627,19 @@
 			// statusStrip
 			// 
 			this.statusStrip.Dock = DockStyle.None;
-			this.statusStrip.Items.AddRange(new ToolStripItem[] { this.toolStripStatusLabelTime, this.toolStripProgressBar });
+			this.statusStrip.Items.AddRange(new ToolStripItem[] { this.toolStripStatusLabelInfo, this.toolStripProgressBar });
 			this.statusStrip.Location = new Point(0, 0);
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.Size = new Size(518, 22);
 			this.statusStrip.TabIndex = 4;
 			// 
-			// toolStripStatusLabelTime
+			// toolStripStatusLabelInfo
 			// 
-			this.toolStripStatusLabelTime.AutoToolTip = true;
-			this.toolStripStatusLabelTime.Name = "toolStripStatusLabelTime";
-			this.toolStripStatusLabelTime.Size = new Size(401, 17);
-			this.toolStripStatusLabelTime.Spring = true;
-			this.toolStripStatusLabelTime.Text = "calculation time";
+			this.toolStripStatusLabelInfo.AutoToolTip = true;
+			this.toolStripStatusLabelInfo.Name = "toolStripStatusLabelInfo";
+			this.toolStripStatusLabelInfo.Size = new Size(370, 17);
+			this.toolStripStatusLabelInfo.Spring = true;
+			this.toolStripStatusLabelInfo.Text = "calculation time";
 			// 
 			// toolStripProgressBar
 			// 
@@ -726,7 +726,7 @@
 		private Label labelEvenFactorial;
 		private TextBox textBoxEvenFactorial;
 		private NumericUpDown numericUpDownEvenFactorial;
-		private ToolStripStatusLabel toolStripStatusLabelTime;
+		private ToolStripStatusLabel toolStripStatusLabelInfo;
 		private TabPage tabPagePrimeFactorial;
 		private Label labelPrimeFactorial;
 		private TextBox textBoxPrimeFactorial;
