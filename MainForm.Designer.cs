@@ -38,6 +38,10 @@
 			this.labelOddFactorial = new Label();
 			this.textBoxOddFactorial = new TextBox();
 			this.numericUpDownOddFactorial = new NumericUpDown();
+			this.tabPageEvenFactorial = new TabPage();
+			this.labelEvenFactorial = new Label();
+			this.textBoxEvenFactorial = new TextBox();
+			this.numericUpDownEvenFactorial = new NumericUpDown();
 			this.statusStrip = new StatusStrip();
 			this.toolStripProgressBar = new ToolStripProgressBar();
 			this.toolStripContainer = new ToolStripContainer();
@@ -46,6 +50,8 @@
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownFactorial).BeginInit();
 			this.tabPageOddFactorial.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownOddFactorial).BeginInit();
+			this.tabPageEvenFactorial.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)this.numericUpDownEvenFactorial).BeginInit();
 			this.statusStrip.SuspendLayout();
 			this.toolStripContainer.BottomToolStripPanel.SuspendLayout();
 			this.toolStripContainer.ContentPanel.SuspendLayout();
@@ -57,6 +63,7 @@
 			this.tabControl.Appearance = TabAppearance.Buttons;
 			this.tabControl.Controls.Add(this.tabPageFactorial);
 			this.tabControl.Controls.Add(this.tabPageOddFactorial);
+			this.tabControl.Controls.Add(this.tabPageEvenFactorial);
 			this.tabControl.Dock = DockStyle.Fill;
 			this.tabControl.Location = new Point(0, 0);
 			this.tabControl.Name = "tabControl";
@@ -153,6 +160,49 @@
 			this.numericUpDownOddFactorial.TextAlign = HorizontalAlignment.Center;
 			this.numericUpDownOddFactorial.ValueChanged += this.NumericUpDownOddFactorial_ValueChanged;
 			// 
+			// tabPageEvenFactorial
+			// 
+			this.tabPageEvenFactorial.Controls.Add(this.labelEvenFactorial);
+			this.tabPageEvenFactorial.Controls.Add(this.textBoxEvenFactorial);
+			this.tabPageEvenFactorial.Controls.Add(this.numericUpDownEvenFactorial);
+			this.tabPageEvenFactorial.Location = new Point(4, 27);
+			this.tabPageEvenFactorial.Name = "tabPageEvenFactorial";
+			this.tabPageEvenFactorial.Size = new Size(245, 196);
+			this.tabPageEvenFactorial.TabIndex = 2;
+			this.tabPageEvenFactorial.Text = "Even Factorial";
+			this.tabPageEvenFactorial.UseVisualStyleBackColor = true;
+			// 
+			// labelEvenFactorial
+			// 
+			this.labelEvenFactorial.AutoSize = true;
+			this.labelEvenFactorial.Location = new Point(8, 8);
+			this.labelEvenFactorial.Name = "labelEvenFactorial";
+			this.labelEvenFactorial.Size = new Size(67, 15);
+			this.labelEvenFactorial.TabIndex = 9;
+			this.labelEvenFactorial.Text = "n[0..10000]:";
+			// 
+			// textBoxEvenFactorial
+			// 
+			this.textBoxEvenFactorial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			this.textBoxEvenFactorial.Location = new Point(3, 35);
+			this.textBoxEvenFactorial.MaxLength = int.MaxValue;
+			this.textBoxEvenFactorial.Multiline = true;
+			this.textBoxEvenFactorial.Name = "textBoxEvenFactorial";
+			this.textBoxEvenFactorial.PlaceholderText = "Even Factorial";
+			this.textBoxEvenFactorial.ScrollBars = ScrollBars.Vertical;
+			this.textBoxEvenFactorial.Size = new Size(239, 158);
+			this.textBoxEvenFactorial.TabIndex = 8;
+			// 
+			// numericUpDownEvenFactorial
+			// 
+			this.numericUpDownEvenFactorial.Location = new Point(81, 3);
+			this.numericUpDownEvenFactorial.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			this.numericUpDownEvenFactorial.Name = "numericUpDownEvenFactorial";
+			this.numericUpDownEvenFactorial.Size = new Size(69, 23);
+			this.numericUpDownEvenFactorial.TabIndex = 7;
+			this.numericUpDownEvenFactorial.TextAlign = HorizontalAlignment.Center;
+			this.numericUpDownEvenFactorial.ValueChanged += this.NumericUpDownEvenFactorial_ValueChanged;
+			// 
 			// statusStrip
 			// 
 			this.statusStrip.Dock = DockStyle.None;
@@ -207,6 +257,9 @@
 			this.tabPageOddFactorial.ResumeLayout(false);
 			this.tabPageOddFactorial.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownOddFactorial).EndInit();
+			this.tabPageEvenFactorial.ResumeLayout(false);
+			this.tabPageEvenFactorial.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)this.numericUpDownEvenFactorial).EndInit();
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();
 			this.toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
@@ -231,5 +284,9 @@
 		private Label labelOddFactorial;
 		private TextBox textBoxOddFactorial;
 		private NumericUpDown numericUpDownOddFactorial;
+		private TabPage tabPageEvenFactorial;
+		private Label labelEvenFactorial;
+		private TextBox textBoxEvenFactorial;
+		private NumericUpDown numericUpDownEvenFactorial;
 	}
 }
