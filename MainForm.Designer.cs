@@ -30,12 +30,16 @@
 		{
 			this.tabControl = new TabControl();
 			this.tabPageFactorial = new TabPage();
-			this.labelNumber = new Label();
+			this.labelFactorial = new Label();
 			this.textBoxFactorial = new TextBox();
 			this.numericUpDownFactorial = new NumericUpDown();
 			this.statusStrip = new StatusStrip();
 			this.toolStripProgressBar = new ToolStripProgressBar();
 			this.toolStripContainer = new ToolStripContainer();
+			this.tabPageOddFactorial = new TabPage();
+			this.labelOddFactorial = new Label();
+			this.textBoxOddFactorial = new TextBox();
+			this.numericUpDownOddFactorial = new NumericUpDown();
 			this.tabControl.SuspendLayout();
 			this.tabPageFactorial.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownFactorial).BeginInit();
@@ -43,12 +47,15 @@
 			this.toolStripContainer.BottomToolStripPanel.SuspendLayout();
 			this.toolStripContainer.ContentPanel.SuspendLayout();
 			this.toolStripContainer.SuspendLayout();
+			this.tabPageOddFactorial.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)this.numericUpDownOddFactorial).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tabControl
 			// 
 			this.tabControl.Appearance = TabAppearance.Buttons;
 			this.tabControl.Controls.Add(this.tabPageFactorial);
+			this.tabControl.Controls.Add(this.tabPageOddFactorial);
 			this.tabControl.Dock = DockStyle.Fill;
 			this.tabControl.Location = new Point(0, 0);
 			this.tabControl.Name = "tabControl";
@@ -59,7 +66,7 @@
 			// 
 			// tabPageFactorial
 			// 
-			this.tabPageFactorial.Controls.Add(this.labelNumber);
+			this.tabPageFactorial.Controls.Add(this.labelFactorial);
 			this.tabPageFactorial.Controls.Add(this.textBoxFactorial);
 			this.tabPageFactorial.Controls.Add(this.numericUpDownFactorial);
 			this.tabPageFactorial.Location = new Point(4, 27);
@@ -70,14 +77,14 @@
 			this.tabPageFactorial.Text = "Factorial";
 			this.tabPageFactorial.UseVisualStyleBackColor = true;
 			// 
-			// labelNumber
+			// labelFactorial
 			// 
-			this.labelNumber.AutoSize = true;
-			this.labelNumber.Location = new Point(8, 8);
-			this.labelNumber.Name = "labelNumber";
-			this.labelNumber.Size = new Size(67, 15);
-			this.labelNumber.TabIndex = 3;
-			this.labelNumber.Text = "n[0..10000]:";
+			this.labelFactorial.AutoSize = true;
+			this.labelFactorial.Location = new Point(8, 8);
+			this.labelFactorial.Name = "labelFactorial";
+			this.labelFactorial.Size = new Size(67, 15);
+			this.labelFactorial.TabIndex = 3;
+			this.labelFactorial.Text = "n[0..10000]:";
 			// 
 			// textBoxFactorial
 			// 
@@ -137,6 +144,50 @@
 			this.toolStripContainer.TabIndex = 1;
 			this.toolStripContainer.TopToolStripPanelVisible = false;
 			// 
+			// tabPageOddFactorial
+			// 
+			this.tabPageOddFactorial.Controls.Add(this.labelOddFactorial);
+			this.tabPageOddFactorial.Controls.Add(this.textBoxOddFactorial);
+			this.tabPageOddFactorial.Controls.Add(this.numericUpDownOddFactorial);
+			this.tabPageOddFactorial.Location = new Point(4, 27);
+			this.tabPageOddFactorial.Name = "tabPageOddFactorial";
+			this.tabPageOddFactorial.Padding = new Padding(3);
+			this.tabPageOddFactorial.Size = new Size(245, 196);
+			this.tabPageOddFactorial.TabIndex = 1;
+			this.tabPageOddFactorial.Text = "Odd Factorial";
+			this.tabPageOddFactorial.UseVisualStyleBackColor = true;
+			// 
+			// labelOddFactorial
+			// 
+			this.labelOddFactorial.AutoSize = true;
+			this.labelOddFactorial.Location = new Point(8, 8);
+			this.labelOddFactorial.Name = "labelOddFactorial";
+			this.labelOddFactorial.Size = new Size(67, 15);
+			this.labelOddFactorial.TabIndex = 6;
+			this.labelOddFactorial.Text = "n[0..10000]:";
+			// 
+			// textBoxOddFactorial
+			// 
+			this.textBoxOddFactorial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			this.textBoxOddFactorial.Location = new Point(3, 35);
+			this.textBoxOddFactorial.MaxLength = int.MaxValue;
+			this.textBoxOddFactorial.Multiline = true;
+			this.textBoxOddFactorial.Name = "textBoxOddFactorial";
+			this.textBoxOddFactorial.PlaceholderText = "Odd Factorial";
+			this.textBoxOddFactorial.ScrollBars = ScrollBars.Vertical;
+			this.textBoxOddFactorial.Size = new Size(239, 158);
+			this.textBoxOddFactorial.TabIndex = 5;
+			// 
+			// numericUpDownOddFactorial
+			// 
+			this.numericUpDownOddFactorial.Location = new Point(81, 3);
+			this.numericUpDownOddFactorial.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			this.numericUpDownOddFactorial.Name = "numericUpDownOddFactorial";
+			this.numericUpDownOddFactorial.Size = new Size(69, 23);
+			this.numericUpDownOddFactorial.TabIndex = 4;
+			this.numericUpDownOddFactorial.TextAlign = HorizontalAlignment.Center;
+			this.numericUpDownOddFactorial.ValueChanged += this.NumericUpDownOddFactorial_ValueChanged;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new SizeF(7F, 15F);
@@ -158,6 +209,9 @@
 			this.toolStripContainer.ContentPanel.ResumeLayout(false);
 			this.toolStripContainer.ResumeLayout(false);
 			this.toolStripContainer.PerformLayout();
+			this.tabPageOddFactorial.ResumeLayout(false);
+			this.tabPageOddFactorial.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)this.numericUpDownOddFactorial).EndInit();
 			this.ResumeLayout(false);
 		}
 
@@ -167,9 +221,13 @@
 		private TabPage tabPageFactorial;
 		private NumericUpDown numericUpDownFactorial;
 		private TextBox textBoxFactorial;
-		private Label labelNumber;
+		private Label labelFactorial;
 		private StatusStrip statusStrip;
 		private ToolStripProgressBar toolStripProgressBar;
 		private ToolStripContainer toolStripContainer;
+		private TabPage tabPageOddFactorial;
+		private Label labelOddFactorial;
+		private TextBox textBoxOddFactorial;
+		private NumericUpDown numericUpDownOddFactorial;
 	}
 }
