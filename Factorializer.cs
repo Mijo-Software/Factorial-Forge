@@ -4,7 +4,50 @@ namespace FactorialForge
 {
 	internal class Factorializer
 	{
-		public static long Factorial(int n)
+		private static bool IsPrime(long number)
+		{
+			if (number < 2)
+			{
+				return false;
+			}
+
+			if (number == 2)
+			{
+				return true;
+			}
+
+			if (number % 2 == 0)
+			{
+				return false;
+			}
+
+			long sqrt = (long)Math.Sqrt(d: number);
+			for (long i = 3; i <= sqrt; i += 2)
+			{
+				if (number % i == 0)
+				{
+					return false;
+				}
+			}
+
+			return true;
+		}
+
+		private static List<long> PrimesUpTo(long n)
+		{
+			List<long> primes = [];
+			for (long i = 2; i <= n; i++)
+			{
+				if (IsPrime(number: i))
+				{
+					primes.Add(item: i);
+				}
+			}
+			return primes;
+		}
+
+
+		public static long Factorial(long n)
 		{
 			if (n < 0)
 			{
@@ -12,7 +55,7 @@ namespace FactorialForge
 			}
 
 			long result = 1;
-			for (int i = 2; i <= n; i++)
+			for (long i = 2; i <= n; i++)
 			{
 				result *= i;
 			}
@@ -34,7 +77,7 @@ namespace FactorialForge
 			return result;
 		}
 
-		public static long OddFactorial(int n)
+		public static long OddFactorial(long n)
 		{
 			if (n < 0)
 			{
@@ -42,7 +85,7 @@ namespace FactorialForge
 			}
 
 			long result = 1;
-			for (int i = 1; i <= n; i += 2)
+			for (long i = 1; i <= n; i += 2)
 			{
 				result *= i;
 			}
@@ -71,7 +114,7 @@ namespace FactorialForge
 				throw new ArgumentException(message: "Factorial is only defined for non-negative integers.");
 			}
 			long result = 1;
-			for (int i = 2; i <= n; i += 2)
+			for (long i = 2; i <= n; i += 2)
 			{
 				result *= i;
 			}
@@ -89,6 +132,22 @@ namespace FactorialForge
 			{
 				result *= i;
 			}
+			return result;
+		}
+
+		public static BigInteger PrimeFactorial(long n)
+		{
+			if (n < 2)
+			{
+				return BigInteger.One;
+			}
+
+			BigInteger result = BigInteger.One;
+			foreach (long prime in PrimesUpTo(n))
+			{
+				result *= prime;
+			}
+
 			return result;
 		}
 	}
