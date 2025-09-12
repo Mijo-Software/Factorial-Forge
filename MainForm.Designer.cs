@@ -81,7 +81,7 @@
 			// 
 			// textBoxFactorial
 			// 
-			this.textBoxFactorial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+			this.textBoxFactorial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 			this.textBoxFactorial.Location = new Point(3, 35);
 			this.textBoxFactorial.MaxLength = int.MaxValue;
 			this.textBoxFactorial.Multiline = true;
