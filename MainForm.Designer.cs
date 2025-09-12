@@ -151,6 +151,7 @@
 			this.buttonSaveToFileFactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonSaveToFileFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.buttonSaveToFileFactorial.UseVisualStyleBackColor = true;
+			this.buttonSaveToFileFactorial.Click += this.ButtonSaveToFileFactorial_Click;
 			// 
 			// buttonCopyToClipboardFactorial
 			// 
@@ -235,6 +236,7 @@
 			this.buttonSaveToFileOddFactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonSaveToFileOddFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.buttonSaveToFileOddFactorial.UseVisualStyleBackColor = true;
+			this.buttonSaveToFileOddFactorial.Click += this.ButtonSaveToFileOddFactorial_Click;
 			// 
 			// buttonCopyToClipboardOddFactorial
 			// 
@@ -318,6 +320,7 @@
 			this.buttonSaveToFileEvenFactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonSaveToFileEvenFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.buttonSaveToFileEvenFactorial.UseVisualStyleBackColor = true;
+			this.buttonSaveToFileEvenFactorial.Click += this.ButtonSaveToFileEvenFactorial_Click;
 			// 
 			// buttonCopyToClipboardEvenFactorial
 			// 
@@ -401,6 +404,7 @@
 			this.buttonSaveToFilePrimeFactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonSaveToFilePrimeFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.buttonSaveToFilePrimeFactorial.UseVisualStyleBackColor = true;
+			this.buttonSaveToFilePrimeFactorial.Click += this.ButtonSaveToFilePrimeFactorial_Click;
 			// 
 			// buttonCopyToClipboardPrimeFactorial
 			// 
@@ -484,6 +488,7 @@
 			this.buttonSaveToFileSubfactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonSaveToFileSubfactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.buttonSaveToFileSubfactorial.UseVisualStyleBackColor = true;
+			this.buttonSaveToFileSubfactorial.Click += this.ButtonSaveToFileSubfactorial_Click;
 			// 
 			// buttonCopyToClipboardSubfactorial
 			// 
@@ -567,6 +572,7 @@
 			this.buttonSaveToFileDoubleFactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonSaveToFileDoubleFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.buttonSaveToFileDoubleFactorial.UseVisualStyleBackColor = true;
+			this.buttonSaveToFileDoubleFactorial.Click += this.ButtonSaveToFileDoubleFactorial_Click;
 			// 
 			// buttonCopyToClipboardDoubleFactorial
 			// 
