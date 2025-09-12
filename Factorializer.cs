@@ -135,7 +135,23 @@ namespace FactorialForge
 			return result;
 		}
 
-		public static BigInteger PrimeFactorial(long n)
+		public static long PrimeFactorial(long n)
+		{
+			if (n < 2)
+			{
+				return 1;
+			}
+
+			long result = 1;
+			foreach (long prime in PrimesUpTo(n))
+			{
+				result *= prime;
+			}
+
+			return result;
+		}
+
+		public static BigInteger PrimeFactorialBig(long n)
 		{
 			if (n < 2)
 			{

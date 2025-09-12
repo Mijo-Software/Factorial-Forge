@@ -72,5 +72,25 @@ namespace FactorialForge
 			}
 			toolStripProgressBar.Visible = false;
 		}
+
+		private void NumericUpDownPrimeFactorial_ValueChanged(object sender, EventArgs e)
+		{
+			toolStripStatusLabelTime.Text = "Calculating...";
+			toolStripProgressBar.Visible = true;
+			try
+			{
+				watch.Restart();
+				BigInteger result = Factorializer.PrimeFactorialBig(n: (int)numericUpDownPrimeFactorial.Value);
+				textBoxPrimeFactorial.Text = $"{result}";
+				watch.Stop();
+				toolStripStatusLabelTime.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
+			}
+			catch (Exception ex)
+			{
+				_ = MessageBox.Show(text: $"Error: {ex.Message}");
+			}
+			toolStripProgressBar.Visible = false;
+
+		}
 	}
 }
