@@ -184,5 +184,149 @@ namespace FactorialForge
 			}
 			toolStripStatusLabelTime.Text = "Copied to clipboard.";
 		}
+
+		private void ButtonSaveToFileFactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxFactorial.Text))
+			{
+				using SaveFileDialog saveFileDialog = new()
+				{
+					Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
+					Title = "Save Factorial Result"
+				};
+				if (saveFileDialog.ShowDialog() == DialogResult.OK)
+				{
+					try
+					{
+						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxFactorial.Text);
+						toolStripStatusLabelTime.Text = $"Saved to {saveFileDialog.FileName}.";
+					}
+					catch (Exception ex)
+					{
+						_ = MessageBox.Show(text: $"Error saving file: {ex.Message}");
+					}
+				}
+			}
+		}
+
+		private void ButtonSaveToFileOddFactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxOddFactorial.Text))
+			{
+				using SaveFileDialog saveFileDialog = new()
+				{
+					Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
+					Title = "Save Odd Factorial Result"
+				};
+				if (saveFileDialog.ShowDialog() == DialogResult.OK)
+				{
+					try
+					{
+						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxOddFactorial.Text);
+						toolStripStatusLabelTime.Text = $"Saved to {saveFileDialog.FileName}.";
+					}
+					catch (Exception ex)
+					{
+						_ = MessageBox.Show(text: $"Error saving file: {ex.Message}");
+					}
+				}
+			}
+		}
+
+		private void ButtonSaveToFileEvenFactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxEvenFactorial.Text))
+			{
+				using SaveFileDialog saveFileDialog = new()
+				{
+					Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
+					Title = "Save Even Factorial Result"
+				};
+				if (saveFileDialog.ShowDialog() == DialogResult.OK)
+				{
+					try
+					{
+						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxEvenFactorial.Text);
+						toolStripStatusLabelTime.Text = $"Saved to {saveFileDialog.FileName}.";
+					}
+					catch (Exception ex)
+					{
+						_ = MessageBox.Show(text: $"Error saving file: {ex.Message}");
+					}
+				}
+			}
+		}
+
+		private void ButtonSaveToFilePrimeFactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxPrimeFactorial.Text))
+			{
+				using SaveFileDialog saveFileDialog = new()
+				{
+					Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
+					Title = "Save Prime Factorial Result"
+				};
+				if (saveFileDialog.ShowDialog() == DialogResult.OK)
+				{
+					try
+					{
+						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxPrimeFactorial.Text);
+						toolStripStatusLabelTime.Text = $"Saved to {saveFileDialog.FileName}.";
+					}
+					catch (Exception ex)
+					{
+						_ = MessageBox.Show(text: $"Error saving file: {ex.Message}");
+					}
+				}
+			}
+		}
+
+		private void ButtonSaveToFileSubfactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxSubfactorial.Text))
+			{
+				using SaveFileDialog saveFileDialog = new()
+				{
+					Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
+					Title = "Save Subfactorial Result"
+				};
+				if (saveFileDialog.ShowDialog() == DialogResult.OK)
+				{
+					try
+					{
+						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxSubfactorial.Text);
+						toolStripStatusLabelTime.Text = $"Saved to {saveFileDialog.FileName}.";
+					}
+					catch (Exception ex)
+					{
+						_ = MessageBox.Show(text: $"Error saving file: {ex.Message}");
+					}
+				}
+			}
+		}
+
+		private void ButtonSaveToFileDoubleFactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxDoubleFactorial.Text))
+			{
+				using SaveFileDialog saveFileDialog = new()
+				{
+					Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
+					Title = "Save Double Factorial Result"
+				};
+				if (saveFileDialog.ShowDialog() == DialogResult.OK)
+				{
+					try
+					{
+						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxDoubleFactorial.Text);
+						toolStripStatusLabelTime.Text = $"Saved to {saveFileDialog.FileName}.";
+					}
+					catch (Exception ex)
+					{
+						_ = MessageBox.Show(text: $"Error saving file: {ex.Message}");
+					}
+				}
+			}
+		}
 	}
 }
