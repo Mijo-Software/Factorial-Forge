@@ -158,8 +158,19 @@ namespace FactorialForge
 		{
 			if (!string.IsNullOrWhiteSpace(value: textBoxFactorial.Text))
 			{
-				Clipboard.SetText(text: textBoxFactorial.Text);
-				toolStripStatusLabelInfo.Text = "Copied to clipboard.";
+				try
+				{
+					Clipboard.SetText(text: textBoxFactorial.Text);
+					toolStripStatusLabelInfo.Text = "Copied to clipboard.";
+				}
+				catch (System.Runtime.InteropServices.ExternalException ex)
+				{
+					_ = MessageBox.Show(text: "The clipboard could not be accessed. Please try again.", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				}
+				catch (Exception ex)
+				{
+					_ = MessageBox.Show(text: $"Error copying to clipboard: {ex.Message}");
+				}
 			}
 		}
 
@@ -167,8 +178,19 @@ namespace FactorialForge
 		{
 			if (!string.IsNullOrWhiteSpace(value: textBoxOddFactorial.Text))
 			{
-				Clipboard.SetText(text: textBoxOddFactorial.Text);
-				toolStripStatusLabelInfo.Text = "Copied to clipboard.";
+				try
+				{
+					Clipboard.SetText(text: textBoxOddFactorial.Text);
+					toolStripStatusLabelInfo.Text = "Copied to clipboard.";
+				}
+				catch (System.Runtime.InteropServices.ExternalException ex)
+				{
+					_ = MessageBox.Show(text: "The clipboard could not be accessed. Please try again.", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				}
+				catch (Exception ex)
+				{
+					_ = MessageBox.Show(text: $"Error copying to clipboard: {ex.Message}");
+				}
 			}
 		}
 
@@ -176,8 +198,19 @@ namespace FactorialForge
 		{
 			if (!string.IsNullOrWhiteSpace(value: textBoxEvenFactorial.Text))
 			{
-				Clipboard.SetText(text: textBoxEvenFactorial.Text);
-				toolStripStatusLabelInfo.Text = "Copied to clipboard.";
+				try
+				{
+					Clipboard.SetText(text: textBoxEvenFactorial.Text);
+					toolStripStatusLabelInfo.Text = "Copied to clipboard.";
+				}
+				catch (System.Runtime.InteropServices.ExternalException ex)
+				{
+					_ = MessageBox.Show(text: "The clipboard could not be accessed. Please try again.", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				}
+				catch (Exception ex)
+				{
+					_ = MessageBox.Show(text: $"Error copying to clipboard: {ex.Message}");
+				}
 			}
 		}
 
@@ -185,8 +218,19 @@ namespace FactorialForge
 		{
 			if (!string.IsNullOrWhiteSpace(value: textBoxPrimeFactorial.Text))
 			{
-				Clipboard.SetText(text: textBoxPrimeFactorial.Text);
-				toolStripStatusLabelInfo.Text = "Copied to clipboard.";
+				try
+				{
+					Clipboard.SetText(text: textBoxPrimeFactorial.Text);
+					toolStripStatusLabelInfo.Text = "Copied to clipboard.";
+				}
+				catch (System.Runtime.InteropServices.ExternalException ex)
+				{
+					_ = MessageBox.Show(text: "The clipboard could not be accessed. Please try again.", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				}
+				catch (Exception ex)
+				{
+					_ = MessageBox.Show(text: $"Error copying to clipboard: {ex.Message}");
+				}
 			}
 		}
 
@@ -194,8 +238,19 @@ namespace FactorialForge
 		{
 			if (!string.IsNullOrWhiteSpace(value: textBoxSubfactorial.Text))
 			{
-				Clipboard.SetText(text: textBoxSubfactorial.Text);
-				toolStripStatusLabelInfo.Text = "Copied to clipboard.";
+				try
+				{
+					Clipboard.SetText(text: textBoxSubfactorial.Text);
+					toolStripStatusLabelInfo.Text = "Copied to clipboard.";
+				}
+				catch (System.Runtime.InteropServices.ExternalException ex)
+				{
+					_ = MessageBox.Show(text: "The clipboard could not be accessed. Please try again.", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				}
+				catch (Exception ex)
+				{
+					_ = MessageBox.Show(text: $"Error copying to clipboard: {ex.Message}");
+				}
 			}
 		}
 
@@ -203,8 +258,19 @@ namespace FactorialForge
 		{
 			if (!string.IsNullOrWhiteSpace(value: textBoxDoubleFactorial.Text))
 			{
-				Clipboard.SetText(text: textBoxDoubleFactorial.Text);
-				toolStripStatusLabelInfo.Text = "Copied to clipboard.";
+				try
+				{
+					Clipboard.SetText(text: textBoxDoubleFactorial.Text);
+					toolStripStatusLabelInfo.Text = "Copied to clipboard.";
+				}
+				catch (System.Runtime.InteropServices.ExternalException ex)
+				{
+					_ = MessageBox.Show(text: "The clipboard could not be accessed. Please try again.", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				}
+				catch (Exception ex)
+				{
+					_ = MessageBox.Show(text: $"Error copying to clipboard: {ex.Message}");
+				}
 			}
 		}
 
