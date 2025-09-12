@@ -36,12 +36,12 @@ namespace FactorialForge
 			watch.Start();
 			watch.Stop();
 			toolStripProgressBar.Visible = false;
-			toolStripStatusLabelTime.Text = $"Ready at {DateTime.Now:T}";
+			toolStripStatusLabelInfo.Text = $"Ready at {DateTime.Now:T}";
 		}
 
 		private async void NumericUpDownFactorial_ValueChanged(object? sender, EventArgs e)
 		{
-			toolStripStatusLabelTime.Text = "Calculating...";
+			toolStripStatusLabelInfo.Text = "Calculating...";
 			toolStripProgressBar.Visible = true;
 			try
 			{
@@ -49,7 +49,7 @@ namespace FactorialForge
 				BigInteger result = await Task.Run(function: () => Factorializer.FactorialBig(n: (long)numericUpDownFactorial.Value));
 				textBoxFactorial.Text = $"{result}";
 				watch.Stop();
-				toolStripStatusLabelTime.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
+				toolStripStatusLabelInfo.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
 			}
 			catch (Exception ex)
 			{
@@ -60,7 +60,7 @@ namespace FactorialForge
 
 		private void NumericUpDownOddFactorial_ValueChanged(object sender, EventArgs e)
 		{
-			toolStripStatusLabelTime.Text = "Calculating...";
+			toolStripStatusLabelInfo.Text = "Calculating...";
 			toolStripProgressBar.Visible = true;
 			try
 			{
@@ -68,7 +68,7 @@ namespace FactorialForge
 				BigInteger result = Factorializer.OddFactorialBig(n: (long)numericUpDownOddFactorial.Value);
 				textBoxOddFactorial.Text = $"{result}";
 				watch.Stop();
-				toolStripStatusLabelTime.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
+				toolStripStatusLabelInfo.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
 			}
 			catch (Exception ex)
 			{
@@ -79,7 +79,7 @@ namespace FactorialForge
 
 		private void NumericUpDownEvenFactorial_ValueChanged(object sender, EventArgs e)
 		{
-			toolStripStatusLabelTime.Text = "Calculating...";
+			toolStripStatusLabelInfo.Text = "Calculating...";
 			toolStripProgressBar.Visible = true;
 			try
 			{
@@ -87,7 +87,7 @@ namespace FactorialForge
 				BigInteger result = Factorializer.EvenFactorialBig(n: (long)numericUpDownEvenFactorial.Value);
 				textBoxEvenFactorial.Text = $"{result}";
 				watch.Stop();
-				toolStripStatusLabelTime.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
+				toolStripStatusLabelInfo.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
 			}
 			catch (Exception ex)
 			{
@@ -98,7 +98,7 @@ namespace FactorialForge
 
 		private void NumericUpDownPrimeFactorial_ValueChanged(object sender, EventArgs e)
 		{
-			toolStripStatusLabelTime.Text = "Calculating...";
+			toolStripStatusLabelInfo.Text = "Calculating...";
 			toolStripProgressBar.Visible = true;
 			try
 			{
@@ -106,7 +106,7 @@ namespace FactorialForge
 				BigInteger result = Factorializer.PrimeFactorialBig(n: (long)numericUpDownPrimeFactorial.Value);
 				textBoxPrimeFactorial.Text = $"{result}";
 				watch.Stop();
-				toolStripStatusLabelTime.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
+				toolStripStatusLabelInfo.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
 			}
 			catch (Exception ex)
 			{
@@ -118,7 +118,7 @@ namespace FactorialForge
 
 		private void NumericUpDownSubfactorial_ValueChanged(object sender, EventArgs e)
 		{
-			toolStripStatusLabelTime.Text = "Calculating...";
+			toolStripStatusLabelInfo.Text = "Calculating...";
 			toolStripProgressBar.Visible = true;
 			try
 			{
@@ -126,7 +126,7 @@ namespace FactorialForge
 				BigInteger result = Factorializer.SubfactorialBig(n: (long)numericUpDownSubfactorial.Value);
 				textBoxSubfactorial.Text = $"{result}";
 				watch.Stop();
-				toolStripStatusLabelTime.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
+				toolStripStatusLabelInfo.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
 			}
 			catch (Exception ex)
 			{
@@ -137,7 +137,7 @@ namespace FactorialForge
 
 		private void NumericUpDownDoubleFactorial_ValueChanged(object sender, EventArgs e)
 		{
-			toolStripStatusLabelTime.Text = "Calculating...";
+			toolStripStatusLabelInfo.Text = "Calculating...";
 			toolStripProgressBar.Visible = true;
 			try
 			{
@@ -145,7 +145,7 @@ namespace FactorialForge
 				BigInteger result = Factorializer.DoubleFactorialBig(n: (long)numericUpDownDoubleFactorial.Value);
 				textBoxDoubleFactorial.Text = $"{result}";
 				watch.Stop();
-				toolStripStatusLabelTime.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
+				toolStripStatusLabelInfo.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
 			}
 			catch (Exception ex)
 			{
@@ -159,8 +159,8 @@ namespace FactorialForge
 			if (!string.IsNullOrWhiteSpace(value: textBoxFactorial.Text))
 			{
 				Clipboard.SetText(text: textBoxFactorial.Text);
+				toolStripStatusLabelInfo.Text = "Copied to clipboard.";
 			}
-			toolStripStatusLabelTime.Text = "Copied to clipboard.";
 		}
 
 		private void ButtonCopyToClipboardOddFactorial_Click(object sender, EventArgs e)
@@ -168,8 +168,8 @@ namespace FactorialForge
 			if (!string.IsNullOrWhiteSpace(value: textBoxOddFactorial.Text))
 			{
 				Clipboard.SetText(text: textBoxOddFactorial.Text);
+				toolStripStatusLabelInfo.Text = "Copied to clipboard.";
 			}
-			toolStripStatusLabelTime.Text = "Copied to clipboard.";
 		}
 
 		private void ButtonCopyToClipboardEvenFactorial_Click(object sender, EventArgs e)
@@ -177,8 +177,8 @@ namespace FactorialForge
 			if (!string.IsNullOrWhiteSpace(value: textBoxEvenFactorial.Text))
 			{
 				Clipboard.SetText(text: textBoxEvenFactorial.Text);
+				toolStripStatusLabelInfo.Text = "Copied to clipboard.";
 			}
-			toolStripStatusLabelTime.Text = "Copied to clipboard.";
 		}
 
 		private void ButtonCopyToClipboardPrimeFactorial_Click(object sender, EventArgs e)
@@ -186,8 +186,8 @@ namespace FactorialForge
 			if (!string.IsNullOrWhiteSpace(value: textBoxPrimeFactorial.Text))
 			{
 				Clipboard.SetText(text: textBoxPrimeFactorial.Text);
+				toolStripStatusLabelInfo.Text = "Copied to clipboard.";
 			}
-			toolStripStatusLabelTime.Text = "Copied to clipboard.";
 		}
 
 		private void ButtonCopyToClipboardSubfactorial_Click(object sender, EventArgs e)
@@ -195,8 +195,8 @@ namespace FactorialForge
 			if (!string.IsNullOrWhiteSpace(value: textBoxSubfactorial.Text))
 			{
 				Clipboard.SetText(text: textBoxSubfactorial.Text);
+				toolStripStatusLabelInfo.Text = "Copied to clipboard.";
 			}
-			toolStripStatusLabelTime.Text = "Copied to clipboard.";
 		}
 
 		private void ButtonCopyToClipboardDoubleFactorial_Click(object sender, EventArgs e)
@@ -204,8 +204,8 @@ namespace FactorialForge
 			if (!string.IsNullOrWhiteSpace(value: textBoxDoubleFactorial.Text))
 			{
 				Clipboard.SetText(text: textBoxDoubleFactorial.Text);
+				toolStripStatusLabelInfo.Text = "Copied to clipboard.";
 			}
-			toolStripStatusLabelTime.Text = "Copied to clipboard.";
 		}
 
 		private void ButtonSaveToFileFactorial_Click(object sender, EventArgs e)
@@ -222,7 +222,7 @@ namespace FactorialForge
 					try
 					{
 						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxFactorial.Text);
-						toolStripStatusLabelTime.Text = $"Saved to {saveFileDialog.FileName}.";
+						toolStripStatusLabelInfo.Text = $"Saved to {saveFileDialog.FileName}.";
 					}
 					catch (Exception ex)
 					{
@@ -246,7 +246,7 @@ namespace FactorialForge
 					try
 					{
 						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxOddFactorial.Text);
-						toolStripStatusLabelTime.Text = $"Saved to {saveFileDialog.FileName}.";
+						toolStripStatusLabelInfo.Text = $"Saved to {saveFileDialog.FileName}.";
 					}
 					catch (Exception ex)
 					{
@@ -270,7 +270,7 @@ namespace FactorialForge
 					try
 					{
 						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxEvenFactorial.Text);
-						toolStripStatusLabelTime.Text = $"Saved to {saveFileDialog.FileName}.";
+						toolStripStatusLabelInfo.Text = $"Saved to {saveFileDialog.FileName}.";
 					}
 					catch (Exception ex)
 					{
@@ -294,7 +294,7 @@ namespace FactorialForge
 					try
 					{
 						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxPrimeFactorial.Text);
-						toolStripStatusLabelTime.Text = $"Saved to {saveFileDialog.FileName}.";
+						toolStripStatusLabelInfo.Text = $"Saved to {saveFileDialog.FileName}.";
 					}
 					catch (Exception ex)
 					{
@@ -318,7 +318,7 @@ namespace FactorialForge
 					try
 					{
 						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxSubfactorial.Text);
-						toolStripStatusLabelTime.Text = $"Saved to {saveFileDialog.FileName}.";
+						toolStripStatusLabelInfo.Text = $"Saved to {saveFileDialog.FileName}.";
 					}
 					catch (Exception ex)
 					{
@@ -342,7 +342,7 @@ namespace FactorialForge
 					try
 					{
 						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxDoubleFactorial.Text);
-						toolStripStatusLabelTime.Text = $"Saved to {saveFileDialog.FileName}.";
+						toolStripStatusLabelInfo.Text = $"Saved to {saveFileDialog.FileName}.";
 					}
 					catch (Exception ex)
 					{
