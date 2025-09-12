@@ -10,7 +10,20 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Title>Factorial Forge</Title>
-    <Version>1.2.0</Version>
+    <Version>1.3.0</Version>
+    <Authors>Michael Johne</Authors>
+    <Company>Mijo Software</Company>
+    <Product>Factorial Forge</Product>
+    <Description>Factorial Forge calculates various factorials.</Description>
+    <Copyright>https://github.com/Mijo-Software/Factorial-Forge/blob/main/LICENSE</Copyright>
+    <PackageProjectUrl>https://github.com/Mijo-Software/Factorial-Forge</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Mijo-Software/Factorial-Forge</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <PackageTags>factorial;math</PackageTags>
+    <PackageIcon>FactorialForge_logo-64px.png</PackageIcon>
+    <ApplicationIcon>FactorialForge_logo-64px.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -20,5 +33,24 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="FactorialForge_logo-64px.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="FactorialForge_logo-64px.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
