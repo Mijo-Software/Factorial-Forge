@@ -231,7 +231,7 @@ namespace FactorialForge
 			return result;
 		}
 
-		private static long DoubleFactorial(long n)
+		public static long DoubleFactorial(long n)
 		{
 			if (n < 0)
 			{
@@ -252,7 +252,7 @@ namespace FactorialForge
 			return result;
 		}
 
-		private static BigInteger DoubleFactorialBig(long n)
+		public static BigInteger DoubleFactorialBig(long n)
 		{
 			if (n < 0)
 			{

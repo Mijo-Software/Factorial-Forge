@@ -23,7 +23,7 @@ namespace FactorialForge
 			try
 			{
 				watch.Restart();
-				BigInteger result = await Task.Run(function: () => Factorializer.FactorialBig(n: (int)numericUpDownFactorial.Value));
+				BigInteger result = await Task.Run(function: () => Factorializer.FactorialBig(n: (long)numericUpDownFactorial.Value));
 				textBoxFactorial.Text = $"{result}";
 				watch.Stop();
 				toolStripStatusLabelTime.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
@@ -42,7 +42,7 @@ namespace FactorialForge
 			try
 			{
 				watch.Restart();
-				BigInteger result = Factorializer.OddFactorialBig(n: (int)numericUpDownOddFactorial.Value);
+				BigInteger result = Factorializer.OddFactorialBig(n: (long)numericUpDownOddFactorial.Value);
 				textBoxOddFactorial.Text = $"{result}";
 				watch.Stop();
 				toolStripStatusLabelTime.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
@@ -61,7 +61,7 @@ namespace FactorialForge
 			try
 			{
 				watch.Restart();
-				BigInteger result = Factorializer.EvenFactorialBig(n: (int)numericUpDownEvenFactorial.Value);
+				BigInteger result = Factorializer.EvenFactorialBig(n: (long)numericUpDownEvenFactorial.Value);
 				textBoxEvenFactorial.Text = $"{result}";
 				watch.Stop();
 				toolStripStatusLabelTime.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
@@ -80,7 +80,7 @@ namespace FactorialForge
 			try
 			{
 				watch.Restart();
-				BigInteger result = Factorializer.PrimeFactorialBig(n: (int)numericUpDownPrimeFactorial.Value);
+				BigInteger result = Factorializer.PrimeFactorialBig(n: (long)numericUpDownPrimeFactorial.Value);
 				textBoxPrimeFactorial.Text = $"{result}";
 				watch.Stop();
 				toolStripStatusLabelTime.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
@@ -100,8 +100,27 @@ namespace FactorialForge
 			try
 			{
 				watch.Restart();
-				BigInteger result = Factorializer.SubfactorialBig(n: (int)numericUpDownSubfactorial.Value);
+				BigInteger result = Factorializer.SubfactorialBig(n: (long)numericUpDownSubfactorial.Value);
 				textBoxSubfactorial.Text = $"{result}";
+				watch.Stop();
+				toolStripStatusLabelTime.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
+			}
+			catch (Exception ex)
+			{
+				_ = MessageBox.Show(text: $"Error: {ex.Message}");
+			}
+			toolStripProgressBar.Visible = false;
+		}
+
+		private void NumericUpDownDoubleFactorial_ValueChanged(object sender, EventArgs e)
+		{
+			toolStripStatusLabelTime.Text = "Calculating...";
+			toolStripProgressBar.Visible = true;
+			try
+			{
+				watch.Restart();
+				BigInteger result = Factorializer.DoubleFactorialBig(n: (long)numericUpDownDoubleFactorial.Value);
+				textBoxDoubleFactorial.Text = $"{result}";
 				watch.Stop();
 				toolStripStatusLabelTime.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
 			}
