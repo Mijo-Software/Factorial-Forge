@@ -43,6 +43,7 @@
 			this.textBoxEvenFactorial = new TextBox();
 			this.numericUpDownEvenFactorial = new NumericUpDown();
 			this.statusStrip = new StatusStrip();
+			this.toolStripStatusLabelTime = new ToolStripStatusLabel();
 			this.toolStripProgressBar = new ToolStripProgressBar();
 			this.toolStripContainer = new ToolStripContainer();
 			this.tabControl.SuspendLayout();
@@ -206,11 +207,19 @@
 			// statusStrip
 			// 
 			this.statusStrip.Dock = DockStyle.None;
-			this.statusStrip.Items.AddRange(new ToolStripItem[] { this.toolStripProgressBar });
+			this.statusStrip.Items.AddRange(new ToolStripItem[] { this.toolStripStatusLabelTime, this.toolStripProgressBar });
 			this.statusStrip.Location = new Point(0, 0);
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.Size = new Size(253, 22);
 			this.statusStrip.TabIndex = 4;
+			// 
+			// toolStripStatusLabelTime
+			// 
+			this.toolStripStatusLabelTime.AutoToolTip = true;
+			this.toolStripStatusLabelTime.Name = "toolStripStatusLabelTime";
+			this.toolStripStatusLabelTime.Size = new Size(105, 17);
+			this.toolStripStatusLabelTime.Spring = true;
+			this.toolStripStatusLabelTime.Text = "calculation time";
 			// 
 			// toolStripProgressBar
 			// 
@@ -288,5 +297,6 @@
 		private Label labelEvenFactorial;
 		private TextBox textBoxEvenFactorial;
 		private NumericUpDown numericUpDownEvenFactorial;
+		private ToolStripStatusLabel toolStripStatusLabelTime;
 	}
 }
