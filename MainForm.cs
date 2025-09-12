@@ -58,14 +58,14 @@ namespace FactorialForge
 			toolStripProgressBar.Visible = false;
 		}
 
-		private void NumericUpDownOddFactorial_ValueChanged(object sender, EventArgs e)
+		private async void NumericUpDownOddFactorial_ValueChanged(object sender, EventArgs e)
 		{
 			toolStripStatusLabelInfo.Text = "Calculating...";
 			toolStripProgressBar.Visible = true;
 			try
 			{
 				watch.Restart();
-				BigInteger result = Factorializer.OddFactorialBig(n: (long)numericUpDownOddFactorial.Value);
+				BigInteger result = await Task.Run(function: () => Factorializer.OddFactorialBig(n: (long)numericUpDownOddFactorial.Value));
 				textBoxOddFactorial.Text = $"{result}";
 				watch.Stop();
 				toolStripStatusLabelInfo.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
@@ -77,14 +77,14 @@ namespace FactorialForge
 			toolStripProgressBar.Visible = false;
 		}
 
-		private void NumericUpDownEvenFactorial_ValueChanged(object sender, EventArgs e)
+		private async void NumericUpDownEvenFactorial_ValueChanged(object sender, EventArgs e)
 		{
 			toolStripStatusLabelInfo.Text = "Calculating...";
 			toolStripProgressBar.Visible = true;
 			try
 			{
 				watch.Restart();
-				BigInteger result = Factorializer.EvenFactorialBig(n: (long)numericUpDownEvenFactorial.Value);
+				BigInteger result = await Task.Run(function: () => Factorializer.EvenFactorialBig(n: (long)numericUpDownEvenFactorial.Value));
 				textBoxEvenFactorial.Text = $"{result}";
 				watch.Stop();
 				toolStripStatusLabelInfo.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
@@ -96,14 +96,14 @@ namespace FactorialForge
 			toolStripProgressBar.Visible = false;
 		}
 
-		private void NumericUpDownPrimeFactorial_ValueChanged(object sender, EventArgs e)
+		private async void NumericUpDownPrimeFactorial_ValueChanged(object sender, EventArgs e)
 		{
 			toolStripStatusLabelInfo.Text = "Calculating...";
 			toolStripProgressBar.Visible = true;
 			try
 			{
 				watch.Restart();
-				BigInteger result = Factorializer.PrimeFactorialBig(n: (long)numericUpDownPrimeFactorial.Value);
+				BigInteger result = await Task.Run(function: () => Factorializer.PrimeFactorialBig(n: (long)numericUpDownPrimeFactorial.Value));
 				textBoxPrimeFactorial.Text = $"{result}";
 				watch.Stop();
 				toolStripStatusLabelInfo.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
@@ -116,14 +116,14 @@ namespace FactorialForge
 
 		}
 
-		private void NumericUpDownSubfactorial_ValueChanged(object sender, EventArgs e)
+		private async void NumericUpDownSubfactorial_ValueChanged(object sender, EventArgs e)
 		{
 			toolStripStatusLabelInfo.Text = "Calculating...";
 			toolStripProgressBar.Visible = true;
 			try
 			{
 				watch.Restart();
-				BigInteger result = Factorializer.SubfactorialBig(n: (long)numericUpDownSubfactorial.Value);
+				BigInteger result = await Task.Run(function: () => Factorializer.SubfactorialBig(n: (long)numericUpDownSubfactorial.Value));
 				textBoxSubfactorial.Text = $"{result}";
 				watch.Stop();
 				toolStripStatusLabelInfo.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
@@ -135,14 +135,14 @@ namespace FactorialForge
 			toolStripProgressBar.Visible = false;
 		}
 
-		private void NumericUpDownDoubleFactorial_ValueChanged(object sender, EventArgs e)
+		private async void NumericUpDownDoubleFactorial_ValueChanged(object sender, EventArgs e)
 		{
 			toolStripStatusLabelInfo.Text = "Calculating...";
 			toolStripProgressBar.Visible = true;
 			try
 			{
 				watch.Restart();
-				BigInteger result = Factorializer.DoubleFactorialBig(n: (long)numericUpDownDoubleFactorial.Value);
+				BigInteger result = await Task.Run(function: () => Factorializer.DoubleFactorialBig(n: (long)numericUpDownDoubleFactorial.Value));
 				textBoxDoubleFactorial.Text = $"{result}";
 				watch.Stop();
 				toolStripStatusLabelInfo.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
