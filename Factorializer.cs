@@ -81,7 +81,7 @@ namespace FactorialForge
 		{
 			if (n < 0)
 			{
-				throw new ArgumentException(message: "Factorial is only defined for non-negative integers.");
+				throw new ArgumentException(message: "Odd factorial is only defined for non-negative integers.");
 			}
 
 			long result = 1;
@@ -96,7 +96,7 @@ namespace FactorialForge
 		{
 			if (n < 0)
 			{
-				throw new ArgumentException(message: "Factorial is only defined for non-negative integers.");
+				throw new ArgumentException(message: "Odd factorial is only defined for non-negative integers.");
 			}
 
 			BigInteger result = BigInteger.One;
@@ -111,7 +111,7 @@ namespace FactorialForge
 		{
 			if (n < 0)
 			{
-				throw new ArgumentException(message: "Factorial is only defined for non-negative integers.");
+				throw new ArgumentException(message: "Even factorial is only defined for non-negative integers.");
 			}
 			long result = 1;
 			for (long i = 2; i <= n; i += 2)
@@ -125,7 +125,7 @@ namespace FactorialForge
 		{
 			if (n < 0)
 			{
-				throw new ArgumentException(message: "Factorial is only defined for non-negative integers.");
+				throw new ArgumentException(message: "Even factorial is only defined for non-negative integers.");
 			}
 
 			BigInteger result = BigInteger.One;
@@ -172,7 +172,7 @@ namespace FactorialForge
 		{
 			if (n < 0)
 			{
-				throw new ArgumentException(message: "Factorial is only defined for non-negative integers.");
+				throw new ArgumentException(message: "Subfactorial is only defined for non-negative integers.");
 			}
 
 			if (n == 0)
@@ -204,7 +204,7 @@ namespace FactorialForge
 		{
 			if (n < 0)
 			{
-				throw new ArgumentException(message: "Factorial is only defined for non-negative integers.");
+				throw new ArgumentException(message: "Subfactorial is only defined for non-negative integers.");
 			}
 
 			if (n == 0)
@@ -235,10 +235,10 @@ namespace FactorialForge
 		{
 			if (n < 0)
 			{
-				throw new ArgumentException(message: "Factorial is only defined for non-negative integers.");
+				throw new ArgumentException(message: "Double Factorial is only defined for non-negative integers.");
 			}
 
-			if (n == 0 || n == -1) // Definition: 0!! = 1, (-1)!! = 1
+			if (n == 0)
 			{
 				return 1;
 			}
@@ -256,10 +256,10 @@ namespace FactorialForge
 		{
 			if (n < 0)
 			{
-				throw new ArgumentException(message: "Factorial is only defined for non-negative integers.");
+				throw new ArgumentException(message: "Double Factorial is only defined for non-negative integers.");
 			}
 
-			if (n == 0 || n == -1) // Definition: 0!! = 1, (-1)!! = 1
+			if (n == 0)
 			{
 				return BigInteger.One;
 			}
