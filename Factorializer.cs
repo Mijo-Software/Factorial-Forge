@@ -127,6 +127,7 @@ namespace FactorialForge
 			{
 				throw new ArgumentException(message: "Factorial is only defined for non-negative integers.");
 			}
+
 			BigInteger result = BigInteger.One;
 			for (long i = 2; i <= n; i += 2)
 			{
@@ -162,6 +163,69 @@ namespace FactorialForge
 			foreach (long prime in PrimesUpTo(n))
 			{
 				result *= prime;
+			}
+
+			return result;
+		}
+
+		public static long Subfactorial(long n)
+		{
+			if (n < 0)
+			{
+				throw new ArgumentException(message: "Factorial is only defined for non-negative integers.");
+			}
+
+			if (n == 0)
+			{
+				return 1; // !0 = 1
+			}
+
+			if (n == 1)
+			{
+				return 0; // !1 = 0
+			}
+
+			long a = 1;  // !0
+			long b = 0; // !1
+			long result = 0;
+
+			for (long i = 2; i <= n; i++)
+			{
+				result = (i - 1) * (a + b); // !n = (n-1)(!(n-1) + !(n-2))
+				a = b;
+				b = result;
+			}
+
+			return result;
+		}
+
+
+		public static BigInteger SubfactorialBig(long n)
+		{
+			if (n < 0)
+			{
+				throw new ArgumentException(message: "Factorial is only defined for non-negative integers.");
+			}
+
+			if (n == 0)
+			{
+				return BigInteger.One; // !0 = 1
+			}
+
+			if (n == 1)
+			{
+				return BigInteger.Zero; // !1 = 0
+			}
+
+			BigInteger a = BigInteger.One;  // !0
+			BigInteger b = BigInteger.Zero; // !1
+			BigInteger result = BigInteger.Zero;
+
+			for (long i = 2; i <= n; i++)
+			{
+				result = (i - 1) * (a + b); // !n = (n-1)(!(n-1) + !(n-2))
+				a = b;
+				b = result;
 			}
 
 			return result;
