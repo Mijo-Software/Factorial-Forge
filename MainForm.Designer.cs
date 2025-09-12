@@ -75,13 +75,13 @@
 			this.labelNumber.AutoSize = true;
 			this.labelNumber.Location = new Point(8, 8);
 			this.labelNumber.Name = "labelNumber";
-			this.labelNumber.Size = new Size(17, 15);
+			this.labelNumber.Size = new Size(67, 15);
 			this.labelNumber.TabIndex = 3;
-			this.labelNumber.Text = "n:";
+			this.labelNumber.Text = "n[0..10000]:";
 			// 
 			// textBoxFactorial
 			// 
-			this.textBoxFactorial.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			this.textBoxFactorial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
 			this.textBoxFactorial.Location = new Point(3, 35);
 			this.textBoxFactorial.MaxLength = int.MaxValue;
 			this.textBoxFactorial.Multiline = true;
@@ -93,7 +93,7 @@
 			// 
 			// numericUpDownFactorial
 			// 
-			this.numericUpDownFactorial.Location = new Point(31, 6);
+			this.numericUpDownFactorial.Location = new Point(81, 3);
 			this.numericUpDownFactorial.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
 			this.numericUpDownFactorial.Name = "numericUpDownFactorial";
 			this.numericUpDownFactorial.Size = new Size(69, 23);
@@ -112,8 +112,12 @@
 			// 
 			// toolStripProgressBar
 			// 
+			this.toolStripProgressBar.AutoToolTip = true;
+			this.toolStripProgressBar.MarqueeAnimationSpeed = 10;
 			this.toolStripProgressBar.Name = "toolStripProgressBar";
 			this.toolStripProgressBar.Size = new Size(100, 16);
+			this.toolStripProgressBar.Step = 1;
+			this.toolStripProgressBar.Style = ProgressBarStyle.Marquee;
 			// 
 			// toolStripContainer
 			// 

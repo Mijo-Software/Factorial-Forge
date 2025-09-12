@@ -19,7 +19,7 @@ namespace FactorialForge
 			return result;
 		}
 
-		public static BigInteger FactorialBig(int n)
+		public static BigInteger FactorialBig(long n)
 		{
 			if (n < 0)
 			{
@@ -27,12 +27,11 @@ namespace FactorialForge
 			}
 
 			BigInteger result = BigInteger.One;
-			for (int i = 2; i <= n; i++)
+			for (long i = 2; i <= n; i++)
 			{
 				result *= i;
 			}
 			return result;
 		}
-
 	}
 }
