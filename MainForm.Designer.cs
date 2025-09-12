@@ -54,6 +54,10 @@
 			this.toolStripStatusLabelTime = new ToolStripStatusLabel();
 			this.toolStripProgressBar = new ToolStripProgressBar();
 			this.toolStripContainer = new ToolStripContainer();
+			this.tabPageDoubleFactorial = new TabPage();
+			this.labelDoubleFactorial = new Label();
+			this.textBoxDoubleFactorial = new TextBox();
+			this.numericUpDownDoubleFactorial = new NumericUpDown();
 			this.tabControl.SuspendLayout();
 			this.tabPageFactorial.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownFactorial).BeginInit();
@@ -69,6 +73,8 @@
 			this.toolStripContainer.BottomToolStripPanel.SuspendLayout();
 			this.toolStripContainer.ContentPanel.SuspendLayout();
 			this.toolStripContainer.SuspendLayout();
+			this.tabPageDoubleFactorial.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)this.numericUpDownDoubleFactorial).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tabControl
@@ -79,12 +85,13 @@
 			this.tabControl.Controls.Add(this.tabPageEvenFactorial);
 			this.tabControl.Controls.Add(this.tabPagePrimeFactorial);
 			this.tabControl.Controls.Add(this.tabPageSubfactorial);
+			this.tabControl.Controls.Add(this.tabPageDoubleFactorial);
 			this.tabControl.Dock = DockStyle.Fill;
 			this.tabControl.Location = new Point(0, 0);
 			this.tabControl.Name = "tabControl";
 			this.tabControl.SelectedIndex = 0;
 			this.tabControl.ShowToolTips = true;
-			this.tabControl.Size = new Size(421, 264);
+			this.tabControl.Size = new Size(518, 308);
 			this.tabControl.TabIndex = 0;
 			// 
 			// tabPageFactorial
@@ -95,7 +102,7 @@
 			this.tabPageFactorial.Location = new Point(4, 27);
 			this.tabPageFactorial.Name = "tabPageFactorial";
 			this.tabPageFactorial.Padding = new Padding(3);
-			this.tabPageFactorial.Size = new Size(413, 233);
+			this.tabPageFactorial.Size = new Size(510, 233);
 			this.tabPageFactorial.TabIndex = 0;
 			this.tabPageFactorial.Text = "Factorial";
 			this.tabPageFactorial.UseVisualStyleBackColor = true;
@@ -118,7 +125,7 @@
 			this.textBoxFactorial.Name = "textBoxFactorial";
 			this.textBoxFactorial.PlaceholderText = "Factorial";
 			this.textBoxFactorial.ScrollBars = ScrollBars.Vertical;
-			this.textBoxFactorial.Size = new Size(407, 195);
+			this.textBoxFactorial.Size = new Size(504, 195);
 			this.textBoxFactorial.TabIndex = 2;
 			// 
 			// numericUpDownFactorial
@@ -310,14 +317,14 @@
 			this.statusStrip.Items.AddRange(new ToolStripItem[] { this.toolStripStatusLabelTime, this.toolStripProgressBar });
 			this.statusStrip.Location = new Point(0, 0);
 			this.statusStrip.Name = "statusStrip";
-			this.statusStrip.Size = new Size(421, 22);
+			this.statusStrip.Size = new Size(518, 22);
 			this.statusStrip.TabIndex = 4;
 			// 
 			// toolStripStatusLabelTime
 			// 
 			this.toolStripStatusLabelTime.AutoToolTip = true;
 			this.toolStripStatusLabelTime.Name = "toolStripStatusLabelTime";
-			this.toolStripStatusLabelTime.Size = new Size(304, 17);
+			this.toolStripStatusLabelTime.Size = new Size(401, 17);
 			this.toolStripStatusLabelTime.Spring = true;
 			this.toolStripStatusLabelTime.Text = "calculation time";
 			// 
@@ -340,19 +347,62 @@
 			// toolStripContainer.ContentPanel
 			// 
 			this.toolStripContainer.ContentPanel.Controls.Add(this.tabControl);
-			this.toolStripContainer.ContentPanel.Size = new Size(421, 264);
+			this.toolStripContainer.ContentPanel.Size = new Size(518, 308);
 			this.toolStripContainer.Dock = DockStyle.Fill;
 			this.toolStripContainer.Location = new Point(0, 0);
 			this.toolStripContainer.Name = "toolStripContainer";
-			this.toolStripContainer.Size = new Size(421, 286);
+			this.toolStripContainer.Size = new Size(518, 330);
 			this.toolStripContainer.TabIndex = 1;
 			this.toolStripContainer.TopToolStripPanelVisible = false;
+			// 
+			// tabPageDoubleFactorial
+			// 
+			this.tabPageDoubleFactorial.Controls.Add(this.labelDoubleFactorial);
+			this.tabPageDoubleFactorial.Controls.Add(this.textBoxDoubleFactorial);
+			this.tabPageDoubleFactorial.Controls.Add(this.numericUpDownDoubleFactorial);
+			this.tabPageDoubleFactorial.Location = new Point(4, 27);
+			this.tabPageDoubleFactorial.Name = "tabPageDoubleFactorial";
+			this.tabPageDoubleFactorial.Size = new Size(510, 277);
+			this.tabPageDoubleFactorial.TabIndex = 5;
+			this.tabPageDoubleFactorial.Text = "Doube Factorial";
+			this.tabPageDoubleFactorial.UseVisualStyleBackColor = true;
+			// 
+			// labelDoubleFactorial
+			// 
+			this.labelDoubleFactorial.AutoSize = true;
+			this.labelDoubleFactorial.Location = new Point(8, 8);
+			this.labelDoubleFactorial.Name = "labelDoubleFactorial";
+			this.labelDoubleFactorial.Size = new Size(67, 15);
+			this.labelDoubleFactorial.TabIndex = 6;
+			this.labelDoubleFactorial.Text = "n[0..10000]:";
+			// 
+			// textBoxDoubleFactorial
+			// 
+			this.textBoxDoubleFactorial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			this.textBoxDoubleFactorial.Location = new Point(3, 35);
+			this.textBoxDoubleFactorial.MaxLength = int.MaxValue;
+			this.textBoxDoubleFactorial.Multiline = true;
+			this.textBoxDoubleFactorial.Name = "textBoxDoubleFactorial";
+			this.textBoxDoubleFactorial.PlaceholderText = "Factorial";
+			this.textBoxDoubleFactorial.ScrollBars = ScrollBars.Vertical;
+			this.textBoxDoubleFactorial.Size = new Size(504, 239);
+			this.textBoxDoubleFactorial.TabIndex = 5;
+			// 
+			// numericUpDownDoubleFactorial
+			// 
+			this.numericUpDownDoubleFactorial.Location = new Point(81, 3);
+			this.numericUpDownDoubleFactorial.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+			this.numericUpDownDoubleFactorial.Name = "numericUpDownDoubleFactorial";
+			this.numericUpDownDoubleFactorial.Size = new Size(69, 23);
+			this.numericUpDownDoubleFactorial.TabIndex = 4;
+			this.numericUpDownDoubleFactorial.TextAlign = HorizontalAlignment.Center;
+			this.numericUpDownDoubleFactorial.ValueChanged += this.NumericUpDownDoubleFactorial_ValueChanged;
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new SizeF(7F, 15F);
 			this.AutoScaleMode = AutoScaleMode.Font;
-			this.ClientSize = new Size(421, 286);
+			this.ClientSize = new Size(518, 330);
 			this.Controls.Add(this.toolStripContainer);
 			this.Icon = (Icon)resources.GetObject("$this.Icon");
 			this.MaximizeBox = false;
@@ -382,6 +432,9 @@
 			this.toolStripContainer.ContentPanel.ResumeLayout(false);
 			this.toolStripContainer.ResumeLayout(false);
 			this.toolStripContainer.PerformLayout();
+			this.tabPageDoubleFactorial.ResumeLayout(false);
+			this.tabPageDoubleFactorial.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)this.numericUpDownDoubleFactorial).EndInit();
 			this.ResumeLayout(false);
 		}
 
@@ -412,5 +465,9 @@
 		private Label labelSubfactorial;
 		private TextBox textBoxSubfactorial;
 		private NumericUpDown numericUpDownSubfactorial;
+		private TabPage tabPageDoubleFactorial;
+		private Label labelDoubleFactorial;
+		private TextBox textBoxDoubleFactorial;
+		private NumericUpDown numericUpDownDoubleFactorial;
 	}
 }

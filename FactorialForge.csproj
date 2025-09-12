@@ -10,7 +10,7 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Title>Factorial Forge</Title>
-    <Version>1.4.1</Version>
+    <Version>1.4.2</Version>
     <Authors>Michael Johne</Authors>
     <Company>Mijo Software</Company>
     <Product>Factorial Forge</Product>
