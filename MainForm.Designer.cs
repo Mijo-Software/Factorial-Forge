@@ -139,6 +139,7 @@
 			this.buttonDigitStatisticsFactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonDigitStatisticsFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.buttonDigitStatisticsFactorial.UseVisualStyleBackColor = true;
+			this.buttonDigitStatisticsFactorial.Click += this.ButtonDigitStatisticsFactorial_Click;
 			// 
 			// buttonSaveToFileFactorial
 			// 
@@ -224,6 +225,7 @@
 			this.buttonDigitStatisticsOddFactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonDigitStatisticsOddFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.buttonDigitStatisticsOddFactorial.UseVisualStyleBackColor = true;
+			this.buttonDigitStatisticsOddFactorial.Click += this.ButtonDigitStatisticsOddFactorial_Click;
 			// 
 			// buttonSaveToFileOddFactorial
 			// 
@@ -308,6 +310,7 @@
 			this.buttonDigitStatisticsEvenFactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonDigitStatisticsEvenFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.buttonDigitStatisticsEvenFactorial.UseVisualStyleBackColor = true;
+			this.buttonDigitStatisticsEvenFactorial.Click += this.ButtonDigitStatisticsEvenFactorial_Click;
 			// 
 			// buttonSaveToFileEvenFactorial
 			// 
@@ -392,6 +395,7 @@
 			this.buttonDigitStatisticsPrimeFactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonDigitStatisticsPrimeFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.buttonDigitStatisticsPrimeFactorial.UseVisualStyleBackColor = true;
+			this.buttonDigitStatisticsPrimeFactorial.Click += this.ButtonDigitStatisticsPrimeFactorial_Click;
 			// 
 			// buttonSaveToFilePrimeFactorial
 			// 
@@ -476,6 +480,7 @@
 			this.buttonDigitStatisticsSubfactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonDigitStatisticsSubfactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.buttonDigitStatisticsSubfactorial.UseVisualStyleBackColor = true;
+			this.buttonDigitStatisticsSubfactorial.Click += this.ButtonDigitStatisticsSubfactorial_Click;
 			// 
 			// buttonSaveToFileSubfactorial
 			// 
@@ -560,6 +565,7 @@
 			this.buttonDigitFactorialDoubleFactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonDigitFactorialDoubleFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
 			this.buttonDigitFactorialDoubleFactorial.UseVisualStyleBackColor = true;
+			this.buttonDigitFactorialDoubleFactorial.Click += this.ButtonDigitFactorialDoubleFactorial_Click;
 			// 
 			// buttonSaveToFileDoubleFactorial
 			// 

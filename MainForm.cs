@@ -1,11 +1,34 @@
 using System.Diagnostics;
 using System.Numerics;
+using System.Text;
 
 namespace FactorialForge
 {
 	public partial class MainForm : Form
 	{
 		private readonly Stopwatch watch = new();
+
+		private static void CountDigits(string input)
+		{
+			int[] counts = new int[10];
+
+			foreach (char c in input)
+			{
+				if (char.IsDigit(c: c))
+				{
+					int digit = c - '0';
+					counts[digit]++;
+				}
+			}
+
+			StringBuilder sb = new();
+			for (int i = 0; i < counts.Length; i++)
+			{
+				_ = sb.AppendLine(handler: $"{i}: {counts[i]}");
+			}
+
+			_ = MessageBox.Show(text: sb.ToString(), caption: "Digit statistics", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+		}
 
 		public MainForm()
 		{
@@ -326,6 +349,78 @@ namespace FactorialForge
 						_ = MessageBox.Show(text: $"Error saving file: {ex.Message}");
 					}
 				}
+			}
+		}
+
+		private void ButtonDigitStatisticsFactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxFactorial.Text))
+			{
+				CountDigits(input: textBoxFactorial.Text);
+			}
+			else
+			{
+				_ = MessageBox.Show(text: "No factorial result to analyze.", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			}
+		}
+
+		private void ButtonDigitStatisticsOddFactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxOddFactorial.Text))
+			{
+				CountDigits(input: textBoxOddFactorial.Text);
+			}
+			else
+			{
+				_ = MessageBox.Show(text: "No odd factorial result to analyze.", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			}
+		}
+
+		private void ButtonDigitStatisticsEvenFactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxEvenFactorial.Text))
+			{
+				CountDigits(input: textBoxEvenFactorial.Text);
+			}
+			else
+			{
+				_ = MessageBox.Show(text: "No even factorial result to analyze.", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			}
+		}
+
+		private void ButtonDigitStatisticsPrimeFactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxPrimeFactorial.Text))
+			{
+				CountDigits(input: textBoxPrimeFactorial.Text);
+			}
+			else
+			{
+				_ = MessageBox.Show(text: "No prime factorial result to analyze.", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			}
+		}
+
+		private void ButtonDigitStatisticsSubfactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxSubfactorial.Text))
+			{
+				CountDigits(input: textBoxSubfactorial.Text);
+			}
+			else
+			{
+				_ = MessageBox.Show(text: "No subfactorial result to analyze.", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			}
+		}
+
+		private void ButtonDigitFactorialDoubleFactorial_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(value: textBoxDoubleFactorial.Text))
+			{
+				CountDigits(input: textBoxDoubleFactorial.Text);
+			}
+			else
+			{
+				_ = MessageBox.Show(text: "No double factorial result to analyze.", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 		}
 	}
