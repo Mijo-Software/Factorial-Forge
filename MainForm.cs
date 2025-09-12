@@ -39,5 +39,20 @@ namespace FactorialForge
 			}
 			toolStripProgressBar.Visible = false;
 		}
+
+		private void NumericUpDownEvenFactorial_ValueChanged(object sender, EventArgs e)
+		{
+			toolStripProgressBar.Visible = true;
+			try
+			{
+				BigInteger result = Factorializer.EvenFactorialBig(n: (int)numericUpDownEvenFactorial.Value);
+				textBoxEvenFactorial.Text = $"{(int)numericUpDownEvenFactorial.Value}! = {result}";
+			}
+			catch (Exception ex)
+			{
+				_ = MessageBox.Show(text: $"Error: {ex.Message}");
+			}
+			toolStripProgressBar.Visible = false;
+		}
 	}
 }
