@@ -250,5 +250,76 @@ namespace FactorialForge
 
 			return result;
 		}
+
+		public static long RisingFactorial(long x, long n)
+		{
+			CheckNonNegative(n: n);
+
+			if (n == 0)
+			{
+				return 1;
+			}
+
+			long result = 1;
+			for (long i = 0; i < n; i++)
+			{
+				result *= x + i;
+			}
+
+			return result;
+		}
+
+		public static BigInteger RisingFactorialBig(long x, long n)
+		{
+			CheckNonNegative(n: n);
+
+			if (n == 0)
+			{
+				return 1;
+			}
+
+			BigInteger result = 1;
+			for (long i = 0; i < n; i++)
+			{
+				result *= x + i;
+			}
+
+			return result;
+		}
+		public static long FallingFactorial(long x, long n)
+		{
+			CheckNonNegative(n: n);
+
+			if (n == 0)
+			{
+				return 1;
+			}
+
+			long result = 1;
+			for (long i = 0; i < n; i++)
+			{
+				result *= x - i;
+			}
+
+			return result;
+		}
+
+		public static BigInteger FallingFactorialBig(long x, long n)
+		{
+			CheckNonNegative(n: n);
+
+			if (n == 0)
+			{
+				return 1;
+			}
+
+			BigInteger result = 1;
+			for (long i = 0; i < n; i++)
+			{
+				result *= x - i;
+			}
+
+			return result;
+		}
 	}
 }
