@@ -38,8 +38,8 @@ namespace FactorialForge
 			{
 				watch.Restart();
 				BigInteger result = await Task.Run(function: calculation);
-				targetTextBox.Text = $"{result}";
 				watch.Stop();
+				targetTextBox.Text = $"{result}";
 				toolStripStatusLabelInfo.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
 			}
 			catch (Exception ex)
@@ -58,13 +58,9 @@ namespace FactorialForge
 					Clipboard.SetText(sourceTextBox.Text);
 					toolStripStatusLabelInfo.Text = "Copied to clipboard.";
 				}
-				catch (System.Runtime.InteropServices.ExternalException ex)
-				{
-					_ = MessageBox.Show(text: $"The clipboard could not be accessed. Please try again.\nError: {ex.Message}", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-				}
 				catch (Exception ex)
 				{
-					_ = MessageBox.Show(text: $"Error copying to clipboard: {ex.Message}");
+					_ = MessageBox.Show(text: $"Error copying to clipboard: {ex.Message}", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 				}
 			}
 		}
