@@ -674,7 +674,7 @@
 			this.labelRisingFactorialN.Location = new Point(156, 8);
 			this.labelRisingFactorialN.Name = "labelRisingFactorialN";
 			this.labelRisingFactorialN.Size = new Size(67, 15);
-			this.labelRisingFactorialN.TabIndex = 14;
+			this.labelRisingFactorialN.TabIndex = 2;
 			this.labelRisingFactorialN.Text = "n[0..99999]:";
 			// 
 			// numericUpDownRisingFactorialN
@@ -683,7 +683,7 @@
 			this.numericUpDownRisingFactorialN.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
 			this.numericUpDownRisingFactorialN.Name = "numericUpDownRisingFactorialN";
 			this.numericUpDownRisingFactorialN.Size = new Size(69, 23);
-			this.numericUpDownRisingFactorialN.TabIndex = 13;
+			this.numericUpDownRisingFactorialN.TabIndex = 3;
 			this.numericUpDownRisingFactorialN.TextAlign = HorizontalAlignment.Center;
 			this.numericUpDownRisingFactorialN.ValueChanged += this.NumericUpDownRisingFactorialN_ValueChanged;
 			// 
@@ -693,7 +693,7 @@
 			this.buttonDigitStatisticsRisingFactorial.Location = new Point(589, 3);
 			this.buttonDigitStatisticsRisingFactorial.Name = "buttonDigitStatisticsRisingFactorial";
 			this.buttonDigitStatisticsRisingFactorial.Size = new Size(119, 24);
-			this.buttonDigitStatisticsRisingFactorial.TabIndex = 12;
+			this.buttonDigitStatisticsRisingFactorial.TabIndex = 7;
 			this.buttonDigitStatisticsRisingFactorial.Text = "Digit statistics";
 			this.buttonDigitStatisticsRisingFactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonDigitStatisticsRisingFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -706,7 +706,7 @@
 			this.buttonSaveToFileRisingFactorial.Location = new Point(493, 3);
 			this.buttonSaveToFileRisingFactorial.Name = "buttonSaveToFileRisingFactorial";
 			this.buttonSaveToFileRisingFactorial.Size = new Size(90, 24);
-			this.buttonSaveToFileRisingFactorial.TabIndex = 11;
+			this.buttonSaveToFileRisingFactorial.TabIndex = 6;
 			this.buttonSaveToFileRisingFactorial.Text = "Save to file";
 			this.buttonSaveToFileRisingFactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonSaveToFileRisingFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -719,7 +719,7 @@
 			this.buttonRisingFactorialCopyToClipboard.Location = new Point(357, 3);
 			this.buttonRisingFactorialCopyToClipboard.Name = "buttonRisingFactorialCopyToClipboard";
 			this.buttonRisingFactorialCopyToClipboard.Size = new Size(130, 24);
-			this.buttonRisingFactorialCopyToClipboard.TabIndex = 10;
+			this.buttonRisingFactorialCopyToClipboard.TabIndex = 5;
 			this.buttonRisingFactorialCopyToClipboard.Text = "Copy to clipboard";
 			this.buttonRisingFactorialCopyToClipboard.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonRisingFactorialCopyToClipboard.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -732,7 +732,7 @@
 			this.labelRisingFactorialX.Location = new Point(8, 8);
 			this.labelRisingFactorialX.Name = "labelRisingFactorialX";
 			this.labelRisingFactorialX.Size = new Size(66, 15);
-			this.labelRisingFactorialX.TabIndex = 9;
+			this.labelRisingFactorialX.TabIndex = 0;
 			this.labelRisingFactorialX.Text = "x[0..99999]:";
 			// 
 			// textBoxRisingFactorial
@@ -745,7 +745,7 @@
 			this.textBoxRisingFactorial.PlaceholderText = "Rising Factorial";
 			this.textBoxRisingFactorial.ScrollBars = ScrollBars.Vertical;
 			this.textBoxRisingFactorial.Size = new Size(705, 295);
-			this.textBoxRisingFactorial.TabIndex = 8;
+			this.textBoxRisingFactorial.TabIndex = 4;
 			// 
 			// numericUpDownRisingFactorialX
 			// 
@@ -753,7 +753,7 @@
 			this.numericUpDownRisingFactorialX.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
 			this.numericUpDownRisingFactorialX.Name = "numericUpDownRisingFactorialX";
 			this.numericUpDownRisingFactorialX.Size = new Size(69, 23);
-			this.numericUpDownRisingFactorialX.TabIndex = 7;
+			this.numericUpDownRisingFactorialX.TabIndex = 1;
 			this.numericUpDownRisingFactorialX.TextAlign = HorizontalAlignment.Center;
 			this.numericUpDownRisingFactorialX.ValueChanged += this.NumericUpDownRisingFactorial_ValueChanged;
 			// 
@@ -780,7 +780,7 @@
 			this.labelFallingFactorialN.Location = new Point(156, 8);
 			this.labelFallingFactorialN.Name = "labelFallingFactorialN";
 			this.labelFallingFactorialN.Size = new Size(67, 15);
-			this.labelFallingFactorialN.TabIndex = 14;
+			this.labelFallingFactorialN.TabIndex = 2;
 			this.labelFallingFactorialN.Text = "n[0..99999]:";
 			// 
 			// numericUpDownFallingFactorialN
@@ -789,7 +789,7 @@
 			this.numericUpDownFallingFactorialN.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
 			this.numericUpDownFallingFactorialN.Name = "numericUpDownFallingFactorialN";
 			this.numericUpDownFallingFactorialN.Size = new Size(69, 23);
-			this.numericUpDownFallingFactorialN.TabIndex = 13;
+			this.numericUpDownFallingFactorialN.TabIndex = 3;
 			this.numericUpDownFallingFactorialN.TextAlign = HorizontalAlignment.Center;
 			this.numericUpDownFallingFactorialN.ValueChanged += this.NumericUpDownFallingFactorialN_ValueChanged;
 			// 
@@ -799,7 +799,7 @@
 			this.buttonDigitStatisticsFallingFactorial.Location = new Point(589, 3);
 			this.buttonDigitStatisticsFallingFactorial.Name = "buttonDigitStatisticsFallingFactorial";
 			this.buttonDigitStatisticsFallingFactorial.Size = new Size(119, 24);
-			this.buttonDigitStatisticsFallingFactorial.TabIndex = 12;
+			this.buttonDigitStatisticsFallingFactorial.TabIndex = 7;
 			this.buttonDigitStatisticsFallingFactorial.Text = "Digit statistics";
 			this.buttonDigitStatisticsFallingFactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonDigitStatisticsFallingFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -812,7 +812,7 @@
 			this.buttonSaveToFileFallingFactorial.Location = new Point(493, 3);
 			this.buttonSaveToFileFallingFactorial.Name = "buttonSaveToFileFallingFactorial";
 			this.buttonSaveToFileFallingFactorial.Size = new Size(90, 24);
-			this.buttonSaveToFileFallingFactorial.TabIndex = 11;
+			this.buttonSaveToFileFallingFactorial.TabIndex = 6;
 			this.buttonSaveToFileFallingFactorial.Text = "Save to file";
 			this.buttonSaveToFileFallingFactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonSaveToFileFallingFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -825,7 +825,7 @@
 			this.buttonCopyToClipboardFallingFactorial.Location = new Point(357, 3);
 			this.buttonCopyToClipboardFallingFactorial.Name = "buttonCopyToClipboardFallingFactorial";
 			this.buttonCopyToClipboardFallingFactorial.Size = new Size(130, 24);
-			this.buttonCopyToClipboardFallingFactorial.TabIndex = 10;
+			this.buttonCopyToClipboardFallingFactorial.TabIndex = 5;
 			this.buttonCopyToClipboardFallingFactorial.Text = "Copy to clipboard";
 			this.buttonCopyToClipboardFallingFactorial.TextAlign = ContentAlignment.MiddleRight;
 			this.buttonCopyToClipboardFallingFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -838,7 +838,7 @@
 			this.labelFallingFactorialX.Location = new Point(8, 8);
 			this.labelFallingFactorialX.Name = "labelFallingFactorialX";
 			this.labelFallingFactorialX.Size = new Size(66, 15);
-			this.labelFallingFactorialX.TabIndex = 9;
+			this.labelFallingFactorialX.TabIndex = 0;
 			this.labelFallingFactorialX.Text = "x[0..99999]:";
 			// 
 			// textBoxFallingFactorial
@@ -851,7 +851,7 @@
 			this.textBoxFallingFactorial.PlaceholderText = "Falling Factorial";
 			this.textBoxFallingFactorial.ScrollBars = ScrollBars.Vertical;
 			this.textBoxFallingFactorial.Size = new Size(705, 295);
-			this.textBoxFallingFactorial.TabIndex = 8;
+			this.textBoxFallingFactorial.TabIndex = 4;
 			// 
 			// numericUpDownFallingFactorialX
 			// 
@@ -859,7 +859,7 @@
 			this.numericUpDownFallingFactorialX.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
 			this.numericUpDownFallingFactorialX.Name = "numericUpDownFallingFactorialX";
 			this.numericUpDownFallingFactorialX.Size = new Size(69, 23);
-			this.numericUpDownFallingFactorialX.TabIndex = 7;
+			this.numericUpDownFallingFactorialX.TabIndex = 1;
 			this.numericUpDownFallingFactorialX.TextAlign = HorizontalAlignment.Center;
 			this.numericUpDownFallingFactorialX.ValueChanged += this.NumericUpDownFallingFactorial_ValueChanged;
 			// 
@@ -870,7 +870,7 @@
 			this.statusStrip.Location = new Point(0, 0);
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.Size = new Size(719, 22);
-			this.statusStrip.TabIndex = 4;
+			this.statusStrip.TabIndex = 0;
 			// 
 			// toolStripStatusLabelInfo
 			// 
