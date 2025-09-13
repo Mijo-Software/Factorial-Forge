@@ -286,6 +286,12 @@ namespace FactorialForge
 
 			return result;
 		}
+
+		/// <summary>
+		/// Computes the falling factorial (x)_n = x * (x-1) * ... * (x-n+1) as a long.
+		/// Throws OverflowException if the result exceeds the range of a long.
+		/// For large values, use FallingFactorialBig.
+		/// </summary>
 		public static long FallingFactorial(long x, long n)
 		{
 			CheckNonNegative(n: n);
