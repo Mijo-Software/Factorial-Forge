@@ -406,10 +406,12 @@ namespace FactorialForge
 		public static long Superfactorial(long n)
 		{
 			long result = 1;
+
 			for (long i = 1; i <= n; i++)
 			{
 				result *= Factorial(n: i);
 			}
+
 			return result;
 		}
 
@@ -427,11 +429,38 @@ namespace FactorialForge
 		public static BigInteger SuperfactorialBig(long n)
 		{
 			BigInteger result = 1;
+
 			for (long i = 1; i <= n; i++)
 			{
 				result *= FactorialBig(n: i);
 			}
+
 			return result;
 		}
+
+		public static long Hyperfactorial(int n)
+		{
+			long result = 1;
+
+			for (long i = 1; i <= n; i++)
+			{
+				result *= (long)Math.Pow(x: i, y: i); // i^i
+			}
+
+			return result;
+		}
+
+		public static BigInteger HyperfactorialBig(int n)
+		{
+			BigInteger result = 1;
+
+			for (long i = 1; i <= n; i++)
+			{
+				result *= BigInteger.Pow(value: i, exponent: (int)i); // i^i
+			}
+
+			return result;
+		}
+
 	}
 }
