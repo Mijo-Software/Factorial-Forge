@@ -36,7 +36,7 @@ namespace FactorialForge
 			return primes;
 		}
 
-		private static void CheckOverflow(long n)
+		private static void CheckNonNegative(long n)
 		{
 			if (n < 0)
 			{
@@ -46,7 +46,7 @@ namespace FactorialForge
 
 		public static long Factorial(long n)
 		{
-			CheckOverflow(n: n);
+			CheckNonNegative(n: n);
 
 			long result = 1;
 			for (long i = 2; i <= n; i++)
@@ -58,7 +58,7 @@ namespace FactorialForge
 
 		public static BigInteger FactorialBig(long n)
 		{
-			CheckOverflow(n: n);
+			CheckNonNegative(n: n);
 
 			BigInteger result = BigInteger.One;
 			for (long i = 2; i <= n; i++)
@@ -70,7 +70,7 @@ namespace FactorialForge
 
 		public static long OddFactorial(long n)
 		{
-			CheckOverflow(n: n);
+			CheckNonNegative(n: n);
 
 			long result = 1;
 			for (long i = 1; i <= n; i += 2)
@@ -82,7 +82,7 @@ namespace FactorialForge
 
 		public static BigInteger OddFactorialBig(long n)
 		{
-			CheckOverflow(n: n);
+			CheckNonNegative(n: n);
 
 			BigInteger result = BigInteger.One;
 			for (long i = 1; i <= n; i += 2)
@@ -94,7 +94,7 @@ namespace FactorialForge
 
 		public static long EvenFactorial(int n)
 		{
-			CheckOverflow(n: n);
+			CheckNonNegative(n: n);
 
 			long result = 1;
 			for (long i = 2; i <= n; i += 2)
@@ -106,7 +106,7 @@ namespace FactorialForge
 
 		public static BigInteger EvenFactorialBig(long n)
 		{
-			CheckOverflow(n: n);
+			CheckNonNegative(n: n);
 
 			BigInteger result = BigInteger.One;
 			for (long i = 2; i <= n; i += 2)
@@ -124,7 +124,7 @@ namespace FactorialForge
 		/// </summary>
 		public static long PrimeFactorial(long n)
 		{
-			CheckOverflow(n: n);
+			CheckNonNegative(n: n);
 
 			if (n < 2)
 			{
@@ -132,7 +132,7 @@ namespace FactorialForge
 			}
 
 			long result = 1;
-			foreach (long prime in PrimesUpTo(n))
+			foreach (long prime in PrimesUpTo(n: n))
 			{
 				result *= prime;
 			}
@@ -142,7 +142,7 @@ namespace FactorialForge
 
 		public static BigInteger PrimeFactorialBig(long n)
 		{
-			CheckOverflow(n: n);
+			CheckNonNegative(n: n);
 
 			if (n < 2)
 			{
@@ -150,7 +150,7 @@ namespace FactorialForge
 			}
 
 			BigInteger result = BigInteger.One;
-			foreach (long prime in PrimesUpTo(n))
+			foreach (long prime in PrimesUpTo(n: n))
 			{
 				result *= prime;
 			}
@@ -160,7 +160,7 @@ namespace FactorialForge
 
 		public static long Subfactorial(long n)
 		{
-			CheckOverflow(n: n);
+			CheckNonNegative(n: n);
 
 			if (n == 0)
 			{
@@ -189,7 +189,7 @@ namespace FactorialForge
 
 		public static BigInteger SubfactorialBig(long n)
 		{
-			CheckOverflow(n: n);
+			CheckNonNegative(n: n);
 
 			if (n == 0)
 			{
@@ -217,7 +217,7 @@ namespace FactorialForge
 
 		public static long DoubleFactorial(long n)
 		{
-			CheckOverflow(n: n);
+			CheckNonNegative(n: n);
 
 			if (n == 0)
 			{
@@ -235,7 +235,7 @@ namespace FactorialForge
 
 		public static BigInteger DoubleFactorialBig(long n)
 		{
-			CheckOverflow(n: n);
+			CheckNonNegative(n: n);
 
 			if (n == 0)
 			{
