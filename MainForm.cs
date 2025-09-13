@@ -157,6 +157,20 @@ namespace FactorialForge
 				targetTextBox: textBoxDoubleFactorial
 			);
 		}
+		private async void NumericUpDownRisingFactorial_ValueChanged(object sender, EventArgs e)
+		{
+			await CalculateAndDisplayAsync(
+				calculation: () => Factorializer.RisingFactorialBig(x: (long)numericUpDownRisingFactorial.Value, n: 1),
+				targetTextBox: textBoxRisingFactorial
+			);
+		}
+		private async void NumericUpDownFallingFactorial_ValueChanged(object sender, EventArgs e)
+		{
+			await CalculateAndDisplayAsync(
+				calculation: () => Factorializer.FallingFactorialBig(x: (long)numericUpDownFallingFactorial.Value, n: 1),
+				targetTextBox: textBoxFallingFactorial
+			);
+		}
 
 		private void ButtonCopyToClipboardFactorial_Click(object sender, EventArgs e)
 			=> CopyToClipboard(sourceTextBox: textBoxFactorial);
@@ -176,6 +190,12 @@ namespace FactorialForge
 		private void ButtonCopyToClipboardDoubleFactorial_Click(object sender, EventArgs e)
 			=> CopyToClipboard(sourceTextBox: textBoxDoubleFactorial);
 
+		private void ButtonRisingFactorialCopyToClipboard_Click(object sender, EventArgs e)
+			=> CopyToClipboard(sourceTextBox: textBoxRisingFactorial);
+
+		private void ButtonCopyToClipboardFallingFactorial_Click(object sender, EventArgs e)
+			 => CopyToClipboard(sourceTextBox: textBoxFallingFactorial);
+
 		private void ButtonSaveToFileFactorial_Click(object sender, EventArgs e)
 			=> SaveToFile(sourceTextBox: textBoxFactorial, title: "Save Factorial Result");
 
@@ -194,6 +214,12 @@ namespace FactorialForge
 		private void ButtonSaveToFileDoubleFactorial_Click(object sender, EventArgs e)
 			=> SaveToFile(sourceTextBox: textBoxDoubleFactorial, title: "Save Double Factorial Result");
 
+		private void ButtonSaveToFileRisingFactorial_Click(object sender, EventArgs e)
+			=> SaveToFile(sourceTextBox: textBoxRisingFactorial, title: "Save Rising Factorial Result");
+
+		private void ButtonSaveToFileFallingFactorial_Click(object sender, EventArgs e)
+			=> SaveToFile(sourceTextBox: textBoxFallingFactorial, title: "Save Falling Factorial Result");
+
 		private void ButtonDigitStatisticsFactorial_Click(object sender, EventArgs e)
 			=> ShowDigitStatistics(sourceTextBox: textBoxFactorial, errorMessage: "No factorial result to analyze.");
 
@@ -211,5 +237,11 @@ namespace FactorialForge
 
 		private void ButtonDigitFactorialDoubleFactorial_Click(object sender, EventArgs e)
 			=> ShowDigitStatistics(sourceTextBox: textBoxDoubleFactorial, errorMessage: "No double factorial result to analyze.");
+
+		private void ButtonDigitStatisticsRisingFactorial_Click(object sender, EventArgs e)
+			=> ShowDigitStatistics(sourceTextBox: textBoxRisingFactorial, errorMessage: "No rising factorial result to analyze.");
+
+		private void ButtonDigitStatisticsFallingFactorial_Click(object sender, EventArgs e)
+			=> ShowDigitStatistics(sourceTextBox: textBoxFallingFactorial, errorMessage: "No falling factorial result to analyze.");
 	}
 }

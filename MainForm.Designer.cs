@@ -72,10 +72,24 @@
 			this.labelDoubleFactorial = new Label();
 			this.textBoxDoubleFactorial = new TextBox();
 			this.numericUpDownDoubleFactorial = new NumericUpDown();
+			this.tabPageRisingFactorial = new TabPage();
+			this.tabPageFallingFactorial = new TabPage();
 			this.statusStrip = new StatusStrip();
 			this.toolStripStatusLabelInfo = new ToolStripStatusLabel();
 			this.toolStripProgressBar = new ToolStripProgressBar();
 			this.toolStripContainer = new ToolStripContainer();
+			this.buttonDigitStatisticsRisingFactorial = new Button();
+			this.buttonSaveToFileRisingFactorial = new Button();
+			this.buttonRisingFactorialCopyToClipboard = new Button();
+			this.labelRisingFactorial = new Label();
+			this.textBoxRisingFactorial = new TextBox();
+			this.numericUpDownRisingFactorial = new NumericUpDown();
+			this.buttonDigitStatisticsFallingFactorial = new Button();
+			this.buttonSaveToFileFallingFactorial = new Button();
+			this.buttonCopyToClipboardFallingFactorial = new Button();
+			this.labelFallingFactorial = new Label();
+			this.textBoxFallingFactorial = new TextBox();
+			this.numericUpDownFallingFactorial = new NumericUpDown();
 			this.tabControl.SuspendLayout();
 			this.tabPageFactorial.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownFactorial).BeginInit();
@@ -89,10 +103,14 @@
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownSubfactorial).BeginInit();
 			this.tabPageDoubleFactorial.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownDoubleFactorial).BeginInit();
+			this.tabPageRisingFactorial.SuspendLayout();
+			this.tabPageFallingFactorial.SuspendLayout();
 			this.statusStrip.SuspendLayout();
 			this.toolStripContainer.BottomToolStripPanel.SuspendLayout();
 			this.toolStripContainer.ContentPanel.SuspendLayout();
 			this.toolStripContainer.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)this.numericUpDownRisingFactorial).BeginInit();
+			((System.ComponentModel.ISupportInitialize)this.numericUpDownFallingFactorial).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tabControl
@@ -104,12 +122,15 @@
 			this.tabControl.Controls.Add(this.tabPagePrimeFactorial);
 			this.tabControl.Controls.Add(this.tabPageSubfactorial);
 			this.tabControl.Controls.Add(this.tabPageDoubleFactorial);
+			this.tabControl.Controls.Add(this.tabPageRisingFactorial);
+			this.tabControl.Controls.Add(this.tabPageFallingFactorial);
 			this.tabControl.Dock = DockStyle.Fill;
 			this.tabControl.Location = new Point(0, 0);
+			this.tabControl.Multiline = true;
 			this.tabControl.Name = "tabControl";
 			this.tabControl.SelectedIndex = 0;
 			this.tabControl.ShowToolTips = true;
-			this.tabControl.Size = new Size(518, 308);
+			this.tabControl.Size = new Size(518, 364);
 			this.tabControl.TabIndex = 0;
 			// 
 			// tabPageFactorial
@@ -120,10 +141,10 @@
 			this.tabPageFactorial.Controls.Add(this.labelFactorial);
 			this.tabPageFactorial.Controls.Add(this.textBoxFactorial);
 			this.tabPageFactorial.Controls.Add(this.numericUpDownFactorial);
-			this.tabPageFactorial.Location = new Point(4, 27);
+			this.tabPageFactorial.Location = new Point(4, 53);
 			this.tabPageFactorial.Name = "tabPageFactorial";
 			this.tabPageFactorial.Padding = new Padding(3);
-			this.tabPageFactorial.Size = new Size(510, 277);
+			this.tabPageFactorial.Size = new Size(510, 307);
 			this.tabPageFactorial.TabIndex = 0;
 			this.tabPageFactorial.Text = "Factorial";
 			this.tabPageFactorial.UseVisualStyleBackColor = true;
@@ -185,7 +206,7 @@
 			this.textBoxFactorial.Name = "textBoxFactorial";
 			this.textBoxFactorial.PlaceholderText = "Factorial";
 			this.textBoxFactorial.ScrollBars = ScrollBars.Vertical;
-			this.textBoxFactorial.Size = new Size(504, 239);
+			this.textBoxFactorial.Size = new Size(504, 269);
 			this.textBoxFactorial.TabIndex = 2;
 			// 
 			// numericUpDownFactorial
@@ -206,10 +227,10 @@
 			this.tabPageOddFactorial.Controls.Add(this.labelOddFactorial);
 			this.tabPageOddFactorial.Controls.Add(this.textBoxOddFactorial);
 			this.tabPageOddFactorial.Controls.Add(this.numericUpDownOddFactorial);
-			this.tabPageOddFactorial.Location = new Point(4, 27);
+			this.tabPageOddFactorial.Location = new Point(4, 53);
 			this.tabPageOddFactorial.Name = "tabPageOddFactorial";
 			this.tabPageOddFactorial.Padding = new Padding(3);
-			this.tabPageOddFactorial.Size = new Size(510, 277);
+			this.tabPageOddFactorial.Size = new Size(510, 307);
 			this.tabPageOddFactorial.TabIndex = 1;
 			this.tabPageOddFactorial.Text = "Odd Factorial";
 			this.tabPageOddFactorial.UseVisualStyleBackColor = true;
@@ -271,7 +292,7 @@
 			this.textBoxOddFactorial.Name = "textBoxOddFactorial";
 			this.textBoxOddFactorial.PlaceholderText = "Odd Factorial";
 			this.textBoxOddFactorial.ScrollBars = ScrollBars.Vertical;
-			this.textBoxOddFactorial.Size = new Size(504, 239);
+			this.textBoxOddFactorial.Size = new Size(504, 269);
 			this.textBoxOddFactorial.TabIndex = 5;
 			// 
 			// numericUpDownOddFactorial
@@ -624,6 +645,36 @@
 			this.numericUpDownDoubleFactorial.TextAlign = HorizontalAlignment.Center;
 			this.numericUpDownDoubleFactorial.ValueChanged += this.NumericUpDownDoubleFactorial_ValueChanged;
 			// 
+			// tabPageRisingFactorial
+			// 
+			this.tabPageRisingFactorial.Controls.Add(this.buttonDigitStatisticsRisingFactorial);
+			this.tabPageRisingFactorial.Controls.Add(this.buttonSaveToFileRisingFactorial);
+			this.tabPageRisingFactorial.Controls.Add(this.buttonRisingFactorialCopyToClipboard);
+			this.tabPageRisingFactorial.Controls.Add(this.labelRisingFactorial);
+			this.tabPageRisingFactorial.Controls.Add(this.textBoxRisingFactorial);
+			this.tabPageRisingFactorial.Controls.Add(this.numericUpDownRisingFactorial);
+			this.tabPageRisingFactorial.Location = new Point(4, 53);
+			this.tabPageRisingFactorial.Name = "tabPageRisingFactorial";
+			this.tabPageRisingFactorial.Size = new Size(510, 307);
+			this.tabPageRisingFactorial.TabIndex = 6;
+			this.tabPageRisingFactorial.Text = "Rising Factorial";
+			this.tabPageRisingFactorial.UseVisualStyleBackColor = true;
+			// 
+			// tabPageFallingFactorial
+			// 
+			this.tabPageFallingFactorial.Controls.Add(this.buttonDigitStatisticsFallingFactorial);
+			this.tabPageFallingFactorial.Controls.Add(this.buttonSaveToFileFallingFactorial);
+			this.tabPageFallingFactorial.Controls.Add(this.buttonCopyToClipboardFallingFactorial);
+			this.tabPageFallingFactorial.Controls.Add(this.labelFallingFactorial);
+			this.tabPageFallingFactorial.Controls.Add(this.textBoxFallingFactorial);
+			this.tabPageFallingFactorial.Controls.Add(this.numericUpDownFallingFactorial);
+			this.tabPageFallingFactorial.Location = new Point(4, 53);
+			this.tabPageFallingFactorial.Name = "tabPageFallingFactorial";
+			this.tabPageFallingFactorial.Size = new Size(510, 307);
+			this.tabPageFallingFactorial.TabIndex = 7;
+			this.tabPageFallingFactorial.Text = "Falling Factorial";
+			this.tabPageFallingFactorial.UseVisualStyleBackColor = true;
+			// 
 			// statusStrip
 			// 
 			this.statusStrip.Dock = DockStyle.None;
@@ -637,7 +688,7 @@
 			// 
 			this.toolStripStatusLabelInfo.AutoToolTip = true;
 			this.toolStripStatusLabelInfo.Name = "toolStripStatusLabelInfo";
-			this.toolStripStatusLabelInfo.Size = new Size(370, 17);
+			this.toolStripStatusLabelInfo.Size = new Size(401, 17);
 			this.toolStripStatusLabelInfo.Spring = true;
 			this.toolStripStatusLabelInfo.Text = "calculation time";
 			// 
@@ -660,19 +711,159 @@
 			// toolStripContainer.ContentPanel
 			// 
 			this.toolStripContainer.ContentPanel.Controls.Add(this.tabControl);
-			this.toolStripContainer.ContentPanel.Size = new Size(518, 308);
+			this.toolStripContainer.ContentPanel.Size = new Size(518, 364);
 			this.toolStripContainer.Dock = DockStyle.Fill;
 			this.toolStripContainer.Location = new Point(0, 0);
 			this.toolStripContainer.Name = "toolStripContainer";
-			this.toolStripContainer.Size = new Size(518, 330);
+			this.toolStripContainer.Size = new Size(518, 386);
 			this.toolStripContainer.TabIndex = 1;
 			this.toolStripContainer.TopToolStripPanelVisible = false;
+			// 
+			// buttonDigitStatisticsRisingFactorial
+			// 
+			this.buttonDigitStatisticsRisingFactorial.Image = (Image)resources.GetObject("buttonDigitStatisticsRisingFactorial.Image");
+			this.buttonDigitStatisticsRisingFactorial.Location = new Point(388, 3);
+			this.buttonDigitStatisticsRisingFactorial.Name = "buttonDigitStatisticsRisingFactorial";
+			this.buttonDigitStatisticsRisingFactorial.Size = new Size(119, 24);
+			this.buttonDigitStatisticsRisingFactorial.TabIndex = 12;
+			this.buttonDigitStatisticsRisingFactorial.Text = "Digit statistics";
+			this.buttonDigitStatisticsRisingFactorial.TextAlign = ContentAlignment.MiddleRight;
+			this.buttonDigitStatisticsRisingFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
+			this.buttonDigitStatisticsRisingFactorial.UseVisualStyleBackColor = true;
+			this.buttonDigitStatisticsRisingFactorial.Click += this.ButtonDigitStatisticsRisingFactorial_Click;
+			// 
+			// buttonSaveToFileRisingFactorial
+			// 
+			this.buttonSaveToFileRisingFactorial.Image = (Image)resources.GetObject("buttonSaveToFileRisingFactorial.Image");
+			this.buttonSaveToFileRisingFactorial.Location = new Point(292, 3);
+			this.buttonSaveToFileRisingFactorial.Name = "buttonSaveToFileRisingFactorial";
+			this.buttonSaveToFileRisingFactorial.Size = new Size(90, 24);
+			this.buttonSaveToFileRisingFactorial.TabIndex = 11;
+			this.buttonSaveToFileRisingFactorial.Text = "Save to file";
+			this.buttonSaveToFileRisingFactorial.TextAlign = ContentAlignment.MiddleRight;
+			this.buttonSaveToFileRisingFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
+			this.buttonSaveToFileRisingFactorial.UseVisualStyleBackColor = true;
+			this.buttonSaveToFileRisingFactorial.Click += this.ButtonSaveToFileRisingFactorial_Click;
+			// 
+			// buttonRisingFactorialCopyToClipboard
+			// 
+			this.buttonRisingFactorialCopyToClipboard.Image = (Image)resources.GetObject("buttonRisingFactorialCopyToClipboard.Image");
+			this.buttonRisingFactorialCopyToClipboard.Location = new Point(156, 3);
+			this.buttonRisingFactorialCopyToClipboard.Name = "buttonRisingFactorialCopyToClipboard";
+			this.buttonRisingFactorialCopyToClipboard.Size = new Size(130, 24);
+			this.buttonRisingFactorialCopyToClipboard.TabIndex = 10;
+			this.buttonRisingFactorialCopyToClipboard.Text = "Copy to clipboard";
+			this.buttonRisingFactorialCopyToClipboard.TextAlign = ContentAlignment.MiddleRight;
+			this.buttonRisingFactorialCopyToClipboard.TextImageRelation = TextImageRelation.ImageBeforeText;
+			this.buttonRisingFactorialCopyToClipboard.UseVisualStyleBackColor = true;
+			this.buttonRisingFactorialCopyToClipboard.Click += this.ButtonRisingFactorialCopyToClipboard_Click;
+			// 
+			// labelRisingFactorial
+			// 
+			this.labelRisingFactorial.AutoSize = true;
+			this.labelRisingFactorial.Location = new Point(8, 8);
+			this.labelRisingFactorial.Name = "labelRisingFactorial";
+			this.labelRisingFactorial.Size = new Size(67, 15);
+			this.labelRisingFactorial.TabIndex = 9;
+			this.labelRisingFactorial.Text = "n[0..99999]:";
+			// 
+			// textBoxRisingFactorial
+			// 
+			this.textBoxRisingFactorial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			this.textBoxRisingFactorial.Location = new Point(3, 35);
+			this.textBoxRisingFactorial.MaxLength = int.MaxValue;
+			this.textBoxRisingFactorial.Multiline = true;
+			this.textBoxRisingFactorial.Name = "textBoxRisingFactorial";
+			this.textBoxRisingFactorial.PlaceholderText = "Factorial";
+			this.textBoxRisingFactorial.ScrollBars = ScrollBars.Vertical;
+			this.textBoxRisingFactorial.Size = new Size(504, 269);
+			this.textBoxRisingFactorial.TabIndex = 8;
+			// 
+			// numericUpDownRisingFactorial
+			// 
+			this.numericUpDownRisingFactorial.Location = new Point(81, 3);
+			this.numericUpDownRisingFactorial.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownRisingFactorial.Name = "numericUpDownRisingFactorial";
+			this.numericUpDownRisingFactorial.Size = new Size(69, 23);
+			this.numericUpDownRisingFactorial.TabIndex = 7;
+			this.numericUpDownRisingFactorial.TextAlign = HorizontalAlignment.Center;
+			this.numericUpDownRisingFactorial.ValueChanged += this.NumericUpDownRisingFactorial_ValueChanged;
+			// 
+			// buttonDigitStatisticsFallingFactorial
+			// 
+			this.buttonDigitStatisticsFallingFactorial.Image = (Image)resources.GetObject("buttonDigitStatisticsFallingFactorial.Image");
+			this.buttonDigitStatisticsFallingFactorial.Location = new Point(388, 3);
+			this.buttonDigitStatisticsFallingFactorial.Name = "buttonDigitStatisticsFallingFactorial";
+			this.buttonDigitStatisticsFallingFactorial.Size = new Size(119, 24);
+			this.buttonDigitStatisticsFallingFactorial.TabIndex = 12;
+			this.buttonDigitStatisticsFallingFactorial.Text = "Digit statistics";
+			this.buttonDigitStatisticsFallingFactorial.TextAlign = ContentAlignment.MiddleRight;
+			this.buttonDigitStatisticsFallingFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
+			this.buttonDigitStatisticsFallingFactorial.UseVisualStyleBackColor = true;
+			this.buttonDigitStatisticsFallingFactorial.Click += this.ButtonDigitStatisticsFallingFactorial_Click;
+			// 
+			// buttonSaveToFileFallingFactorial
+			// 
+			this.buttonSaveToFileFallingFactorial.Image = (Image)resources.GetObject("buttonSaveToFileFallingFactorial.Image");
+			this.buttonSaveToFileFallingFactorial.Location = new Point(292, 3);
+			this.buttonSaveToFileFallingFactorial.Name = "buttonSaveToFileFallingFactorial";
+			this.buttonSaveToFileFallingFactorial.Size = new Size(90, 24);
+			this.buttonSaveToFileFallingFactorial.TabIndex = 11;
+			this.buttonSaveToFileFallingFactorial.Text = "Save to file";
+			this.buttonSaveToFileFallingFactorial.TextAlign = ContentAlignment.MiddleRight;
+			this.buttonSaveToFileFallingFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
+			this.buttonSaveToFileFallingFactorial.UseVisualStyleBackColor = true;
+			this.buttonSaveToFileFallingFactorial.Click += this.ButtonSaveToFileFallingFactorial_Click;
+			// 
+			// buttonCopyToClipboardFallingFactorial
+			// 
+			this.buttonCopyToClipboardFallingFactorial.Image = (Image)resources.GetObject("buttonCopyToClipboardFallingFactorial.Image");
+			this.buttonCopyToClipboardFallingFactorial.Location = new Point(156, 3);
+			this.buttonCopyToClipboardFallingFactorial.Name = "buttonCopyToClipboardFallingFactorial";
+			this.buttonCopyToClipboardFallingFactorial.Size = new Size(130, 24);
+			this.buttonCopyToClipboardFallingFactorial.TabIndex = 10;
+			this.buttonCopyToClipboardFallingFactorial.Text = "Copy to clipboard";
+			this.buttonCopyToClipboardFallingFactorial.TextAlign = ContentAlignment.MiddleRight;
+			this.buttonCopyToClipboardFallingFactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
+			this.buttonCopyToClipboardFallingFactorial.UseVisualStyleBackColor = true;
+			this.buttonCopyToClipboardFallingFactorial.Click += this.ButtonCopyToClipboardFallingFactorial_Click;
+			// 
+			// labelFallingFactorial
+			// 
+			this.labelFallingFactorial.AutoSize = true;
+			this.labelFallingFactorial.Location = new Point(8, 8);
+			this.labelFallingFactorial.Name = "labelFallingFactorial";
+			this.labelFallingFactorial.Size = new Size(67, 15);
+			this.labelFallingFactorial.TabIndex = 9;
+			this.labelFallingFactorial.Text = "n[0..99999]:";
+			// 
+			// textBoxFallingFactorial
+			// 
+			this.textBoxFallingFactorial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			this.textBoxFallingFactorial.Location = new Point(3, 35);
+			this.textBoxFallingFactorial.MaxLength = int.MaxValue;
+			this.textBoxFallingFactorial.Multiline = true;
+			this.textBoxFallingFactorial.Name = "textBoxFallingFactorial";
+			this.textBoxFallingFactorial.PlaceholderText = "Factorial";
+			this.textBoxFallingFactorial.ScrollBars = ScrollBars.Vertical;
+			this.textBoxFallingFactorial.Size = new Size(504, 269);
+			this.textBoxFallingFactorial.TabIndex = 8;
+			// 
+			// numericUpDownFallingFactorial
+			// 
+			this.numericUpDownFallingFactorial.Location = new Point(81, 3);
+			this.numericUpDownFallingFactorial.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownFallingFactorial.Name = "numericUpDownFallingFactorial";
+			this.numericUpDownFallingFactorial.Size = new Size(69, 23);
+			this.numericUpDownFallingFactorial.TabIndex = 7;
+			this.numericUpDownFallingFactorial.TextAlign = HorizontalAlignment.Center;
+			this.numericUpDownFallingFactorial.ValueChanged += this.NumericUpDownFallingFactorial_ValueChanged;
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new SizeF(7F, 15F);
 			this.AutoScaleMode = AutoScaleMode.Font;
-			this.ClientSize = new Size(518, 330);
+			this.ClientSize = new Size(518, 386);
 			this.Controls.Add(this.toolStripContainer);
 			this.Icon = (Icon)resources.GetObject("$this.Icon");
 			this.MaximizeBox = false;
@@ -698,6 +889,10 @@
 			this.tabPageDoubleFactorial.ResumeLayout(false);
 			this.tabPageDoubleFactorial.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownDoubleFactorial).EndInit();
+			this.tabPageRisingFactorial.ResumeLayout(false);
+			this.tabPageRisingFactorial.PerformLayout();
+			this.tabPageFallingFactorial.ResumeLayout(false);
+			this.tabPageFallingFactorial.PerformLayout();
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();
 			this.toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
@@ -705,6 +900,8 @@
 			this.toolStripContainer.ContentPanel.ResumeLayout(false);
 			this.toolStripContainer.ResumeLayout(false);
 			this.toolStripContainer.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)this.numericUpDownRisingFactorial).EndInit();
+			((System.ComponentModel.ISupportInitialize)this.numericUpDownFallingFactorial).EndInit();
 			this.ResumeLayout(false);
 		}
 
@@ -757,5 +954,19 @@
 		private Button buttonDigitFactorialDoubleFactorial;
 		private Button buttonSaveToFileDoubleFactorial;
 		private Button buttonCopyToClipboardDoubleFactorial;
+		private TabPage tabPageRisingFactorial;
+		private TabPage tabPageFallingFactorial;
+		private Button buttonDigitStatisticsRisingFactorial;
+		private Button buttonSaveToFileRisingFactorial;
+		private Button buttonRisingFactorialCopyToClipboard;
+		private Label labelRisingFactorial;
+		private TextBox textBoxRisingFactorial;
+		private NumericUpDown numericUpDownRisingFactorial;
+		private Button buttonDigitStatisticsFallingFactorial;
+		private Button buttonSaveToFileFallingFactorial;
+		private Button buttonCopyToClipboardFallingFactorial;
+		private Label labelFallingFactorial;
+		private TextBox textBoxFallingFactorial;
+		private NumericUpDown numericUpDownFallingFactorial;
 	}
 }
