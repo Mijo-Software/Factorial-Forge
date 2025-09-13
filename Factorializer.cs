@@ -44,6 +44,19 @@ namespace FactorialForge
 			}
 		}
 
+		/// <summary>
+		/// Computes integer exponentiation: base^exp for non-negative exp.
+		/// </summary>
+		private static long PowInt(long baseValue, long exp)
+		{
+			long result = 1;
+			for (long j = 0; j < exp; j++)
+			{
+				result *= baseValue;
+			}
+			return result;
+		}
+
 		public static long Factorial(long n)
 		{
 			CheckNonNegative(n: n);
@@ -438,19 +451,40 @@ namespace FactorialForge
 			return result;
 		}
 
-		public static long Hyperfactorial(int n)
+		/// <summary>
+		/// Calculates the hyperfactorial of a non-negative integer n, defined as the product of i^i for i from 1 to n.
+		/// </summary>
+		/// <param name="n">The non-negative integer for which to compute the hyperfactorial.</param>
+		/// <returns>
+		/// The hyperfactorial of <paramref name="n"/> as a <see cref="long"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method for values of n where the result fits within the range of <see cref="long"/>.
+		/// For larger values, use <see cref="HyperfactorialBig"/>.
+		/// </remarks>
+		public static long Hyperfactorial(long n)
 		{
 			long result = 1;
 
 			for (long i = 1; i <= n; i++)
 			{
-				result *= (long)Math.Pow(x: i, y: i); // i^i
+				result *= PowInt(baseValue: i, exp: i); // i^i
 			}
 
 			return result;
 		}
 
-		public static BigInteger HyperfactorialBig(int n)
+		/// <summary>
+		/// Calculates the hyperfactorial of a non-negative integer n, defined as the product of i^i for i from 1 to n, using arbitrary-precision arithmetic.
+		/// </summary>
+		/// <param name="n">The non-negative integer for which to compute the hyperfactorial.</param>
+		/// <returns>
+		/// The hyperfactorial of <paramref name="n"/> as a <see cref="BigInteger"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="Hyperfactorial"/> when the result may exceed the range of <see cref="long"/>.
+		/// </remarks>
+		public static BigInteger HyperfactorialBig(long n)
 		{
 			BigInteger result = 1;
 
@@ -461,6 +495,5 @@ namespace FactorialForge
 
 			return result;
 		}
-
 	}
 }
