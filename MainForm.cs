@@ -157,7 +157,7 @@ namespace FactorialForge
 				targetTextBox: textBoxDoubleFactorial
 			);
 		}
-		private async void NumericUpDownRisingFactorial_ValueChanged(object sender, EventArgs e)
+		private async void NumericUpDownRisingFactorialX_ValueChanged(object sender, EventArgs e)
 		{
 			await CalculateAndDisplayAsync(
 				calculation: () => Factorializer.RisingFactorialBig(x: (long)numericUpDownRisingFactorialX.Value,
@@ -165,7 +165,7 @@ namespace FactorialForge
 				targetTextBox: textBoxRisingFactorial
 			);
 		}
-		private async void NumericUpDownFallingFactorial_ValueChanged(object sender, EventArgs e)
+		private async void NumericUpDownFallingFactorialX_ValueChanged(object sender, EventArgs e)
 		{
 			await CalculateAndDisplayAsync(
 				calculation: () => Factorializer.FallingFactorialBig(x: (long)numericUpDownFallingFactorialX.Value,
@@ -175,10 +175,22 @@ namespace FactorialForge
 		}
 
 		private void NumericUpDownRisingFactorialN_ValueChanged(object sender, EventArgs e)
-			=> NumericUpDownRisingFactorial_ValueChanged(sender: sender, e: e);
+			=> NumericUpDownRisingFactorialX_ValueChanged(sender: sender, e: e);
 
 		private void NumericUpDownFallingFactorialN_ValueChanged(object sender, EventArgs e)
-			=> NumericUpDownFallingFactorial_ValueChanged(sender: sender, e: e);
+			=> NumericUpDownFallingFactorialX_ValueChanged(sender: sender, e: e);
+
+		private async void NumericUpDownMultiFactorialX_ValueChanged(object sender, EventArgs e)
+		{
+			await CalculateAndDisplayAsync(
+				calculation: () => Factorializer.MultiFactorialBig(x: (long)numericUpDownMultiFactorialX.Value,
+				n: (long)numericUpDownMultiFactorialN.Value),
+				targetTextBox: textBoxMultiFactorial
+			);
+		}
+
+		private void NumericUpDownMultiFactorialN_ValueChanged(object sender, EventArgs e)
+			=> NumericUpDownMultiFactorialX_ValueChanged(sender: sender, e: e);
 
 		private void ButtonCopyToClipboardFactorial_Click(object sender, EventArgs e)
 			=> CopyToClipboard(sourceTextBox: textBoxFactorial);
@@ -204,6 +216,9 @@ namespace FactorialForge
 		private void ButtonCopyToClipboardFallingFactorial_Click(object sender, EventArgs e)
 			 => CopyToClipboard(sourceTextBox: textBoxFallingFactorial);
 
+		private void ButtonCopyToClipboardMultiFactorial_Click(object sender, EventArgs e)
+			=> CopyToClipboard(sourceTextBox: textBoxMultiFactorial);
+
 		private void ButtonSaveToFileFactorial_Click(object sender, EventArgs e)
 			=> SaveToFile(sourceTextBox: textBoxFactorial, title: "Save Factorial Result");
 
@@ -228,6 +243,9 @@ namespace FactorialForge
 		private void ButtonSaveToFileFallingFactorial_Click(object sender, EventArgs e)
 			=> SaveToFile(sourceTextBox: textBoxFallingFactorial, title: "Save Falling Factorial Result");
 
+		private void ButtonSaveToFileMultiFactorial_Click(object sender, EventArgs e)
+			=> SaveToFile(sourceTextBox: textBoxMultiFactorial, title: "Save Multi Factorial Result");
+
 		private void ButtonDigitStatisticsFactorial_Click(object sender, EventArgs e)
 			=> ShowDigitStatistics(sourceTextBox: textBoxFactorial, errorMessage: "No factorial result to analyze.");
 
@@ -251,5 +269,8 @@ namespace FactorialForge
 
 		private void ButtonDigitStatisticsFallingFactorial_Click(object sender, EventArgs e)
 			=> ShowDigitStatistics(sourceTextBox: textBoxFallingFactorial, errorMessage: "No falling factorial result to analyze.");
+
+		private void ButtonDigitStatisticsMultiFactorial_Click(object sender, EventArgs e)
+			=> ShowDigitStatistics(sourceTextBox: textBoxMultiFactorial, errorMessage: "No multi factorial result to analyze.");
 	}
 }
