@@ -4,6 +4,11 @@ namespace FactorialForge
 {
 	internal class Factorializer
 	{
+		/// <summary>
+		/// Computes all prime numbers up to a given limit n.
+		/// </summary>
+		/// <param name="n">The upper limit (inclusive) for finding prime numbers.</param>
+		/// <returns>A list of all prime numbers less than or equal to n.</returns>
 		private static List<long> PrimesUpTo(long n)
 		{
 			if (n < 2)
@@ -36,6 +41,14 @@ namespace FactorialForge
 			return primes;
 		}
 
+		/// <summary>
+		/// Checks if a given number is non-negative.
+		/// </summary>
+		/// <param name="n">The number to check.</param>
+		/// <exception cref="OverflowException">Thrown if n is negative.</exception>
+		/// <remarks>
+		/// This method is used to validate that the input is a non-negative integer.
+		/// </remarks>
 		private static void CheckNonNegative(long n)
 		{
 			if (n < 0)
@@ -47,8 +60,15 @@ namespace FactorialForge
 		/// <summary>
 		/// Computes integer exponentiation: base^exp for non-negative exp.
 		/// </summary>
+		/// <param name="baseValue">The base value.</param>
+		/// <param name="exp">The exponent (must be non-negative).</param>
+		/// <returns>The result of baseValue raised to the power of exp.</returns>
 		private static long PowInt(long baseValue, long exp)
 		{
+			if (exp < 0)
+			{
+				throw new ArgumentOutOfRangeException(paramName: nameof(exp), message: "Exponent must be non-negative.");
+			}
 			long result = 1;
 			for (long j = 0; j < exp; j++)
 			{
@@ -57,6 +77,19 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Computes the factorial of a non-negative integer n.
+		/// </summary>
+		/// <param name="n">The non-negative integer for which to compute the factorial.</param>
+		/// <returns>
+		/// The factorial of <paramref name="n"/> as a <see cref="long"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="FactorialBig"/> when the result is known to be within the range of <see cref="long"/>.
+		/// </remarks>
+		/// <returns>
+		/// The factorial of <paramref name="n"/> as a <see cref="long"/>. Returns 1 if n is 0.
+		/// </returns>
 		public static long Factorial(long n)
 		{
 			CheckNonNegative(n: n);
@@ -69,6 +102,16 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Computes the factorial of a non-negative integer n using arbitrary-precision arithmetic.
+		/// </summary>
+		/// <param name="n">The non-negative integer for which to compute the factorial.</param>
+		/// <returns>
+		/// The factorial of <paramref name="n"/> as a <see cref="BigInteger"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="Factorial"/> when the result may exceed the range of <see cref="long"/>.
+		/// </remarks>
 		public static BigInteger FactorialBig(long n)
 		{
 			CheckNonNegative(n: n);
@@ -81,6 +124,16 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Computes the odd factorial of a non-negative integer n.
+		/// </summary>
+		/// <param name="n">The non-negative integer for which to compute the odd factorial.</param>
+		/// <returns>
+		/// The odd factorial of <paramref name="n"/> as a <see cref="long"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="OddFactorialBig"/> when the result is known to be within the range of <see cref="long"/>.
+		/// </remarks>
 		public static long OddFactorial(long n)
 		{
 			CheckNonNegative(n: n);
@@ -93,6 +146,16 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Computes the odd factorial of a non-negative integer n using arbitrary-precision arithmetic.
+		/// </summary>
+		/// <param name="n">The non-negative integer for which to compute the odd factorial.</param>
+		/// <returns>
+		/// The odd factorial of <paramref name="n"/> as a <see cref="BigInteger"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="OddFactorial"/> when the result may exceed the range of <see cref="long"/>.
+		/// </remarks>
 		public static BigInteger OddFactorialBig(long n)
 		{
 			CheckNonNegative(n: n);
@@ -105,6 +168,16 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Computes the even factorial of a non-negative integer n.
+		/// </summary>
+		/// <param name="n">The non-negative integer for which to compute the even factorial.</param>
+		/// <returns>
+		/// The even factorial of <paramref name="n"/> as a <see cref="long"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="EvenFactorialBig"/> when the result is known to be within the range of <see cref="long"/>.
+		/// </remarks>
 		public static long EvenFactorial(long n)
 		{
 			CheckNonNegative(n: n);
@@ -117,6 +190,16 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Computes the even factorial of a non-negative integer n using arbitrary-precision arithmetic.
+		/// </summary>
+		/// <param name="n">The non-negative integer for which to compute the even factorial.</param>
+		/// <returns>
+		/// The even factorial of <paramref name="n"/> as a <see cref="BigInteger"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="EvenFactorial"/> when the result may exceed the range of <see cref="long"/>.
+		/// </remarks>
 		public static BigInteger EvenFactorialBig(long n)
 		{
 			CheckNonNegative(n: n);
@@ -135,6 +218,13 @@ namespace FactorialForge
 		/// For larger n, use PrimeFactorialBig instead.
 		/// Throws OverflowException if the result exceeds the range of a long.
 		/// </summary>
+		/// <param name="n">The non-negative integer for which to compute the prime factorial.</param>
+		/// <returns>
+		/// The prime factorial of <paramref name="n"/> as a <see cref="long"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="PrimeFactorialBig"/> when the result is known to be within the range of <see cref="long"/>.
+		/// </remarks>
 		public static long PrimeFactorial(long n)
 		{
 			CheckNonNegative(n: n);
@@ -153,6 +243,16 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Computes the prime factorial of a non-negative integer n using arbitrary-precision arithmetic.
+		/// </summary>
+		/// <param name="n">The non-negative integer for which to compute the prime factorial.</param>
+		/// <returns>
+		/// The prime factorial of <paramref name="n"/> as a <see cref="BigInteger"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="PrimeFactorial"/> when the result may exceed the range of <see cref="long"/>.
+		/// </remarks>
 		public static BigInteger PrimeFactorialBig(long n)
 		{
 			CheckNonNegative(n: n);
@@ -171,6 +271,16 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Computes the subfactorial (!n) of a non-negative integer n.
+		/// </summary>
+		/// <param name="n">The non-negative integer for which to compute the subfactorial.</param>
+		/// <returns>
+		/// The subfactorial of <paramref name="n"/> as a <see cref="long"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="SubfactorialBig"/> when the result is known to be within the range of <see cref="long"/>.
+		/// </remarks>
 		public static long Subfactorial(long n)
 		{
 			CheckNonNegative(n: n);
@@ -199,7 +309,16 @@ namespace FactorialForge
 			return result;
 		}
 
-
+		/// <summary>
+		/// Computes the subfactorial (!n) of a non-negative integer n using arbitrary-precision arithmetic.
+		/// </summary>
+		/// <param name="n">The non-negative integer for which to compute the subfactorial.</param>
+		/// <returns>
+		/// The subfactorial of <paramref name="n"/> as a <see cref="BigInteger"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="Subfactorial"/> when the result may exceed the range of <see cref="long"/>.
+		/// </remarks>
 		public static BigInteger SubfactorialBig(long n)
 		{
 			CheckNonNegative(n: n);
@@ -228,6 +347,16 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Computes the double factorial of a non-negative integer n.
+		/// </summary>
+		/// <param name="n">The non-negative integer for which to compute the double factorial.</param>
+		/// <returns>
+		/// The double factorial of <paramref name="n"/> as a <see cref="long"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="DoubleFactorialBig"/> when the result is known to be within the range of <see cref="long"/>.
+		/// </remarks>
 		public static long DoubleFactorial(long n)
 		{
 			CheckNonNegative(n: n);
@@ -246,6 +375,16 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Computes the double factorial of a non-negative integer n using arbitrary-precision arithmetic.
+		/// </summary>
+		/// <param name="n">The non-negative integer for which to compute the double factorial.</param>
+		/// <returns>
+		/// The double factorial of <paramref name="n"/> as a <see cref="BigInteger"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="DoubleFactorial"/> when the result may exceed the range of <see cref="long"/>.
+		/// </remarks>
 		public static BigInteger DoubleFactorialBig(long n)
 		{
 			CheckNonNegative(n: n);
@@ -263,6 +402,20 @@ namespace FactorialForge
 
 			return result;
 		}
+
+		/// <summary>
+		/// Computes the rising factorial (x)_n = x * (x+1) * ... * (x+n-1) as a long.
+		/// Throws OverflowException if the result exceeds the range of a long.
+		/// For large values, use RisingFactorialBig.
+		/// </summary>
+		/// <param name="x">The base value for the rising factorial.</param>
+		/// <param name="n">The number of terms in the product.</param>
+		/// <returns>
+		/// The rising factorial (x)_n as a <see cref="long"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="RisingFactorialBig"/> when the result is known to be within the range of <see cref="long"/>.
+		/// </remarks>
 
 		public static long RisingFactorial(long x, long n)
 		{
@@ -282,6 +435,17 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Computes the rising factorial (x)_n = x * (x+1) * ... * (x+n-1) as a <see cref="BigInteger"/>.
+		/// </summary>
+		/// <param name="x">The base value for the rising factorial.</param>
+		/// <param name="n">The number of terms in the product.</param>
+		/// <returns>
+		/// The rising factorial (x)_n as a <see cref="BigInteger"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="RisingFactorial"/> when the result may exceed the range of <see cref="long"/>.
+		/// </remarks>
 		public static BigInteger RisingFactorialBig(long x, long n)
 		{
 			CheckNonNegative(n: n);
@@ -305,6 +469,14 @@ namespace FactorialForge
 		/// Throws OverflowException if the result exceeds the range of a long.
 		/// For large values, use FallingFactorialBig.
 		/// </summary>
+		/// <param name="x">The base value for the falling factorial.</param>
+		/// <param name="n">The number of terms in the product.</param>
+		/// <returns>
+		/// The falling factorial (x)_n as a <see cref="long"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="FallingFactorialBig"/> when the result is known to be within the range of <see cref="long"/>.
+		/// </remarks>
 		public static long FallingFactorial(long x, long n)
 		{
 			CheckNonNegative(n: n);
@@ -323,6 +495,17 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Computes the falling factorial (x)_n = x * (x-1) * ... * (x-n+1) as a <see cref="BigInteger"/>.
+		/// </summary>
+		/// <param name="x">The base value for the falling factorial.</param>
+		/// <param name="n">The number of terms in the product.</param>
+		/// <returns>
+		/// The falling factorial (x)_n as a <see cref="BigInteger"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="FallingFactorial"/> when the result may exceed the range of <see cref="long"/>.
+		/// </remarks>
 		public static BigInteger FallingFactorialBig(long x, long n)
 		{
 			CheckNonNegative(n: n);
