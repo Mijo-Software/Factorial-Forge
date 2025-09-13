@@ -189,6 +189,9 @@ namespace FactorialForge
 			);
 		}
 
+		private void NumericUpDownMultiFactorialN_ValueChanged(object sender, EventArgs e)
+			=> NumericUpDownMultiFactorialX_ValueChanged(sender: sender, e: e);
+
 		private async void NumericUpDownSuperfactorial_ValueChanged(object sender, EventArgs e)
 		{
 			await CalculateAndDisplayAsync(
@@ -197,8 +200,13 @@ namespace FactorialForge
 			);
 		}
 
-		private void NumericUpDownMultiFactorialN_ValueChanged(object sender, EventArgs e)
-			=> NumericUpDownMultiFactorialX_ValueChanged(sender: sender, e: e);
+		private async void NumericUpDownHyperfactorial_ValueChanged(object sender, EventArgs e)
+		{
+			await CalculateAndDisplayAsync(
+				calculation: () => Factorializer.HyperfactorialBig(n: (long)numericUpDownHyperfactorial.Value),
+				targetTextBox: textBoxHyperfactorial
+			);
+		}
 
 		private void ButtonCopyToClipboardFactorial_Click(object sender, EventArgs e)
 			=> CopyToClipboard(sourceTextBox: textBoxFactorial);
@@ -230,6 +238,9 @@ namespace FactorialForge
 		private void ButtonCopyToClipboardSuperfactorial_Click(object sender, EventArgs e)
 			=> CopyToClipboard(sourceTextBox: textBoxSuperfactorial);
 
+		private void ButtonCopyToClipboardHyperfactorial_Click(object sender, EventArgs e)
+			=> CopyToClipboard(sourceTextBox: textBoxHyperfactorial);
+
 		private void ButtonSaveToFileFactorial_Click(object sender, EventArgs e)
 			=> SaveToFile(sourceTextBox: textBoxFactorial, title: "Save Factorial Result");
 
@@ -260,6 +271,9 @@ namespace FactorialForge
 		private void ButtonSaveToFileSuperfactorial_Click(object sender, EventArgs e)
 			=> SaveToFile(sourceTextBox: textBoxSuperfactorial, title: "Save Superfactorial Result");
 
+		private void ButtonSaveToFileHyperfactorial_Click(object sender, EventArgs e)
+			=> SaveToFile(sourceTextBox: textBoxHyperfactorial, title: "Save Hyperfactorial Result");
+
 		private void ButtonDigitStatisticsFactorial_Click(object sender, EventArgs e)
 			=> ShowDigitStatistics(sourceTextBox: textBoxFactorial, errorMessage: "No factorial result to analyze.");
 
@@ -289,5 +303,8 @@ namespace FactorialForge
 
 		private void ButtonDigitStatisticsSuperfactorial_Click(object sender, EventArgs e)
 			=> ShowDigitStatistics(sourceTextBox: textBoxSuperfactorial, errorMessage: "No superfactorial result to analyze.");
+
+		private void ButtonDigitStatisticsHyperfactorial_Click(object sender, EventArgs e)
+			=> ShowDigitStatistics(sourceTextBox: textBoxHyperfactorial, errorMessage: "No hyperfactorial result to analyze.");
 	}
 }

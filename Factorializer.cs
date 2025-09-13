@@ -87,9 +87,6 @@ namespace FactorialForge
 		/// <remarks>
 		/// Use this method instead of <see cref="FactorialBig"/> when the result is known to be within the range of <see cref="long"/>.
 		/// </remarks>
-		/// <returns>
-		/// The factorial of <paramref name="n"/> as a <see cref="long"/>. Returns 1 if n is 0.
-		/// </returns>
 		public static long Factorial(long n)
 		{
 			CheckNonNegative(n: n);
@@ -416,7 +413,6 @@ namespace FactorialForge
 		/// <remarks>
 		/// Use this method instead of <see cref="RisingFactorialBig"/> when the result is known to be within the range of <see cref="long"/>.
 		/// </remarks>
-
 		public static long RisingFactorial(long x, long n)
 		{
 			CheckNonNegative(n: n);
