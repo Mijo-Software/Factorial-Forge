@@ -328,9 +328,22 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Computes the multi-factorial of a number.
+		/// The multi-factorial of x with step n is defined as the product x * (x - n) * (x - 2n) * ...,
+		/// continuing until the next term would be less than or equal to zero.
+		/// </summary>
+		/// <param name="x">The starting integer for the product. Must be greater than or equal to zero.</param>
+		/// <param name="n">The decrement step for each term in the product. Must be non-negative.</param>
+		/// <returns>
+		/// The multi-factorial of x with step n. Returns 1 if x is less than or equal to zero.
+		/// </returns>
 		public static long MultiFactorial(long x, long n)
 		{
-			CheckNonNegative(n: n);
+			if (n <= 0)
+			{
+				throw new ArgumentOutOfRangeException(paramName: nameof(n), message: "n must be greater than 0 for multi-factorial.");
+			}
 
 			if (x <= 0)
 			{
@@ -346,9 +359,24 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Calculates the multi-factorial of <paramref name="x"/> with step size <paramref name="n"/> using <see cref="BigInteger"/> for large results.
+		/// The multi-factorial of x with step n is defined as x * (x - n) * (x - 2n) * ... until the term is &gt; 0.
+		/// </summary>
+		/// <param name="x">The starting integer for the multi-factorial calculation.</param>
+		/// <param name="n">The decrement step size for each term in the product. Must be non-negative.</param>
+		/// <returns>
+		/// The multi-factorial of x with step n as a <see cref="BigInteger"/>. Returns 1 if x &lt;= 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="MultiFactorial"/> when the result may exceed the range of <see cref="long"/>.
+		/// </remarks>
 		public static BigInteger MultiFactorialBig(long x, long n)
 		{
-			CheckNonNegative(n: n);
+			if (n <= 0)
+			{
+				throw new ArgumentOutOfRangeException(paramName: nameof(n), message: "n must be greater than 0 for multi-factorial.");
+			}
 
 			if (x <= 0)
 			{
