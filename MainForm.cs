@@ -49,6 +49,61 @@ namespace FactorialForge
 			toolStripProgressBar.Visible = false;
 		}
 
+		private void CopyToClipboard(TextBox sourceTextBox)
+		{
+			if (!string.IsNullOrWhiteSpace(value: sourceTextBox.Text))
+			{
+				try
+				{
+					Clipboard.SetText(sourceTextBox.Text);
+					toolStripStatusLabelInfo.Text = "Copied to clipboard.";
+				}
+				catch (System.Runtime.InteropServices.ExternalException)
+				{
+					_ = MessageBox.Show(text: "The clipboard could not be accessed. Please try again.", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+				}
+				catch (Exception ex)
+				{
+					_ = MessageBox.Show(text: $"Error copying to clipboard: {ex.Message}");
+				}
+			}
+		}
+
+		private void SaveToFile(TextBox sourceTextBox, string title)
+		{
+			if (!string.IsNullOrWhiteSpace(value: sourceTextBox.Text))
+			{
+				using SaveFileDialog saveFileDialog = new()
+				{
+					Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
+					Title = title
+				};
+				if (saveFileDialog.ShowDialog() == DialogResult.OK)
+				{
+					try
+					{
+						File.WriteAllText(path: saveFileDialog.FileName, contents: sourceTextBox.Text);
+						toolStripStatusLabelInfo.Text = $"Saved to {saveFileDialog.FileName}.";
+					}
+					catch (Exception ex)
+					{
+						_ = MessageBox.Show(text: $"Error saving file: {ex.Message}");
+					}
+				}
+			}
+		}
+
+		private static void ShowDigitStatistics(TextBox sourceTextBox, string errorMessage)
+		{
+			if (!string.IsNullOrWhiteSpace(value: sourceTextBox.Text))
+			{
+				CountDigits(input: sourceTextBox.Text);
+			}
+			else
+			{
+				_ = MessageBox.Show(text: errorMessage, caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+			}
+		}
 
 		public MainForm()
 		{
@@ -108,339 +163,57 @@ namespace FactorialForge
 		}
 
 		private void ButtonCopyToClipboardFactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxFactorial.Text))
-			{
-				try
-				{
-					Clipboard.SetText(text: textBoxFactorial.Text);
-					toolStripStatusLabelInfo.Text = "Copied to clipboard.";
-				}
-				catch (System.Runtime.InteropServices.ExternalException ex)
-				{
-					_ = MessageBox.Show(text: "The clipboard could not be accessed. Please try again.", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-				}
-				catch (Exception ex)
-				{
-					_ = MessageBox.Show(text: $"Error copying to clipboard: {ex.Message}");
-				}
-			}
-		}
+			=> CopyToClipboard(sourceTextBox: textBoxFactorial);
 
 		private void ButtonCopyToClipboardOddFactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxOddFactorial.Text))
-			{
-				try
-				{
-					Clipboard.SetText(text: textBoxOddFactorial.Text);
-					toolStripStatusLabelInfo.Text = "Copied to clipboard.";
-				}
-				catch (System.Runtime.InteropServices.ExternalException ex)
-				{
-					_ = MessageBox.Show(text: "The clipboard could not be accessed. Please try again.", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-				}
-				catch (Exception ex)
-				{
-					_ = MessageBox.Show(text: $"Error copying to clipboard: {ex.Message}");
-				}
-			}
-		}
+			=> CopyToClipboard(sourceTextBox: textBoxOddFactorial);
 
 		private void ButtonCopyToClipboardEvenFactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxEvenFactorial.Text))
-			{
-				try
-				{
-					Clipboard.SetText(text: textBoxEvenFactorial.Text);
-					toolStripStatusLabelInfo.Text = "Copied to clipboard.";
-				}
-				catch (System.Runtime.InteropServices.ExternalException ex)
-				{
-					_ = MessageBox.Show(text: "The clipboard could not be accessed. Please try again.", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-				}
-				catch (Exception ex)
-				{
-					_ = MessageBox.Show(text: $"Error copying to clipboard: {ex.Message}");
-				}
-			}
-		}
+			=> CopyToClipboard(sourceTextBox: textBoxEvenFactorial);
 
 		private void ButtonCopyToClipboardPrimeFactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxPrimeFactorial.Text))
-			{
-				try
-				{
-					Clipboard.SetText(text: textBoxPrimeFactorial.Text);
-					toolStripStatusLabelInfo.Text = "Copied to clipboard.";
-				}
-				catch (System.Runtime.InteropServices.ExternalException ex)
-				{
-					_ = MessageBox.Show(text: "The clipboard could not be accessed. Please try again.", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-				}
-				catch (Exception ex)
-				{
-					_ = MessageBox.Show(text: $"Error copying to clipboard: {ex.Message}");
-				}
-			}
-		}
+			=> CopyToClipboard(sourceTextBox: textBoxPrimeFactorial);
 
 		private void ButtonCopyToClipboardSubfactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxSubfactorial.Text))
-			{
-				try
-				{
-					Clipboard.SetText(text: textBoxSubfactorial.Text);
-					toolStripStatusLabelInfo.Text = "Copied to clipboard.";
-				}
-				catch (System.Runtime.InteropServices.ExternalException ex)
-				{
-					_ = MessageBox.Show(text: "The clipboard could not be accessed. Please try again.", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-				}
-				catch (Exception ex)
-				{
-					_ = MessageBox.Show(text: $"Error copying to clipboard: {ex.Message}");
-				}
-			}
-		}
+			=> CopyToClipboard(sourceTextBox: textBoxSubfactorial);
 
 		private void ButtonCopyToClipboardDoubleFactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxDoubleFactorial.Text))
-			{
-				try
-				{
-					Clipboard.SetText(text: textBoxDoubleFactorial.Text);
-					toolStripStatusLabelInfo.Text = "Copied to clipboard.";
-				}
-				catch (System.Runtime.InteropServices.ExternalException ex)
-				{
-					_ = MessageBox.Show(text: "The clipboard could not be accessed. Please try again.", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-				}
-				catch (Exception ex)
-				{
-					_ = MessageBox.Show(text: $"Error copying to clipboard: {ex.Message}");
-				}
-			}
-		}
+			=> CopyToClipboard(sourceTextBox: textBoxDoubleFactorial);
 
 		private void ButtonSaveToFileFactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxFactorial.Text))
-			{
-				using SaveFileDialog saveFileDialog = new()
-				{
-					Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
-					Title = "Save Factorial Result"
-				};
-				if (saveFileDialog.ShowDialog() == DialogResult.OK)
-				{
-					try
-					{
-						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxFactorial.Text);
-						toolStripStatusLabelInfo.Text = $"Saved to {saveFileDialog.FileName}.";
-					}
-					catch (Exception ex)
-					{
-						_ = MessageBox.Show(text: $"Error saving file: {ex.Message}");
-					}
-				}
-			}
-		}
+			=> SaveToFile(sourceTextBox: textBoxFactorial, title: "Save Factorial Result");
 
 		private void ButtonSaveToFileOddFactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxOddFactorial.Text))
-			{
-				using SaveFileDialog saveFileDialog = new()
-				{
-					Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
-					Title = "Save Odd Factorial Result"
-				};
-				if (saveFileDialog.ShowDialog() == DialogResult.OK)
-				{
-					try
-					{
-						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxOddFactorial.Text);
-						toolStripStatusLabelInfo.Text = $"Saved to {saveFileDialog.FileName}.";
-					}
-					catch (Exception ex)
-					{
-						_ = MessageBox.Show(text: $"Error saving file: {ex.Message}");
-					}
-				}
-			}
-		}
+			=> SaveToFile(sourceTextBox: textBoxOddFactorial, title: "Save Odd Factorial Result");
 
 		private void ButtonSaveToFileEvenFactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxEvenFactorial.Text))
-			{
-				using SaveFileDialog saveFileDialog = new()
-				{
-					Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
-					Title = "Save Even Factorial Result"
-				};
-				if (saveFileDialog.ShowDialog() == DialogResult.OK)
-				{
-					try
-					{
-						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxEvenFactorial.Text);
-						toolStripStatusLabelInfo.Text = $"Saved to {saveFileDialog.FileName}.";
-					}
-					catch (Exception ex)
-					{
-						_ = MessageBox.Show(text: $"Error saving file: {ex.Message}");
-					}
-				}
-			}
-		}
+			=> SaveToFile(sourceTextBox: textBoxEvenFactorial, title: "Save Even Factorial Result");
 
 		private void ButtonSaveToFilePrimeFactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxPrimeFactorial.Text))
-			{
-				using SaveFileDialog saveFileDialog = new()
-				{
-					Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
-					Title = "Save Prime Factorial Result"
-				};
-				if (saveFileDialog.ShowDialog() == DialogResult.OK)
-				{
-					try
-					{
-						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxPrimeFactorial.Text);
-						toolStripStatusLabelInfo.Text = $"Saved to {saveFileDialog.FileName}.";
-					}
-					catch (Exception ex)
-					{
-						_ = MessageBox.Show(text: $"Error saving file: {ex.Message}");
-					}
-				}
-			}
-		}
+			=> SaveToFile(sourceTextBox: textBoxPrimeFactorial, title: "Save Prime Factorial Result");
 
 		private void ButtonSaveToFileSubfactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxSubfactorial.Text))
-			{
-				using SaveFileDialog saveFileDialog = new()
-				{
-					Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
-					Title = "Save Subfactorial Result"
-				};
-				if (saveFileDialog.ShowDialog() == DialogResult.OK)
-				{
-					try
-					{
-						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxSubfactorial.Text);
-						toolStripStatusLabelInfo.Text = $"Saved to {saveFileDialog.FileName}.";
-					}
-					catch (Exception ex)
-					{
-						_ = MessageBox.Show(text: $"Error saving file: {ex.Message}");
-					}
-				}
-			}
-		}
+			=> SaveToFile(sourceTextBox: textBoxSubfactorial, title: "Save Subfactorial Result");
 
 		private void ButtonSaveToFileDoubleFactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxDoubleFactorial.Text))
-			{
-				using SaveFileDialog saveFileDialog = new()
-				{
-					Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
-					Title = "Save Double Factorial Result"
-				};
-				if (saveFileDialog.ShowDialog() == DialogResult.OK)
-				{
-					try
-					{
-						File.WriteAllText(path: saveFileDialog.FileName, contents: textBoxDoubleFactorial.Text);
-						toolStripStatusLabelInfo.Text = $"Saved to {saveFileDialog.FileName}.";
-					}
-					catch (Exception ex)
-					{
-						_ = MessageBox.Show(text: $"Error saving file: {ex.Message}");
-					}
-				}
-			}
-		}
+			=> SaveToFile(sourceTextBox: textBoxDoubleFactorial, title: "Save Double Factorial Result");
 
 		private void ButtonDigitStatisticsFactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxFactorial.Text))
-			{
-				CountDigits(input: textBoxFactorial.Text);
-			}
-			else
-			{
-				_ = MessageBox.Show(text: "No factorial result to analyze.", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-			}
-		}
+			=> ShowDigitStatistics(sourceTextBox: textBoxFactorial, errorMessage: "No factorial result to analyze.");
 
 		private void ButtonDigitStatisticsOddFactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxOddFactorial.Text))
-			{
-				CountDigits(input: textBoxOddFactorial.Text);
-			}
-			else
-			{
-				_ = MessageBox.Show(text: "No odd factorial result to analyze.", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-			}
-		}
+			=> ShowDigitStatistics(sourceTextBox: textBoxOddFactorial, errorMessage: "No odd factorial result to analyze.");
 
 		private void ButtonDigitStatisticsEvenFactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxEvenFactorial.Text))
-			{
-				CountDigits(input: textBoxEvenFactorial.Text);
-			}
-			else
-			{
-				_ = MessageBox.Show(text: "No even factorial result to analyze.", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-			}
-		}
+			=> ShowDigitStatistics(sourceTextBox: textBoxEvenFactorial, errorMessage: "No even factorial result to analyze.");
 
 		private void ButtonDigitStatisticsPrimeFactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxPrimeFactorial.Text))
-			{
-				CountDigits(input: textBoxPrimeFactorial.Text);
-			}
-			else
-			{
-				_ = MessageBox.Show(text: "No prime factorial result to analyze.", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-			}
-		}
+			=> ShowDigitStatistics(sourceTextBox: textBoxPrimeFactorial, errorMessage: "No prime factorial result to analyze.");
 
 		private void ButtonDigitStatisticsSubfactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxSubfactorial.Text))
-			{
-				CountDigits(input: textBoxSubfactorial.Text);
-			}
-			else
-			{
-				_ = MessageBox.Show(text: "No subfactorial result to analyze.", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-			}
-		}
+			=> ShowDigitStatistics(sourceTextBox: textBoxSubfactorial, errorMessage: "No subfactorial result to analyze.");
 
 		private void ButtonDigitFactorialDoubleFactorial_Click(object sender, EventArgs e)
-		{
-			if (!string.IsNullOrWhiteSpace(value: textBoxDoubleFactorial.Text))
-			{
-				CountDigits(input: textBoxDoubleFactorial.Text);
-			}
-			else
-			{
-				_ = MessageBox.Show(text: "No double factorial result to analyze.", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-			}
-		}
+			=> ShowDigitStatistics(sourceTextBox: textBoxDoubleFactorial, errorMessage: "No double factorial result to analyze.");
 	}
 }
