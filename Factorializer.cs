@@ -327,5 +327,41 @@ namespace FactorialForge
 
 			return result;
 		}
+
+		public static long MultiFactorial(long x, long n)
+		{
+			CheckNonNegative(n: n);
+
+			if (x <= 0)
+			{
+				return 1;
+			}
+
+			long result = 1;
+			for (long i = x; i > 0; i -= n)
+			{
+				result *= i;
+			}
+
+			return result;
+		}
+
+		public static BigInteger MultiFactorialBig(long x, long n)
+		{
+			CheckNonNegative(n: n);
+
+			if (x <= 0)
+			{
+				return BigInteger.One;
+			}
+
+			BigInteger result = BigInteger.One;
+			for (long i = x; i > 0; i -= n)
+			{
+				result *= i;
+			}
+
+			return result;
+		}
 	}
 }
