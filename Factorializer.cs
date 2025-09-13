@@ -392,6 +392,17 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Calculates the superfactorial of <paramref name="n"/> as a <see cref="long"/>.
+		/// The superfactorial of n is defined as the product of the first n factorials: 1! * 2! * ... * n!.
+		/// </summary>
+		/// <param name="n">The upper bound integer for the superfactorial calculation. Must be non-negative.</param>
+		/// <returns>
+		/// The superfactorial of <paramref name="n"/> as a <see cref="long"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// The result may overflow for relatively small values of <paramref name="n"/>. Use <see cref="SuperfactorialBig"/> for large n.
+		/// </remarks>
 		public static long Superfactorial(long n)
 		{
 			long result = 1;
@@ -402,6 +413,17 @@ namespace FactorialForge
 			return result;
 		}
 
+		/// <summary>
+		/// Calculates the superfactorial of <paramref name="n"/> as a <see cref="BigInteger"/>.
+		/// The superfactorial of n is defined as the product of the first n factorials: 1! * 2! * ... * n!.
+		/// </summary>
+		/// <param name="n">The upper bound integer for the superfactorial calculation. Must be non-negative.</param>
+		/// <returns>
+		/// The superfactorial of <paramref name="n"/> as a <see cref="BigInteger"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="Superfactorial"/> when the result may exceed the range of <see cref="long"/>.
+		/// </remarks>
 		public static BigInteger SuperfactorialBig(long n)
 		{
 			BigInteger result = 1;

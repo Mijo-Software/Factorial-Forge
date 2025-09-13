@@ -189,6 +189,14 @@ namespace FactorialForge
 			);
 		}
 
+		private async void NumericUpDownSuperfactorial_ValueChanged(object sender, EventArgs e)
+		{
+			await CalculateAndDisplayAsync(
+				calculation: () => Factorializer.SuperfactorialBig(n: (long)numericUpDownSuperfactorial.Value),
+				targetTextBox: textBoxSuperfactorial
+			);
+		}
+
 		private void NumericUpDownMultiFactorialN_ValueChanged(object sender, EventArgs e)
 			=> NumericUpDownMultiFactorialX_ValueChanged(sender: sender, e: e);
 
@@ -219,6 +227,9 @@ namespace FactorialForge
 		private void ButtonCopyToClipboardMultiFactorial_Click(object sender, EventArgs e)
 			=> CopyToClipboard(sourceTextBox: textBoxMultiFactorial);
 
+		private void ButtonCopyToClipboardSuperfactorial_Click(object sender, EventArgs e)
+			=> CopyToClipboard(sourceTextBox: textBoxSuperfactorial);
+
 		private void ButtonSaveToFileFactorial_Click(object sender, EventArgs e)
 			=> SaveToFile(sourceTextBox: textBoxFactorial, title: "Save Factorial Result");
 
@@ -246,6 +257,9 @@ namespace FactorialForge
 		private void ButtonSaveToFileMultiFactorial_Click(object sender, EventArgs e)
 			=> SaveToFile(sourceTextBox: textBoxMultiFactorial, title: "Save Multi Factorial Result");
 
+		private void ButtonSaveToFileSuperfactorial_Click(object sender, EventArgs e)
+			=> SaveToFile(sourceTextBox: textBoxSuperfactorial, title: "Save Superfactorial Result");
+
 		private void ButtonDigitStatisticsFactorial_Click(object sender, EventArgs e)
 			=> ShowDigitStatistics(sourceTextBox: textBoxFactorial, errorMessage: "No factorial result to analyze.");
 
@@ -272,5 +286,8 @@ namespace FactorialForge
 
 		private void ButtonDigitStatisticsMultiFactorial_Click(object sender, EventArgs e)
 			=> ShowDigitStatistics(sourceTextBox: textBoxMultiFactorial, errorMessage: "No multi factorial result to analyze.");
+
+		private void ButtonDigitStatisticsSuperfactorial_Click(object sender, EventArgs e)
+			=> ShowDigitStatistics(sourceTextBox: textBoxSuperfactorial, errorMessage: "No superfactorial result to analyze.");
 	}
 }
