@@ -92,7 +92,7 @@ namespace FactorialForge
 			return result;
 		}
 
-		public static long EvenFactorial(int n)
+		public static long EvenFactorial(long n)
 		{
 			CheckNonNegative(n: n);
 
