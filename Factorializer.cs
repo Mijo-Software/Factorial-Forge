@@ -36,13 +36,17 @@ namespace FactorialForge
 			return primes;
 		}
 
-
-		public static long Factorial(long n)
+		private static void CheckOverflow(long n)
 		{
 			if (n < 0)
 			{
-				throw new ArgumentException(message: "Factorial is only defined for non-negative integers.");
+				throw new OverflowException(message: "The number is only defined for non-negative integers.");
 			}
+		}
+
+		public static long Factorial(long n)
+		{
+			CheckOverflow(n: n);
 
 			long result = 1;
 			for (long i = 2; i <= n; i++)
@@ -54,10 +58,7 @@ namespace FactorialForge
 
 		public static BigInteger FactorialBig(long n)
 		{
-			if (n < 0)
-			{
-				throw new ArgumentException(message: "Factorial is only defined for non-negative integers.");
-			}
+			CheckOverflow(n: n);
 
 			BigInteger result = BigInteger.One;
 			for (long i = 2; i <= n; i++)
@@ -69,10 +70,7 @@ namespace FactorialForge
 
 		public static long OddFactorial(long n)
 		{
-			if (n < 0)
-			{
-				throw new ArgumentException(message: "Odd factorial is only defined for non-negative integers.");
-			}
+			CheckOverflow(n: n);
 
 			long result = 1;
 			for (long i = 1; i <= n; i += 2)
@@ -84,10 +82,7 @@ namespace FactorialForge
 
 		public static BigInteger OddFactorialBig(long n)
 		{
-			if (n < 0)
-			{
-				throw new ArgumentException(message: "Odd factorial is only defined for non-negative integers.");
-			}
+			CheckOverflow(n: n);
 
 			BigInteger result = BigInteger.One;
 			for (long i = 1; i <= n; i += 2)
@@ -99,10 +94,8 @@ namespace FactorialForge
 
 		public static long EvenFactorial(int n)
 		{
-			if (n < 0)
-			{
-				throw new ArgumentException(message: "Even factorial is only defined for non-negative integers.");
-			}
+			CheckOverflow(n: n);
+
 			long result = 1;
 			for (long i = 2; i <= n; i += 2)
 			{
@@ -113,10 +106,7 @@ namespace FactorialForge
 
 		public static BigInteger EvenFactorialBig(long n)
 		{
-			if (n < 0)
-			{
-				throw new ArgumentException(message: "Even factorial is only defined for non-negative integers.");
-			}
+			CheckOverflow(n: n);
 
 			BigInteger result = BigInteger.One;
 			for (long i = 2; i <= n; i += 2)
@@ -134,6 +124,8 @@ namespace FactorialForge
 		/// </summary>
 		public static long PrimeFactorial(long n)
 		{
+			CheckOverflow(n: n);
+
 			if (n < 2)
 			{
 				return 1;
@@ -150,6 +142,8 @@ namespace FactorialForge
 
 		public static BigInteger PrimeFactorialBig(long n)
 		{
+			CheckOverflow(n: n);
+
 			if (n < 2)
 			{
 				return BigInteger.One;
@@ -166,10 +160,7 @@ namespace FactorialForge
 
 		public static long Subfactorial(long n)
 		{
-			if (n < 0)
-			{
-				throw new ArgumentException(message: "Subfactorial is only defined for non-negative integers.");
-			}
+			CheckOverflow(n: n);
 
 			if (n == 0)
 			{
@@ -198,10 +189,7 @@ namespace FactorialForge
 
 		public static BigInteger SubfactorialBig(long n)
 		{
-			if (n < 0)
-			{
-				throw new ArgumentException(message: "Subfactorial is only defined for non-negative integers.");
-			}
+			CheckOverflow(n: n);
 
 			if (n == 0)
 			{
@@ -229,10 +217,7 @@ namespace FactorialForge
 
 		public static long DoubleFactorial(long n)
 		{
-			if (n < 0)
-			{
-				throw new ArgumentException(message: "Double Factorial is only defined for non-negative integers.");
-			}
+			CheckOverflow(n: n);
 
 			if (n == 0)
 			{
@@ -250,10 +235,7 @@ namespace FactorialForge
 
 		public static BigInteger DoubleFactorialBig(long n)
 		{
-			if (n < 0)
-			{
-				throw new ArgumentException(message: "Double Factorial is only defined for non-negative integers.");
-			}
+			CheckOverflow(n: n);
 
 			if (n == 0)
 			{
