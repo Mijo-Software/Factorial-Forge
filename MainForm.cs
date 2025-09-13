@@ -160,17 +160,25 @@ namespace FactorialForge
 		private async void NumericUpDownRisingFactorial_ValueChanged(object sender, EventArgs e)
 		{
 			await CalculateAndDisplayAsync(
-				calculation: () => Factorializer.RisingFactorialBig(x: (long)numericUpDownRisingFactorial.Value, n: 1),
+				calculation: () => Factorializer.RisingFactorialBig(x: (long)numericUpDownRisingFactorialX.Value,
+				n: (long)numericUpDownRisingFactorialN.Value),
 				targetTextBox: textBoxRisingFactorial
 			);
 		}
 		private async void NumericUpDownFallingFactorial_ValueChanged(object sender, EventArgs e)
 		{
 			await CalculateAndDisplayAsync(
-				calculation: () => Factorializer.FallingFactorialBig(x: (long)numericUpDownFallingFactorial.Value, n: 1),
+				calculation: () => Factorializer.FallingFactorialBig(x: (long)numericUpDownFallingFactorialX.Value,
+				n: (long)numericUpDownFallingFactorialN.Value),
 				targetTextBox: textBoxFallingFactorial
 			);
 		}
+
+		private void NumericUpDownRisingFactorialN_ValueChanged(object sender, EventArgs e)
+			=> NumericUpDownRisingFactorial_ValueChanged(sender: sender, e: e);
+
+		private void NumericUpDownFallingFactorialN_ValueChanged(object sender, EventArgs e)
+			=> NumericUpDownFallingFactorial_ValueChanged(sender: sender, e: e);
 
 		private void ButtonCopyToClipboardFactorial_Click(object sender, EventArgs e)
 			=> CopyToClipboard(sourceTextBox: textBoxFactorial);
