@@ -99,6 +99,13 @@
 			this.labelMultiFactorialX = new Label();
 			this.textBoxMultiFactorial = new TextBox();
 			this.numericUpDownMultiFactorialX = new NumericUpDown();
+			this.tabPageSuperfactorial = new TabPage();
+			this.buttonDigitStatisticsSuperfactorial = new Button();
+			this.buttonSaveToFileSuperfactorial = new Button();
+			this.buttonCopyToClipboardSuperfactorial = new Button();
+			this.labelSuperfactorial = new Label();
+			this.textBoxSuperfactorial = new TextBox();
+			this.numericUpDownSuperfactorial = new NumericUpDown();
 			this.statusStrip = new StatusStrip();
 			this.toolStripStatusLabelInfo = new ToolStripStatusLabel();
 			this.toolStripProgressBar = new ToolStripProgressBar();
@@ -125,6 +132,8 @@
 			this.tabPageMultiFactorial.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownMultiFactorialN).BeginInit();
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownMultiFactorialX).BeginInit();
+			this.tabPageSuperfactorial.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)this.numericUpDownSuperfactorial).BeginInit();
 			this.statusStrip.SuspendLayout();
 			this.toolStripContainer.BottomToolStripPanel.SuspendLayout();
 			this.toolStripContainer.ContentPanel.SuspendLayout();
@@ -143,6 +152,7 @@
 			this.tabControl.Controls.Add(this.tabPageRisingFactorial);
 			this.tabControl.Controls.Add(this.tabPageFallingFactorial);
 			this.tabControl.Controls.Add(this.tabPageMultiFactorial);
+			this.tabControl.Controls.Add(this.tabPageSuperfactorial);
 			this.tabControl.Dock = DockStyle.Fill;
 			this.tabControl.Location = new Point(0, 0);
 			this.tabControl.Multiline = true;
@@ -911,6 +921,7 @@
 			this.numericUpDownMultiFactorialN.Size = new Size(69, 23);
 			this.numericUpDownMultiFactorialN.TabIndex = 11;
 			this.numericUpDownMultiFactorialN.TextAlign = HorizontalAlignment.Center;
+			this.numericUpDownMultiFactorialN.Value = new decimal(new int[] { 1, 0, 0, 0 });
 			this.numericUpDownMultiFactorialN.ValueChanged += this.NumericUpDownMultiFactorialN_ValueChanged;
 			// 
 			// buttonDigitStatisticsMultiFactorial
@@ -982,6 +993,92 @@
 			this.numericUpDownMultiFactorialX.TabIndex = 9;
 			this.numericUpDownMultiFactorialX.TextAlign = HorizontalAlignment.Center;
 			this.numericUpDownMultiFactorialX.ValueChanged += this.NumericUpDownMultiFactorialX_ValueChanged;
+			// 
+			// tabPageSuperfactorial
+			// 
+			this.tabPageSuperfactorial.Controls.Add(this.buttonDigitStatisticsSuperfactorial);
+			this.tabPageSuperfactorial.Controls.Add(this.buttonSaveToFileSuperfactorial);
+			this.tabPageSuperfactorial.Controls.Add(this.buttonCopyToClipboardSuperfactorial);
+			this.tabPageSuperfactorial.Controls.Add(this.labelSuperfactorial);
+			this.tabPageSuperfactorial.Controls.Add(this.textBoxSuperfactorial);
+			this.tabPageSuperfactorial.Controls.Add(this.numericUpDownSuperfactorial);
+			this.tabPageSuperfactorial.Location = new Point(4, 53);
+			this.tabPageSuperfactorial.Name = "tabPageSuperfactorial";
+			this.tabPageSuperfactorial.Padding = new Padding(3);
+			this.tabPageSuperfactorial.Size = new Size(711, 307);
+			this.tabPageSuperfactorial.TabIndex = 9;
+			this.tabPageSuperfactorial.Text = "Superfactorial";
+			this.tabPageSuperfactorial.UseVisualStyleBackColor = true;
+			// 
+			// buttonDigitStatisticsSuperfactorial
+			// 
+			this.buttonDigitStatisticsSuperfactorial.Image = (Image)resources.GetObject("buttonDigitStatisticsSuperfactorial.Image");
+			this.buttonDigitStatisticsSuperfactorial.Location = new Point(589, 3);
+			this.buttonDigitStatisticsSuperfactorial.Name = "buttonDigitStatisticsSuperfactorial";
+			this.buttonDigitStatisticsSuperfactorial.Size = new Size(119, 24);
+			this.buttonDigitStatisticsSuperfactorial.TabIndex = 23;
+			this.buttonDigitStatisticsSuperfactorial.Text = "Digit statistics";
+			this.buttonDigitStatisticsSuperfactorial.TextAlign = ContentAlignment.MiddleRight;
+			this.buttonDigitStatisticsSuperfactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
+			this.buttonDigitStatisticsSuperfactorial.UseVisualStyleBackColor = true;
+			this.buttonDigitStatisticsSuperfactorial.Click += this.ButtonDigitStatisticsSuperfactorial_Click;
+			// 
+			// buttonSaveToFileSuperfactorial
+			// 
+			this.buttonSaveToFileSuperfactorial.Image = (Image)resources.GetObject("buttonSaveToFileSuperfactorial.Image");
+			this.buttonSaveToFileSuperfactorial.Location = new Point(493, 3);
+			this.buttonSaveToFileSuperfactorial.Name = "buttonSaveToFileSuperfactorial";
+			this.buttonSaveToFileSuperfactorial.Size = new Size(90, 24);
+			this.buttonSaveToFileSuperfactorial.TabIndex = 22;
+			this.buttonSaveToFileSuperfactorial.Text = "Save to file";
+			this.buttonSaveToFileSuperfactorial.TextAlign = ContentAlignment.MiddleRight;
+			this.buttonSaveToFileSuperfactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
+			this.buttonSaveToFileSuperfactorial.UseVisualStyleBackColor = true;
+			this.buttonSaveToFileSuperfactorial.Click += this.ButtonSaveToFileSuperfactorial_Click;
+			// 
+			// buttonCopyToClipboardSuperfactorial
+			// 
+			this.buttonCopyToClipboardSuperfactorial.Image = (Image)resources.GetObject("buttonCopyToClipboardSuperfactorial.Image");
+			this.buttonCopyToClipboardSuperfactorial.Location = new Point(357, 3);
+			this.buttonCopyToClipboardSuperfactorial.Name = "buttonCopyToClipboardSuperfactorial";
+			this.buttonCopyToClipboardSuperfactorial.Size = new Size(130, 24);
+			this.buttonCopyToClipboardSuperfactorial.TabIndex = 21;
+			this.buttonCopyToClipboardSuperfactorial.Text = "Copy to clipboard";
+			this.buttonCopyToClipboardSuperfactorial.TextAlign = ContentAlignment.MiddleRight;
+			this.buttonCopyToClipboardSuperfactorial.TextImageRelation = TextImageRelation.ImageBeforeText;
+			this.buttonCopyToClipboardSuperfactorial.UseVisualStyleBackColor = true;
+			this.buttonCopyToClipboardSuperfactorial.Click += this.ButtonCopyToClipboardSuperfactorial_Click;
+			// 
+			// labelSuperfactorial
+			// 
+			this.labelSuperfactorial.AutoSize = true;
+			this.labelSuperfactorial.Location = new Point(8, 8);
+			this.labelSuperfactorial.Name = "labelSuperfactorial";
+			this.labelSuperfactorial.Size = new Size(66, 15);
+			this.labelSuperfactorial.TabIndex = 16;
+			this.labelSuperfactorial.Text = "x[0..99999]:";
+			// 
+			// textBoxSuperfactorial
+			// 
+			this.textBoxSuperfactorial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			this.textBoxSuperfactorial.Location = new Point(3, 35);
+			this.textBoxSuperfactorial.MaxLength = int.MaxValue;
+			this.textBoxSuperfactorial.Multiline = true;
+			this.textBoxSuperfactorial.Name = "textBoxSuperfactorial";
+			this.textBoxSuperfactorial.PlaceholderText = "Superfactorial";
+			this.textBoxSuperfactorial.ScrollBars = ScrollBars.Vertical;
+			this.textBoxSuperfactorial.Size = new Size(705, 269);
+			this.textBoxSuperfactorial.TabIndex = 20;
+			// 
+			// numericUpDownSuperfactorial
+			// 
+			this.numericUpDownSuperfactorial.Location = new Point(81, 3);
+			this.numericUpDownSuperfactorial.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownSuperfactorial.Name = "numericUpDownSuperfactorial";
+			this.numericUpDownSuperfactorial.Size = new Size(69, 23);
+			this.numericUpDownSuperfactorial.TabIndex = 17;
+			this.numericUpDownSuperfactorial.TextAlign = HorizontalAlignment.Center;
+			this.numericUpDownSuperfactorial.ValueChanged += this.NumericUpDownSuperfactorial_ValueChanged;
 			// 
 			// statusStrip
 			// 
@@ -1069,6 +1166,9 @@
 			this.tabPageMultiFactorial.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownMultiFactorialN).EndInit();
 			((System.ComponentModel.ISupportInitialize)this.numericUpDownMultiFactorialX).EndInit();
+			this.tabPageSuperfactorial.ResumeLayout(false);
+			this.tabPageSuperfactorial.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)this.numericUpDownSuperfactorial).EndInit();
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();
 			this.toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
@@ -1155,5 +1255,12 @@
 		private Label labelMultiFactorialX;
 		private TextBox textBoxMultiFactorial;
 		private NumericUpDown numericUpDownMultiFactorialX;
+		private TabPage tabPageSuperfactorial;
+		private Button buttonDigitStatisticsSuperfactorial;
+		private Button buttonSaveToFileSuperfactorial;
+		private Button buttonCopyToClipboardSuperfactorial;
+		private Label labelSuperfactorial;
+		private TextBox textBoxSuperfactorial;
+		private NumericUpDown numericUpDownSuperfactorial;
 	}
 }
