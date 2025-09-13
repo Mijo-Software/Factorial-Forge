@@ -58,9 +58,9 @@ namespace FactorialForge
 					Clipboard.SetText(sourceTextBox.Text);
 					toolStripStatusLabelInfo.Text = "Copied to clipboard.";
 				}
-				catch (System.Runtime.InteropServices.ExternalException)
+				catch (System.Runtime.InteropServices.ExternalException ex)
 				{
-					_ = MessageBox.Show(text: "The clipboard could not be accessed. Please try again.", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+					_ = MessageBox.Show(text: $"The clipboard could not be accessed. Please try again.\nError: {ex.Message}", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 				}
 				catch (Exception ex)
 				{
