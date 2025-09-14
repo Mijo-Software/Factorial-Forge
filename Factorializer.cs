@@ -1,7 +1,16 @@
 ﻿using System.Numerics;
 
+/// <summary>
+/// The FactorialForge namespace contains classes and logic for advanced factorial calculations,
+/// digit statistics analysis, and user interface components for displaying and exporting results.
+/// </summary>
 namespace FactorialForge
 {
+	/// <summary>
+	/// Provides static methods for calculating various types of factorials and related mathematical functions.
+	/// Includes support for standard, odd, even, prime, subfactorial, double, rising, falling, multi, super, and hyperfactorials.
+	/// Offers both long and BigInteger variants for handling large results.
+	/// </summary>
 	internal class Factorializer
 	{
 		/// <summary>
