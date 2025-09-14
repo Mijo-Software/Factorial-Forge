@@ -20,33 +20,92 @@ namespace FactorialForge
 		/// <returns>A list of all prime numbers less than or equal to n.</returns>
 		private static List<long> PrimesUpTo(long n)
 		{
+			// Sieve of Eratosthenes
 			if (n < 2)
 			{
+				// No primes less than 2
 				return [];
 			}
+			// Initialize a boolean array to track prime status
 			bool[] isPrime = new bool[n + 1];
+			// Assume all numbers are prime initially
+			// Set 0 and 1 to non-prime
+			// Start from 2, the first prime number
+			// Mark all numbers from 2 to n as prime
+			// This initialization step is crucial for the sieve algorithm
+			// The array index represents the number itself
+			// True means prime, false means non-prime
+			// We will later mark non-prime numbers as false
+			// This is a classic implementation of the Sieve of Eratosthenes algorithm
+			// It efficiently finds all primes up to n in O(n log log n) time
+			// This method is efficient for reasonably large values of n
+			// For very large n, more advanced algorithms may be needed
+			// The space complexity is O(n) due to the boolean array
+			// This is acceptable for n in the range of typical factorial calculations
 			for (long i = 2; i <= n; i++)
 			{
 				isPrime[i] = true;
 			}
+			// Sieve out non-prime numbers
 			for (long i = 2; i * i <= n; i++)
 			{
+				// If i is still marked as prime, mark its multiples as non-prime
+				// Start marking from i * i, as all smaller multiples will have already been marked
+				// This optimization reduces the number of iterations
+				// We can skip even numbers by starting from i * i and incrementing by 2 * i
+				// This is valid because all even numbers greater than 2 are not prime
+				// However, for simplicity, we will keep the standard increment of i
+				// This is a classic implementation of the Sieve of Eratosthenes algorithm
+				// It efficiently finds all primes up to n in O(n log log n) time
+				// This method is efficient for reasonably large values of n
+				// For very large n, more advanced algorithms may be needed
+				// However, for the purpose of this application, this implementation is sufficient
+				// The space complexity is O(n) due to the boolean array
+				// This is acceptable for n in the range of typical factorial calculations
+				// The algorithm can be further optimized, but this version is clear and easy to understand
+				// It is a good balance between performance and simplicity
+				// The resulting list of primes can be used for various mathematical computations
+				// including prime factorization and prime counting functions
 				if (isPrime[i])
 				{
+					// Mark all multiples of i as non-prime
+					// Start from i * i to avoid redundant work
+					// Increment by i to mark all multiples
+					// This inner loop runs in O(n/i) time for each prime i
+					// The overall time complexity remains O(n log log n)
+					// The method completes when all non-prime numbers are marked
+					// The final step is to collect all indices still marked as prime
+					// into a list to return to the caller
+					// This completes the sieve process
+					// The list of primes can then be used for further calculations
+					// The method returns a list of all prime numbers up to n
+					// This is a well-known and widely used algorithm in number theory
+					// It is efficient and effective for finding primes in a given range
 					for (long j = i * i; j <= n; j += i)
 					{
+						// Mark j as non-prime
 						isPrime[j] = false;
 					}
 				}
 			}
+			// Collect all prime numbers into a list
 			List<long> primes = [];
+			// Iterate through the boolean array and add indices marked as prime to the list
+			// Start from 2, as 0 and 1 are not prime
+			// This final step gathers the results of the sieve into a usable format
+			// The list of primes can then be returned to the caller
+			// This completes the Sieve of Eratosthenes algorithm
+			// The method returns a list of all prime numbers up to n
 			for (long i = 2; i <= n; i++)
 			{
+				// If i is still marked as prime, add it to the list
 				if (isPrime[i])
 				{
+					// Add i to the list of primes
 					primes.Add(item: i);
 				}
 			}
+			// Return the list of prime numbers
 			return primes;
 		}
 
@@ -60,9 +119,33 @@ namespace FactorialForge
 		/// </remarks>
 		private static void CheckNonNegative(long n)
 		{
+			// Factorials and related functions are only defined for non-negative integers
+			// Throw an exception if n is negative
+			// This ensures that the input is valid for factorial calculations
+			// The method does not return a value; it only performs validation
 			if (n < 0)
 			{
+				// Throw an exception with a descriptive message
 				throw new OverflowException(message: "The number is only defined for non-negative integers.");
+			}
+		}
+
+		/// <summary>
+		/// Checks if a given number is positive.
+		/// Throws an <see cref="OverflowException"/> if n is not greater than 0.
+		/// This method is used to validate that the input is a positive integer for functions that require it.
+		/// </summary>
+		/// <param name="n">The number to check.</param>
+		private static void CheckPositive(long n)
+		{
+			// Some functions are only defined for positive integers
+			// Throw an exception if n is not positive
+			// This ensures that the input is valid for these calculations
+			// The method does not return a value; it only performs validation
+			if (n <= 0)
+			{
+				// Throw an exception with a descriptive message
+				throw new OverflowException(message: "The number is only defined for positive integers.");
 			}
 		}
 
@@ -74,15 +157,44 @@ namespace FactorialForge
 		/// <returns>The result of baseValue raised to the power of exp.</returns>
 		private static long PowInt(long baseValue, long exp)
 		{
+			// Validate that the exponent is non-negative
+			// This method does not handle negative exponents
+			// If exp is negative, throw an exception
+			// This ensures that the method is used correctly
+			// The method uses a simple loop to compute the power
+			// This is not the most efficient method for large exponents
+			// but it is straightforward and easy to understand
+			// For large exponents, consider using a more efficient algorithm
+			// such as exponentiation by squaring
 			if (exp < 0)
 			{
+				// Throw an exception with a descriptive message
 				throw new ArgumentOutOfRangeException(paramName: nameof(exp), message: "Exponent must be non-negative.");
 			}
+			// Initialize the result to 1 (base case for exponentiation)
 			long result = 1;
+			// Multiply the result by the base value exp times
+			// This loop runs exp times
+			// Each iteration multiplies the current result by the base value
+			// The final result is baseValue raised to the power of exp
+			// The time complexity is O(exp)
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed power
+			// If exp is 0, the result remains 1 (base^0 = 1)
+			// For exp > 0, the loop computes the product
+			// The method does not handle overflow; it is the caller's responsibility to ensure the result fits in a long
+			// The maximum value of exp for which baseValue^exp fits in a long depends on baseValue
+			// For example, 2^63 fits in a long, but 3^40 does not
+			// Use this method for small exponents where the result is known to fit in a long
+			// For larger exponents, consider using BigInteger.Pow
+			// This method is a simple implementation of integer exponentiation
+			// It is suitable for educational purposes and small calculations
 			for (long j = 0; j < exp; j++)
 			{
+				// Multiply the current result by the base value
 				result *= baseValue;
 			}
+			// Return the computed power
 			return result;
 		}
 
@@ -98,13 +210,38 @@ namespace FactorialForge
 		/// </remarks>
 		public static long Factorial(long n)
 		{
+			// Validate that n is non-negative
 			CheckNonNegative(n: n);
-
+			// Initialize the result to 1 (0! = 1)
 			long result = 1;
+			// Compute the factorial iteratively
+			// This avoids the risk of stack overflow from recursion
+			// The loop runs from 2 to n, multiplying the result by each integer
+			// This is a straightforward implementation of the factorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, consider using BigInteger to avoid overflow
+			// The time complexity is O(n), which is acceptable for typical factorial calculations
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed factorial
+			// If n is 0 or 1, the result remains 1
+			// For n >= 2, the loop computes the product
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which n! fits in a long is 20
+			// Beyond that, use FactorialBig for larger results
+			// The factorial of n is defined as the product of all positive integers up to n
+			// For example, Factorial(5) = 1 * 2 * 3 * 4 * 5 = 120
+			// The method can handle small values of n efficiently
+			// The maximum value of n is constrained by the risk of overflow in the result
+			// Use this method for small factorial calculations where the result is known to fit in a long
+			// The method is a simple implementation of the factorial function
+			// It is suitable for educational purposes and small calculations
+			// The method completes when all integers up to n have been multiplied
 			for (long i = 2; i <= n; i++)
 			{
+				// Multiply the current result by i
 				result *= i;
 			}
+			// Return the computed factorial
 			return result;
 		}
 
@@ -120,13 +257,38 @@ namespace FactorialForge
 		/// </remarks>
 		public static BigInteger FactorialBig(long n)
 		{
+			// Validate that n is non-negative
 			CheckNonNegative(n: n);
-
+			// Initialize the result to 1 (0! = 1)
 			BigInteger result = BigInteger.One;
+			// Compute the factorial iteratively
+			// This avoids the risk of stack overflow from recursion
+			// The loop runs from 2 to n, multiplying the result by each integer
+			// This is a straightforward implementation of the factorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, BigInteger handles the large results without overflow
+			// The time complexity is O(n), which is acceptable for typical factorial calculations
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed factorial
+			// If n is 0 or 1, the result remains 1
+			// For n >= 2, the loop computes the product
+			// The method can handle very large values of n, limited only by system memory
+			// The maximum value of n is constrained by practical computation time and memory usage
+			// Use this method for large factorial calculations where the result exceeds the range of long
+			// This method is a simple implementation of the factorial function using BigInteger
+			// It is suitable for applications requiring high precision and large number handling
+			// The method completes when all integers up to n have been multiplied
+			// The maximum value of n for which n! fits in a long is 20
+			// Beyond that, use FactorialBig for larger results
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The factorial of n is defined as the product of all positive integers up to n
+			// For example, FactorialBig(5) = 1 * 2 * 3 * 4 * 5 = 120
 			for (long i = 2; i <= n; i++)
 			{
+				// Multiply the current result by i
 				result *= i;
 			}
+			// Return the computed factorial
 			return result;
 		}
 
@@ -142,13 +304,37 @@ namespace FactorialForge
 		/// </remarks>
 		public static long OddFactorial(long n)
 		{
+			// Validate that n is non-negative
 			CheckNonNegative(n: n);
-
+			// Initialize the result to 1 (0! = 1)
 			long result = 1;
+			// Compute the odd factorial iteratively
+			// The loop runs from 1 to n, incrementing by 2 to include only odd integers
+			// This is a straightforward implementation of the odd factorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, consider using BigInteger to avoid overflow
+			// The time complexity is O(n/2), which simplifies to O(n)
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed odd factorial
+			// If n is 0, the result remains 1
+			// For n >= 1, the loop computes the product of odd integers
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the odd factorial fits in a long is relatively small
+			// Beyond that, use OddFactorialBig for larger results
+			// The odd factorial of n is defined as the product of all odd integers up to n
+			// For example, OddFactorial(7) = 1 * 3 * 5 * 7 = 105
+			// The method can handle small values of n efficiently
+			// The maximum value of n is constrained by the risk of overflow in the result
+			// Use this method for small odd factorial calculations where the result is known to fit in a long
+			// The method is a simple implementation of the odd factorial function
+			// It is suitable for educational purposes and small calculations
+			// The method completes when all odd integers up to n have been multiplied
 			for (long i = 1; i <= n; i += 2)
 			{
+				// Multiply the current result by i
 				result *= i;
 			}
+			// Return the computed odd factorial
 			return result;
 		}
 
@@ -164,13 +350,37 @@ namespace FactorialForge
 		/// </remarks>
 		public static BigInteger OddFactorialBig(long n)
 		{
+			// Validate that n is non-negative
 			CheckNonNegative(n: n);
-
+			// Initialize the result to 1 (0! = 1)
 			BigInteger result = BigInteger.One;
+			// Compute the odd factorial iteratively
+			// The loop runs from 1 to n, incrementing by 2 to include only odd integers
+			// This is a straightforward implementation of the odd factorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, BigInteger handles the large results without overflow
+			// The time complexity is O(n/2), which simplifies to O(n)
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed odd factorial
+			// If n is 0, the result remains 1
+			// For n >= 1, the loop computes the product of odd integers
+			// The method can handle very large values of n, limited only by system memory
+			// The maximum value of n is constrained by practical computation time and memory usage
+			// Use this method for large odd factorial calculations where the result exceeds the range of long
+			// The odd factorial of n is defined as the product of all odd integers up to n
+			// For example, OddFactorialBig(7) = 1 * 3 * 5 * 7 = 105
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the odd factorial fits in a long is relatively small
+			// Beyond that, use OddFactorialBig for larger results
+			// The method is a simple implementation of the odd factorial function using BigInteger
+			// It is suitable for applications requiring high precision and large number handling
+			// The method completes when all odd integers up to n have been multiplied
 			for (long i = 1; i <= n; i += 2)
 			{
+				// Multiply the current result by i
 				result *= i;
 			}
+			// Return the computed odd factorial
 			return result;
 		}
 
@@ -186,13 +396,37 @@ namespace FactorialForge
 		/// </remarks>
 		public static long EvenFactorial(long n)
 		{
+			// Validate that n is non-negative
 			CheckNonNegative(n: n);
-
+			// Initialize the result to 1 (0! = 1)
 			long result = 1;
+			// Compute the even factorial iteratively
+			// The loop runs from 2 to n, incrementing by 2 to include only even integers
+			// This is a straightforward implementation of the even factorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, consider using BigInteger to avoid overflow
+			// The time complexity is O(n/2), which simplifies to O(n)
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed even factorial
+			// If n is 0, the result remains 1
+			// For n >= 2, the loop computes the product of even integers
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the even factorial fits in a long is relatively small
+			// Beyond that, use EvenFactorialBig for larger results
+			// The even factorial of n is defined as the product of all even integers up to n
+			// For example, EvenFactorial(8) = 2 * 4 * 6 * 8 = 384
+			// The method can handle small values of n efficiently
+			// The maximum value of n is constrained by the risk of overflow in the result
+			// Use this method for small even factorial calculations where the result is known to fit in a long
+			// The method is a simple implementation of the even factorial function
+			// It is suitable for educational purposes and small calculations
+			// The method completes when all even integers up to n have been multiplied
 			for (long i = 2; i <= n; i += 2)
 			{
+				// Multiply the current result by i
 				result *= i;
 			}
+			// Return the computed even factorial
 			return result;
 		}
 
@@ -208,13 +442,37 @@ namespace FactorialForge
 		/// </remarks>
 		public static BigInteger EvenFactorialBig(long n)
 		{
+			// Validate that n is non-negative
 			CheckNonNegative(n: n);
-
+			// Initialize the result to 1 (0! = 1)
 			BigInteger result = BigInteger.One;
+			// Compute the even factorial iteratively
+			// The loop runs from 2 to n, incrementing by 2 to include only even integers
+			// This is a straightforward implementation of the even factorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, BigInteger handles the large results without overflow
+			// The time complexity is O(n/2), which simplifies to O(n)
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed even factorial
+			// If n is 0, the result remains 1
+			// For n >= 2, the loop computes the product of even integers
+			// The method can handle very large values of n, limited only by system memory
+			// The maximum value of n is constrained by practical computation time and memory usage
+			// Use this method for large even factorial calculations where the result exceeds the range of long
+			// The even factorial of n is defined as the product of all even integers up to n
+			// For example, EvenFactorialBig(8) = 2 * 4 * 6 * 8 = 384
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the even factorial fits in a long is relatively small
+			// Beyond that, use EvenFactorialBig for larger results
+			// The method is a simple implementation of the even factorial function using BigInteger
+			// It is suitable for applications requiring high precision and large number handling
+			// The method completes when all even integers up to n have been multiplied
 			for (long i = 2; i <= n; i += 2)
 			{
+				// Multiply the current result by i
 				result *= i;
 			}
+			// Return the computed even factorial
 			return result;
 		}
 
@@ -233,19 +491,41 @@ namespace FactorialForge
 		/// </remarks>
 		public static long PrimeFactorial(long n)
 		{
+			// Validate that n is non-negative
 			CheckNonNegative(n: n);
-
+			// The prime factorial is the product of all prime numbers up to n
+			// If n < 2, the result is 1 (the empty product)
 			if (n < 2)
 			{
+				// Return 1 for n < 2
 				return 1;
 			}
-
+			// Compute the prime factorial by multiplying all primes up to n
 			long result = 1;
+			// Use the PrimesUpTo method to get all primes up to n
+			// Multiply each prime into the result
+			// This is a straightforward implementation of the prime factorial function
+			// It is efficient for reasonably small values of n
+			// The time complexity is O(m), where m is the number of primes up to n
+			// The space complexity is O(m) due to the list of primes
+			// The method returns the computed prime factorial
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the prime factorial fits in a long is relatively small
+			// Beyond that, use PrimeFactorialBig for larger results
+			// The prime factorial of n is defined as the product of all prime numbers less than or equal to n
+			// For example, PrimeFactorial(5) = 2 * 3 * 5 = 30
+			// The method can handle small values of n efficiently
+			// The maximum value of n is constrained by the risk of overflow in the result
+			// Use this method for small prime factorial calculations where the result is known to fit in a long
+			// The method is a simple implementation of the prime factorial function
+			// It is suitable for educational purposes and small calculations
+			// The method completes when all primes up to n have been multiplied
 			foreach (long prime in PrimesUpTo(n: n))
 			{
+				// Multiply the current result by the prime
 				result *= prime;
 			}
-
+			// Return the computed prime factorial
 			return result;
 		}
 
@@ -261,19 +541,39 @@ namespace FactorialForge
 		/// </remarks>
 		public static BigInteger PrimeFactorialBig(long n)
 		{
+			// Validate that n is non-negative
 			CheckNonNegative(n: n);
-
+			// The prime factorial is the product of all prime numbers up to n
+			// If n < 2, the result is 1 (the empty product)
 			if (n < 2)
 			{
+				// Return 1 for n < 2
 				return BigInteger.One;
 			}
-
+			// Compute the prime factorial by multiplying all primes up to n
 			BigInteger result = BigInteger.One;
+			// Use the PrimesUpTo method to get all primes up to n
+			// Multiply each prime into the result
+			// This is a straightforward implementation of the prime factorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, BigInteger handles the large results without overflow
+			// The time complexity is O(m), where m is the number of primes up to n
+			// The space complexity is O(m) due to the list of primes
+			// The method returns the computed prime factorial
+			// The prime factorial of n is defined as the product of all prime numbers less than or equal to n
+			// For example, PrimeFactorialBig(5) = 2 * 3 * 5 = 30
+			// The method can handle very large values of n, limited only by system memory
+			// The maximum value of n is constrained by practical computation time and memory usage
+			// Use this method for large prime factorial calculations where the result exceeds the range of long
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the prime factorial fits in a long is relatively small
+			// Beyond that, use PrimeFactorialBig for larger results
 			foreach (long prime in PrimesUpTo(n: n))
 			{
+				// Multiply the current result by the prime
 				result *= prime;
 			}
-
+			// Return the computed prime factorial
 			return result;
 		}
 
@@ -289,29 +589,56 @@ namespace FactorialForge
 		/// </remarks>
 		public static long Subfactorial(long n)
 		{
+			// Validate that n is non-negative
 			CheckNonNegative(n: n);
-
+			// Base cases
 			if (n == 0)
 			{
-				return 1; // !0 = 1
+				// Return 1 for n = 0; !0 = 1
+				return 1;
 			}
-
 			if (n == 1)
 			{
-				return 0; // !1 = 0
+				// Return 0 for n = 1; !1 = 0
+				return 0;
 			}
-
+			// Use an iterative approach to compute the subfactorial
 			long a = 1;  // !0
 			long b = 0; // !1
 			long result = 0;
-
+			// Compute !n using the recurrence relation:
+			// !n = (n-1)(!(n-1) + !(n-2))
+			// This avoids the risk of stack overflow from recursion
+			// The loop runs from 2 to n, updating the values of a and b
+			// This is a straightforward implementation of the subfactorial function
+			// It is efficient for reasonably small values of n
+			// The time complexity is O(n), which is acceptable for typical subfactorial calculations
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed subfactorial
+			// If n is 0 or 1, the result is handled by the base cases
+			// For n >= 2, the loop computes the subfactorial using the recurrence relation
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which !n fits in a long is relatively small
+			// Beyond that, use SubfactorialBig for larger results
+			// The subfactorial of n is defined as the number of derangements of n items
+			// For example, Subfactorial(4) = 9
+			// The sequence of subfactorials starts as 1, 0, 1, 2, 9, 44, ...
+			// The method can handle small values of n efficiently
+			// The maximum value of n is constrained by the risk of overflow in the result
+			// Use this method for small subfactorial calculations where the result is known to fit in a long
+			// The method is a simple implementation of the subfactorial function
+			// It is suitable for educational purposes and small calculations
+			// The method completes when the subfactorial for n has been computed
 			for (long i = 2; i <= n; i++)
 			{
-				result = (i - 1) * (a + b); // !n = (n-1)(!(n-1) + !(n-2))
+				// Update result using the recurrence relation
+				// !n = (n-1)(!(n-1) + !(n-2))
+				result = (i - 1) * (a + b);
+				// Shift a and b for the next iteration
 				a = b;
 				b = result;
 			}
-
+			// Return the computed subfactorial
 			return result;
 		}
 
@@ -327,29 +654,57 @@ namespace FactorialForge
 		/// </remarks>
 		public static BigInteger SubfactorialBig(long n)
 		{
+			// Validate that n is non-negative
 			CheckNonNegative(n: n);
-
+			// Base cases
 			if (n == 0)
 			{
-				return BigInteger.One; // !0 = 1
+				// Return 1 for n = 0; !0 = 1
+				return BigInteger.One;
 			}
-
 			if (n == 1)
 			{
-				return BigInteger.Zero; // !1 = 0
+				// Return 0 for n = 1; !1 = 0
+				return BigInteger.Zero;
 			}
-
-			BigInteger a = BigInteger.One;  // !0
-			BigInteger b = BigInteger.Zero; // !1
+			// Use an iterative approach to compute the subfactorial
+			// !0 = 1
+			BigInteger a = BigInteger.One;
+			// !1 = 0
+			BigInteger b = BigInteger.Zero;
+			// Initialize result
 			BigInteger result = BigInteger.Zero;
-
+			// Compute !n using the recurrence relation:
+			// !n = (n-1)(!(n-1) + !(n-2))
+			// This avoids the risk of stack overflow from recursion
+			// The loop runs from 2 to n, updating the values of a and b
+			// This is a straightforward implementation of the subfactorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, BigInteger handles the large results without overflow
+			// The time complexity is O(n), which is acceptable for typical subfactorial calculations
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed subfactorial
+			// If n is 0 or 1, the result is handled by the base cases
+			// For n >= 2, the loop computes the subfactorial using the recurrence relation
+			// The method can handle very large values of n, limited only by system memory
+			// The maximum value of n is constrained by practical computation time and memory usage
+			// Use this method for large subfactorial calculations where the result exceeds the range of long
+			// The subfactorial of n is defined as the number of derangements of n items
+			// For example, SubfactorialBig(4) = 9
+			// The sequence of subfactorials starts as 1, 0, 1, 2, 9, 44, ...
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which !n fits in a long is relatively small
+			// Beyond that, use SubfactorialBig for larger results
 			for (long i = 2; i <= n; i++)
 			{
-				result = (i - 1) * (a + b); // !n = (n-1)(!(n-1) + !(n-2))
+				// Update result using the recurrence relation
+				// !n = (n-1)(!(n-1) + !(n-2))
+				result = (i - 1) * (a + b);
+				// Shift a and b for the next iteration
 				a = b;
 				b = result;
 			}
-
+			// Return the computed subfactorial
 			return result;
 		}
 
@@ -365,19 +720,43 @@ namespace FactorialForge
 		/// </remarks>
 		public static long DoubleFactorial(long n)
 		{
+			// Validate that n is non-negative
 			CheckNonNegative(n: n);
-
+			// Base case
 			if (n == 0)
 			{
+				// Base case: double factorial of 0 is 1
 				return 1;
 			}
-
+			// Initialize the result to 1
 			long result = 1;
+			// Compute the double factorial iteratively
+			// The loop runs from n down to 1, decrementing by 2 to include every second integer
+			// This is a straightforward implementation of the double factorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, consider using BigInteger to avoid overflow
+			// The time complexity is O(n/2), which simplifies to O(n)
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed double factorial
+			// If n is 0, the result remains 1
+			// For n >= 1, the loop computes the product of every second integer
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the double factorial fits in a long is relatively small
+			// Beyond that, use DoubleFactorialBig for larger results
+			// The double factorial of n is defined as the product of all integers from n down to 1 that have the same parity as n
+			// For example, DoubleFactorial(7) = 7 * 5 * 3 * 1 = 105
+			// The method can handle small values of n efficiently
+			// The maximum value of n is constrained by the risk of overflow in the result
+			// Use this method for small double factorial calculations where the result is known to fit in a long
+			// The method is a simple implementation of the double factorial function
+			// It is suitable for educational purposes and small calculations
+			// The method completes when all relevant integers up to n have been multiplied
 			for (long i = n; i > 1; i -= 2)
 			{
+				// Multiply the current result by i
 				result *= i;
 			}
-
+			// Return the computed double factorial
 			return result;
 		}
 
@@ -393,19 +772,43 @@ namespace FactorialForge
 		/// </remarks>
 		public static BigInteger DoubleFactorialBig(long n)
 		{
+			// Validate that n is non-negative
 			CheckNonNegative(n: n);
-
+			// Base case
 			if (n == 0)
 			{
+				// Base case: double factorial of 0 is 1
 				return BigInteger.One;
 			}
-
+			// Initialize the result to 1
 			BigInteger result = BigInteger.One;
+			// Compute the double factorial iteratively
+			// The loop runs from n down to 1, decrementing by 2 to include every second integer
+			// This is a straightforward implementation of the double factorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, BigInteger handles the large results without overflow
+			// The time complexity is O(n/2), which simplifies to O(n)
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed double factorial
+			// If n is 0, the result remains 1
+			// For n >= 1, the loop computes the product of every second integer
+			// The method can handle very large values of n, limited only by system memory
+			// The maximum value of n is constrained by practical computation time and memory usage
+			// Use this method for large double factorial calculations where the result exceeds the range of long
+			// The double factorial of n is defined as the product of all integers from n down to 1 that have the same parity as n
+			// For example, DoubleFactorialBig(7) = 7 * 5 * 3 * 1 = 105
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the double factorial fits in a long is relatively small
+			// Beyond that, use DoubleFactorialBig for larger results
+			// The method is a simple implementation of the double factorial function using BigInteger
+			// It is suitable for applications requiring high precision and large number handling
+			// The method completes when all relevant integers up to n have been multiplied
 			for (long i = n; i > 1; i -= 2)
 			{
+				// Multiply the current result by i
 				result *= i;
 			}
-
+			// Return the computed double factorial
 			return result;
 		}
 
@@ -424,19 +827,45 @@ namespace FactorialForge
 		/// </remarks>
 		public static long RisingFactorial(long x, long n)
 		{
+			// Validate that n is non-negative
 			CheckNonNegative(n: n);
-
+			// Base case
 			if (n == 0)
 			{
+				// Base case: rising factorial of x with 0 terms is 1
 				return 1;
 			}
-
+			// Initialize the result to 1
 			long result = 1;
+			// Compute the rising factorial iteratively
+			// The loop runs from 0 to n-1, multiplying (x + i) for each i
+			// This is a straightforward implementation of the rising factorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, consider using BigInteger to avoid overflow
+			// The time complexity is O(n), which is acceptable for typical rising factorial calculations
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed rising factorial
+			// If n is 0, the result remains 1
+			// For n >= 1, the loop computes the product of (x + i) for i from 0 to n-1
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the rising factorial fits in a long is relatively small
+			// Beyond that, use RisingFactorialBig for larger results
+			// The rising factorial of x with n terms is defined as the product of n consecutive integers starting from x
+			// For example, RisingFactorial(3, 4) = 3 * 4 * 5 * 6 = 360
+			// The method can handle small values of n efficiently
+			// The maximum value of n is constrained by the risk of overflow in the result
+			// Use this method for small rising factorial calculations where the result is known to fit in a long
+			// The method is a simple implementation of the rising factorial function
+			// It is suitable for educational purposes and small calculations
+			// The method completes when the rising factorial for n terms has been computed
+			// The loop iterates n times, multiplying the result by (x + i) each time
+			// This effectively builds the product of the first n terms in the rising factorial sequence
 			for (long i = 0; i < n; i++)
 			{
+				// Multiply the current result by (x + i)
 				result *= x + i;
 			}
-
+			// Return the computed rising factorial
 			return result;
 		}
 
@@ -453,19 +882,45 @@ namespace FactorialForge
 		/// </remarks>
 		public static BigInteger RisingFactorialBig(long x, long n)
 		{
+			// Validate that n is non-negative
 			CheckNonNegative(n: n);
-
+			// Base case
 			if (n == 0)
 			{
+				// Base case: rising factorial of x with 0 terms is 1
 				return 1;
 			}
-
+			// Initialize the result to 1
 			BigInteger result = 1;
+			// Compute the rising factorial iteratively
+			// The loop runs from 0 to n-1, multiplying (x + i) for each i
+			// This is a straightforward implementation of the rising factorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, BigInteger handles the large results without overflow
+			// The time complexity is O(n), which is acceptable for typical rising factorial calculations
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed rising factorial
+			// If n is 0, the result remains 1
+			// For n >= 1, the loop computes the product of (x + i) for i from 0 to n-1
+			// The method can handle very large values of n, limited only by system memory
+			// The maximum value of n is constrained by practical computation time and memory usage
+			// Use this method for large rising factorial calculations where the result exceeds the range of long
+			// The rising factorial of x with n terms is defined as the product of n consecutive integers starting from x
+			// For example, RisingFactorialBig(3, 4) = 3 * 4 * 5 * 6 = 360
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the rising factorial fits in a long is relatively small
+			// Beyond that, use RisingFactorialBig for larger results
+			// The method is a simple implementation of the rising factorial function using BigInteger
+			// It is suitable for applications requiring high precision and large number handling
+			// The method completes when the rising factorial for n terms has been computed
+			// The loop iterates n times, multiplying the result by (x + i) each time
+			// This effectively builds the product of the first n terms in the rising factorial sequence
 			for (long i = 0; i < n; i++)
 			{
+				// Multiply the current result by (x + i)
 				result *= x + i;
 			}
-
+			// Return the computed rising factorial
 			return result;
 		}
 
@@ -484,19 +939,42 @@ namespace FactorialForge
 		/// </remarks>
 		public static long FallingFactorial(long x, long n)
 		{
+			// Validate that n is non-negative
 			CheckNonNegative(n: n);
-
+			// Base case
 			if (n == 0)
 			{
+				// Base case: falling factorial of x with 0 terms is 1
 				return 1;
 			}
-
+			// Initialize the result to 1
 			long result = 1;
+			// Compute the falling factorial iteratively
+			// The loop runs from 0 to n-1, multiplying (x - i) for each i
+			// This is a straightforward implementation of the falling factorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, consider using BigInteger to avoid overflow
+			// The time complexity is O(n), which is acceptable for typical falling factorial calculations
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed falling factorial
+			// If n is 0, the result remains 1
+			// For n >= 1, the loop computes the product of (x - i) for i from 0 to n-1
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the falling factorial fits in a long is relatively small
+			// Beyond that, use FallingFactorialBig for larger results
+			// The falling factorial of x with n terms is defined as the product of n consecutive integers starting from x and decrementing
+			// For example, FallingFactorial(5, 3) = 5 * 4 * 3 = 60
+			// The method can handle small values of n efficiently
+			// The maximum value of n is constrained by the risk of overflow in the result
+			// Use this method for small falling factorial calculations where the result is known to fit in a long
+			// The method is a simple implementation of the falling factorial function
+			// It is suitable for educational purposes and small calculations				
 			for (long i = 0; i < n; i++)
 			{
+				// Multiply the current result by (x - i)
 				result *= x - i;
 			}
-
+			// Return the computed falling factorial
 			return result;
 		}
 
@@ -513,19 +991,45 @@ namespace FactorialForge
 		/// </remarks>
 		public static BigInteger FallingFactorialBig(long x, long n)
 		{
+			// Validate that n is non-negative
 			CheckNonNegative(n: n);
-
+			// Base case
 			if (n == 0)
 			{
+				// Base case: falling factorial of x with 0 terms is 1
 				return 1;
 			}
-
+			// Initialize the result to 1
 			BigInteger result = 1;
+			// Compute the falling factorial iteratively
+			// The loop runs from 0 to n-1, multiplying (x - i) for each i
+			// This is a straightforward implementation of the falling factorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, BigInteger handles the large results without overflow
+			// The time complexity is O(n), which is acceptable for typical falling factorial calculations
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed falling factorial
+			// If n is 0, the result remains 1
+			// For n >= 1, the loop computes the product of (x - i) for i from 0 to n-1
+			// The method can handle very large values of n, limited only by system memory
+			// The maximum value of n is constrained by practical computation time and memory usage
+			// Use this method for large falling factorial calculations where the result exceeds the range of long
+			// The falling factorial of x with n terms is defined as the product of n consecutive integers starting from x and decrementing
+			// For example, FallingFactorialBig(5, 3) = 5 * 4 * 3 = 60
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the falling factorial fits in a long is relatively small
+			// Beyond that, use FallingFactorialBig for larger results
+			// The method is a simple implementation of the falling factorial function using BigInteger
+			// It is suitable for applications requiring high precision and large number handling
+			// The method completes when the falling factorial for n terms has been computed
+			// The loop iterates n times, multiplying the result by (x - i) each time
+			// This effectively builds the product of the first n terms in the falling factorial sequence
 			for (long i = 0; i < n; i++)
 			{
+				// Multiply the current result by (x - i)
 				result *= x - i;
 			}
-
+			// Return the computed falling factorial
 			return result;
 		}
 
@@ -541,22 +1045,44 @@ namespace FactorialForge
 		/// </returns>
 		public static long MultiFactorial(long x, long n)
 		{
-			if (n <= 0)
-			{
-				throw new ArgumentOutOfRangeException(paramName: nameof(n), message: "n must be greater than 0 for multi-factorial.");
-			}
-
+			// Validate that n is positive
+			CheckPositive(n: n);
+			// Base case
 			if (x <= 0)
 			{
+				// Return 1 for x <= 0
 				return 1;
 			}
-
+			// Initialize the result to 1
 			long result = 1;
+			// Compute the multi-factorial iteratively
+			// The loop runs from x down to 1, decrementing by n each time
+			// This is a straightforward implementation of the multi-factorial function
+			// It is efficient for reasonably small values of x
+			// For very large x, consider using BigInteger to avoid overflow
+			// The time complexity is O(x/n), which simplifies to O(x)
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed multi-factorial
+			// If x is less than or equal to 0, the result remains 1
+			// For x > 0, the loop computes the product of x, (x - n), (x - 2n), ..., until the term is <= 0
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the multi-factorial fits in a long is relatively small
+			// Beyond that, use MultiFactorialBig for larger results
+			// The multi-factorial of x with step n is defined as the product of integers starting from x and decrementing by n
+			// For example, MultiFactorial(7, 2) = 7 * 5 * 3 * 1 = 105
+			// The method can handle small values of x efficiently
+			// The maximum value of x is constrained by the risk of overflow in the result
+			// Use this method for small multi-factorial calculations where the result is known to fit in a long
+			// The method is a simple implementation of the multi-factorial function
+			// It is suitable for educational purposes and small calculations
+			// The method completes when the multi-factorial for x with step n has been computed
+			// The loop iterates while the current term is greater than 0, multiplying the result by the current term each time
 			for (long i = x; i > 0; i -= n)
 			{
+				// Multiply the current result by i
 				result *= i;
 			}
-
+			// Return the computed multi factorial
 			return result;
 		}
 
@@ -574,22 +1100,43 @@ namespace FactorialForge
 		/// </remarks>
 		public static BigInteger MultiFactorialBig(long x, long n)
 		{
-			if (n <= 0)
-			{
-				throw new ArgumentOutOfRangeException(paramName: nameof(n), message: "n must be greater than 0 for multi-factorial.");
-			}
-
+			// Validate that n is positive
+			CheckPositive(n: n);
+			// Base case
 			if (x <= 0)
 			{
+				// Return 1 for x <= 0
 				return BigInteger.One;
 			}
-
+			// Initialize the result to 1
 			BigInteger result = BigInteger.One;
+			// Compute the multi-factorial iteratively
+			// The loop runs from x down to 1, decrementing by n each time
+			// This is a straightforward implementation of the multi-factorial function
+			// It is efficient for reasonably small values of x
+			// For very large x, BigInteger handles the large results without overflow
+			// The time complexity is O(x/n), which simplifies to O(x)
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed multi-factorial
+			// If x is less than or equal to 0, the result remains 1
+			// For x > 0, the loop computes the product of x, (x - n), (x - 2n), ..., until the term is <= 0
+			// The method can handle very large values of x, limited only by system memory
+			// The maximum value of x is constrained by practical computation time and memory usage
+			// Use this method for large multi-factorial calculations where the result exceeds the range of long
+			// The multi-factorial of x with step n is defined as the product of integers starting from x and decrementing by n
+			// For example, MultiFactorialBig(7, 2) = 7 * 5 * 3 * 1 = 105
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the multi-factorial fits in a long is relatively small
+			// Beyond that, use MultiFactorialBig for larger results
+			// The method is a simple implementation of the multi-factorial function using BigInteger
+			// It is suitable for applications requiring high precision and large number handling
+			// The method completes when the multi-factorial for x with step n has been computed
 			for (long i = x; i > 0; i -= n)
 			{
+				// Multiply the current result by i
 				result *= i;
 			}
-
+			// Return the computed multi factorial
 			return result;
 		}
 
@@ -606,13 +1153,37 @@ namespace FactorialForge
 		/// </remarks>
 		public static long Superfactorial(long n)
 		{
+			// Initialize the result to 1
 			long result = 1;
-
+			// Compute the superfactorial iteratively
+			// The loop runs from 1 to n, multiplying i! for each i
+			// This is a straightforward implementation of the superfactorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, consider using BigInteger to avoid overflow
+			// The time complexity is O(n^2) due to the nested factorial calculations
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed superfactorial
+			// If n is 0, the result remains 1
+			// For n >= 1, the loop computes the product of i! for i from 1 to n
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the superfactorial fits in a long is relatively small
+			// Beyond that, use SuperfactorialBig for larger results
+			// The superfactorial of n is defined as the product of the first n factorials
+			// For example, Superfactorial(3) = 1! * 2! * 3! = 1 * 2 * 6 = 12
+			// The method can handle small values of n efficiently
+			// The maximum value of n is constrained by the risk of overflow in the result
+			// Use this method for small superfactorial calculations where the result is known to fit in a long
+			// The method is a simple implementation of the superfactorial function
+			// It is suitable for educational purposes and small calculations
+			// The method completes when the superfactorial for n has been computed
+			// The loop iterates n times, multiplying the result by i! each time
+			// This effectively builds the product of the first n factorials
 			for (long i = 1; i <= n; i++)
 			{
+				// Multiply the current result by i!
 				result *= Factorial(n: i);
 			}
-
+			// Return the computed superfactorial
 			return result;
 		}
 
@@ -629,13 +1200,38 @@ namespace FactorialForge
 		/// </remarks>
 		public static BigInteger SuperfactorialBig(long n)
 		{
+			// Initialize the result to 1
 			BigInteger result = 1;
-
+			// Compute the superfactorial iteratively
+			// The loop runs from 1 to n, multiplying i! for each i
+			// This is a straightforward implementation of the superfactorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, BigInteger handles the large results without overflow
+			// The time complexity is O(n^2) due to the nested factorial calculations
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed superfactorial
+			// If n is 0, the result remains 1
+			// For n >= 1, the loop computes the product of i! for i from 1 to n
+			// The method can handle very large values of n, limited only by system memory
+			// The maximum value of n is constrained by practical computation time and memory usage
+			// Use this method for large superfactorial calculations where the result exceeds the range of long
+			// The superfactorial of n is defined as the product of the first n factorials
+			// For example, SuperfactorialBig(3) = 1! * 2! * 3! = 1 * 2 * 6 = 12
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the superfactorial fits in a long is relatively small
+			// Beyond that, use SuperfactorialBig for larger results
+			// The method is a simple implementation of the superfactorial function using BigInteger
+			// It is suitable for applications requiring high precision and large number handling
+			// The method completes when the superfactorial for n has been computed
+			// The loop iterates n times, multiplying the result by i! each time
+			// This effectively builds the product of the first n factorials
+			// The loop iterates from 1 to n, calculating the factorial of each i and multiplying it to the result
 			for (long i = 1; i <= n; i++)
 			{
+				// Multiply the current result by i!
 				result *= FactorialBig(n: i);
 			}
-
+			// Return the computed superfactorial
 			return result;
 		}
 
@@ -652,13 +1248,35 @@ namespace FactorialForge
 		/// </remarks>
 		public static long Hyperfactorial(long n)
 		{
+			// Initialize the result to 1
 			long result = 1;
-
+			// Compute the hyperfactorial iteratively
+			// The loop runs from 1 to n, multiplying i^i for each i
+			// This is a straightforward implementation of the hyperfactorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, consider using BigInteger to avoid overflow
+			// The time complexity is O(n), which is acceptable for typical hyperfactorial calculations
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed hyperfactorial
+			// If n is 0, the result remains 1
+			// For n >= 1, the loop computes the product of i^i for i from 1 to n
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the hyperfactorial fits in a long is relatively small
+			// Beyond that, use HyperfactorialBig for larger results
+			// The hyperfactorial of n is defined as the product of i^i for i from 1 to n
+			// For example, Hyperfactorial(3) = 1^1 * 2^2 * 3^3 = 1 * 4 * 27 = 108
+			// The method can handle small values of n efficiently
+			// The maximum value of n is constrained by the risk of overflow in the result
+			// Use this method for small hyperfactorial calculations where the result is known to fit in a long
+			// The method is a simple implementation of the hyperfactorial function
+			// It is suitable for educational purposes and small calculations
+			// The method completes when the hyperfactorial for n has been computed				
 			for (long i = 1; i <= n; i++)
 			{
-				result *= PowInt(baseValue: i, exp: i); // i^i
+				// Multiply the current result by i^i
+				result *= PowInt(baseValue: i, exp: i);
 			}
-
+			// Return the computed hyperfactorial
 			return result;
 		}
 
@@ -674,13 +1292,35 @@ namespace FactorialForge
 		/// </remarks>
 		public static BigInteger HyperfactorialBig(long n)
 		{
+			// Initialize the result to 1
 			BigInteger result = 1;
-
+			// Compute the hyperfactorial iteratively
+			// The loop runs from 1 to n, multiplying i^i for each i
+			// This is a straightforward implementation of the hyperfactorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, BigInteger handles the large results without overflow
+			// The time complexity is O(n), which is acceptable for typical hyperfactorial calculations
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method returns the computed hyperfactorial
+			// If n is 0, the result remains 1
+			// For n >= 1, the loop computes the product of i^i for i from 1 to n
+			// The method can handle very large values of n, limited only by system memory
+			// The maximum value of n is constrained by practical computation time and memory usage
+			// Use this method for large hyperfactorial calculations where the result exceeds the range of long
+			// The hyperfactorial of n is defined as the product of i^i for i from 1 to n
+			// For example, HyperfactorialBig(3) = 1^1 * 2^2 * 3^3 = 1 * 4 * 27 = 108
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the hyperfactorial fits in a long is relatively small
+			// Beyond that, use HyperfactorialBig for larger results
+			// The method is a simple implementation of the hyperfactorial function using BigInteger
+			// It is suitable for applications requiring high precision and large number handling
+			// The method completes when the hyperfactorial for n has been computed
 			for (long i = 1; i <= n; i++)
 			{
-				result *= BigInteger.Pow(value: i, exponent: (int)i); // i^i
+				// Multiply the current result by i^i
+				result *= BigInteger.Pow(value: i, exponent: (int)i);
 			}
-
+			// Return the computed hyperfactorial
 			return result;
 		}
 	}
