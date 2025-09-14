@@ -1,4 +1,4 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Numerics;
 using System.Text;
 
@@ -30,6 +30,8 @@ namespace FactorialForge
 		{
 			// Array to hold counts for digits 0-9
 			int[] counts = new int[10];
+			// Counter for the number of different digits found
+			int digits = 0;
 			// Iterate through each character in the input string
 			foreach (char c in input)
 			{
@@ -47,9 +49,20 @@ namespace FactorialForge
 			// Append each digit and its count to the StringBuilder
 			for (int i = 0; i < counts.Length; i++)
 			{
+				// Count how many different digits were found
+				if (counts[i] > 0)
+				{
+					// Increment the count of different digits
+					digits++;
+				}
 				// Append the digit and its count
 				_ = sb.AppendLine(value: $"{i}: {counts[i]}");
 			}
+			// Append the total sum of digits
+			_ = sb.AppendLine(value: $"\nΣ: {counts.Sum()}");
+			// Calculate and append the mean of the digits
+			int mean = counts.Sum() / digits;
+			_ = sb.AppendLine(value: $"⌀: {mean}");
 			// Show the digit statistics in a message box
 			_ = MessageBox.Show(text: sb.ToString(), caption: "Digit statistics", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
