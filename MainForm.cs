@@ -112,6 +112,63 @@ namespace FactorialForge
 		}
 
 		/// <summary>
+		/// Executes a factorial-related calculation asynchronously using Task-based computation and displays the result in the specified textbox.
+		/// Updates the status bar and progress bar during calculation.
+		/// Shows an error message if the calculation fails.
+		/// </summary>
+		/// <param name="calculation">A delegate that returns a Task containing the calculation result.</param>
+		/// <param name="targetTextBox">The textbox where the result will be displayed.</param>
+		/// <returns>A Task representing the asynchronous operation.</returns>
+		private async Task CalculateAndDisplayAsyncWithTask(Func<Task<BigInteger>> calculation, TextBox targetTextBox)
+		{
+			// Update status bar and show progress bar
+			toolStripStatusLabelInfo.Text = "Calculating...";
+			toolStripProgressBar.Visible = true;
+			// Perform the calculation asynchronously using Task
+			try
+			{
+				// Restart the stopwatch to measure calculation time
+				watch.Restart();
+				// Use ConfigureAwait(false) to avoid deadlocks and improve performance
+				BigInteger result = await Task.Run(function: calculation).ConfigureAwait(continueOnCapturedContext: false);
+				// Stop the stopwatch after calculation completes
+				watch.Stop();
+				// Ensure UI updates happen on the UI thread
+				await Task.Run(action: () =>
+				{
+					// Use Invoke to update the UI components safely
+					this.Invoke(method: new Action(() =>
+					{
+						// Display the result in the target textbox
+						targetTextBox.Text = $"{result}";
+						// Update the status bar with the elapsed time
+						toolStripStatusLabelInfo.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
+					}));
+				});
+			}
+			// Handle any exceptions that occur during calculation
+			catch (Exception ex)
+			{
+				// Ensure error handling happens on the UI thread
+				this.Invoke(method: new Action(() =>
+				{
+					// Show an error message box with the exception details
+					_ = MessageBox.Show(text: $"Error: {ex.Message}");
+				}));
+			}
+			// Ensure the progress bar is hidden after calculation
+			finally
+			{
+				// Ensure progress bar is hidden on the UI thread
+				this.Invoke(method: new Action(() =>
+				{
+					// Hide the progress bar
+					toolStripProgressBar.Visible = false;
+				}));
+			}
+		}
+
+		/// <summary>
 		/// Copies the text from the specified textbox to the clipboard.
 		/// Updates the status bar to indicate success.
 		/// Displays an error message if copying fails or if the textbox is empty.
@@ -229,10 +286,10 @@ namespace FactorialForge
 		private async void NumericUpDownFactorial_ValueChanged(object? sender, EventArgs e)
 		{
 			// Perform the factorial calculation and display the result
-			await CalculateAndDisplayAsync(
-				calculation: () => Factorializer.FactorialBig(n: (long)numericUpDownFactorial.Value),
-				targetTextBox: textBoxFactorial
-			);
+			await CalculateAndDisplayAsyncWithTask(
+				   calculation: () => Factorializer.FactorialBigAsync(n: (long)numericUpDownFactorial.Value),
+				   targetTextBox: textBoxFactorial
+			   );
 		}
 
 		/// <summary>
