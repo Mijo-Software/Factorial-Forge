@@ -28,20 +28,9 @@ namespace FactorialForge
 			}
 			// Initialize a boolean array to track prime status
 			bool[] isPrime = new bool[n + 1];
-			// Assume all numbers are prime initially
-			// Set 0 and 1 to non-prime
-			// Start from 2, the first prime number
-			// Mark all numbers from 2 to n as prime
-			// This initialization step is crucial for the sieve algorithm
-			// The array index represents the number itself
-			// True means prime, false means non-prime
-			// We will later mark non-prime numbers as false
-			// This is a classic implementation of the Sieve of Eratosthenes algorithm
-			// It efficiently finds all primes up to n in O(n log log n) time
-			// This method is efficient for reasonably large values of n
-			// For very large n, more advanced algorithms may be needed
-			// The space complexity is O(n) due to the boolean array
-			// This is acceptable for n in the range of typical factorial calculations
+			// Sieve of Eratosthenes: initialize all numbers >= 2 as prime.
+			// Time complexity: O(n log log n), space complexity: O(n).
+			// Suitable for typical factorial calculation ranges.
 			for (long i = 2; i <= n; i++)
 			{
 				isPrime[i] = true;
@@ -49,38 +38,11 @@ namespace FactorialForge
 			// Sieve out non-prime numbers
 			for (long i = 2; i * i <= n; i++)
 			{
-				// If i is still marked as prime, mark its multiples as non-prime
-				// Start marking from i * i, as all smaller multiples will have already been marked
-				// This optimization reduces the number of iterations
-				// We can skip even numbers by starting from i * i and incrementing by 2 * i
-				// This is valid because all even numbers greater than 2 are not prime
-				// However, for simplicity, we will keep the standard increment of i
-				// This is a classic implementation of the Sieve of Eratosthenes algorithm
-				// It efficiently finds all primes up to n in O(n log log n) time
-				// This method is efficient for reasonably large values of n
-				// For very large n, more advanced algorithms may be needed
-				// However, for the purpose of this application, this implementation is sufficient
-				// The space complexity is O(n) due to the boolean array
-				// This is acceptable for n in the range of typical factorial calculations
-				// The algorithm can be further optimized, but this version is clear and easy to understand
-				// It is a good balance between performance and simplicity
-				// The resulting list of primes can be used for various mathematical computations
-				// including prime factorization and prime counting functions
+				// If i is prime, mark all multiples of i (starting from i*i) as non-prime.
+				// This is the core step of the Sieve of Eratosthenes.
 				if (isPrime[i])
 				{
 					// Mark all multiples of i as non-prime
-					// Start from i * i to avoid redundant work
-					// Increment by i to mark all multiples
-					// This inner loop runs in O(n/i) time for each prime i
-					// The overall time complexity remains O(n log log n)
-					// The method completes when all non-prime numbers are marked
-					// The final step is to collect all indices still marked as prime
-					// into a list to return to the caller
-					// This completes the sieve process
-					// The list of primes can then be used for further calculations
-					// The method returns a list of all prime numbers up to n
-					// This is a well-known and widely used algorithm in number theory
-					// It is efficient and effective for finding primes in a given range
 					for (long j = i * i; j <= n; j += i)
 					{
 						// Mark j as non-prime
