@@ -410,6 +410,22 @@ namespace FactorialForge
 		}
 
 		/// <summary>
+		/// Handles the ValueChanged event for the numericUpDownSuperduperfactorial control.
+		/// Calculates the superduperfactorial for the selected value asynchronously and displays the result in the corresponding textbox.
+		/// Updates the status bar with calculation time and handles any errors that occur during calculation.
+		/// </summary>
+		/// <param name="sender">The event source (numericUpDownSuperduperfactorial).</param>
+		/// <param name="e">The event data.</param>
+		private async void NumericUpDownSuperduperfactorial_ValueChanged(object sender, EventArgs e)
+		{
+			// Perform the superduperfactorial calculation and display the result
+			await CalculateAndDisplayAsync(
+				calculation: () => Factorializer.SuperduperfactorialBig(n: (long)numericUpDownSuperduperfactorial.Value),
+				targetTextBox: textBoxSuperduperfactorial
+			);
+		}
+
+		/// <summary>
 		/// Handles the click event for the "Copy Factorial Result to Clipboard" button.
 		/// Copies the current factorial result from the textbox to the clipboard.
 		/// Displays an error message if copying fails or if no result is available.
@@ -529,6 +545,17 @@ namespace FactorialForge
 		private void ButtonCopyToClipboardHyperfactorial_Click(object sender, EventArgs e)
 			// Copy the hyperfactorial result to the clipboard
 			=> CopyToClipboard(sourceTextBox: textBoxHyperfactorial);
+
+		/// <summary>
+		/// Handles the click event for the "Copy Superduperfactorial Result to Clipboard" button.
+		/// Copies the current superduperfactorial result from the textbox to the clipboard.
+		/// Displays an error message if copying fails or if no result is available.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The event data.</param>
+		private void ButtonCopyToClipboardSuperduperfactorial_Click(object sender, EventArgs e)
+			// Copy the superduperfactorial result to the clipboard
+			=> CopyToClipboard(sourceTextBox: textBoxSuperduperfactorial);
 
 		/// <summary>
 		/// Handles the click event for the "Save Factorial Result" button.
@@ -653,6 +680,17 @@ namespace FactorialForge
 			=> SaveToFile(sourceTextBox: textBoxHyperfactorial, title: "Save Hyperfactorial Result");
 
 		/// <summary>
+		/// Handles the click event for the "Save Superduperfactorial Result" button.
+		/// Opens a SaveFileDialog to save the current superduperfactorial result to a file.
+		/// Displays an error message if saving fails or if no result is available.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The event data.</param>
+		private void ButtonSaveToFileSuperduperfactorial_Click(object sender, EventArgs e)
+			// Save the superduperfactorial result to a file
+			=> SaveToFile(sourceTextBox: textBoxSuperduperfactorial, title: "Save Superduperfactorial Result");
+
+		/// <summary>
 		/// Handles the click event for the "Digit Statistics (Factorial)" button.
 		/// Shows a digit frequency analysis for the current factorial result.
 		/// Displays an error message if no result is available.
@@ -772,5 +810,16 @@ namespace FactorialForge
 		private void ButtonDigitStatisticsHyperfactorial_Click(object sender, EventArgs e)
 			// Show digit statistics for the hyperfactorial result
 			=> ShowDigitStatistics(sourceTextBox: textBoxHyperfactorial, errorMessage: "No hyperfactorial result to analyze.");
+
+		/// <summary>
+		/// Handles the click event for the "Digit Statistics (Superduperfactorial)" button.
+		/// Shows a digit frequency analysis for the current Superduperfactorial result.
+		/// Displays an error message if no result is available.
+		/// </summary>
+		/// <param name="sender">The event source.</param>
+		/// <param name="e">The event data.</param>
+		private void ButtonDigitStatisticsSuperduperfactorial_Click(object sender, EventArgs e)
+			// Show digit statistics for the superduperfactorial result
+			=> ShowDigitStatistics(sourceTextBox: textBoxSuperduperfactorial, errorMessage: "No superduperfactorial result to analyze.");
 	}
 }
