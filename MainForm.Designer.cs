@@ -200,7 +200,7 @@
 			// 
 			// buttonDigitStatisticsFactorial
 			// 
-			this.buttonDigitStatisticsFactorial.Image = (Image)resources.GetObject("buttonDigitStatisticsFactorial.Image");
+			this.buttonDigitStatisticsFactorial.Image = Properties.Resources.chart_pie;
 			this.buttonDigitStatisticsFactorial.Location = new Point(589, 3);
 			this.buttonDigitStatisticsFactorial.Name = "buttonDigitStatisticsFactorial";
 			this.buttonDigitStatisticsFactorial.Size = new Size(119, 24);
@@ -213,7 +213,7 @@
 			// 
 			// buttonSaveToFileFactorial
 			// 
-			this.buttonSaveToFileFactorial.Image = (Image)resources.GetObject("buttonSaveToFileFactorial.Image");
+			this.buttonSaveToFileFactorial.Image = Properties.Resources.save_as;
 			this.buttonSaveToFileFactorial.Location = new Point(493, 3);
 			this.buttonSaveToFileFactorial.Name = "buttonSaveToFileFactorial";
 			this.buttonSaveToFileFactorial.Size = new Size(90, 24);
@@ -226,7 +226,7 @@
 			// 
 			// buttonCopyToClipboardFactorial
 			// 
-			this.buttonCopyToClipboardFactorial.Image = (Image)resources.GetObject("buttonCopyToClipboardFactorial.Image");
+			this.buttonCopyToClipboardFactorial.Image = Properties.Resources.copy;
 			this.buttonCopyToClipboardFactorial.Location = new Point(357, 3);
 			this.buttonCopyToClipboardFactorial.Name = "buttonCopyToClipboardFactorial";
 			this.buttonCopyToClipboardFactorial.Size = new Size(130, 24);
@@ -286,7 +286,7 @@
 			// 
 			// buttonDigitStatisticsOddFactorial
 			// 
-			this.buttonDigitStatisticsOddFactorial.Image = (Image)resources.GetObject("buttonDigitStatisticsOddFactorial.Image");
+			this.buttonDigitStatisticsOddFactorial.Image = Properties.Resources.chart_pie;
 			this.buttonDigitStatisticsOddFactorial.Location = new Point(589, 3);
 			this.buttonDigitStatisticsOddFactorial.Name = "buttonDigitStatisticsOddFactorial";
 			this.buttonDigitStatisticsOddFactorial.Size = new Size(119, 24);
@@ -299,7 +299,7 @@
 			// 
 			// buttonSaveToFileOddFactorial
 			// 
-			this.buttonSaveToFileOddFactorial.Image = (Image)resources.GetObject("buttonSaveToFileOddFactorial.Image");
+			this.buttonSaveToFileOddFactorial.Image = Properties.Resources.save_as;
 			this.buttonSaveToFileOddFactorial.Location = new Point(493, 3);
 			this.buttonSaveToFileOddFactorial.Name = "buttonSaveToFileOddFactorial";
 			this.buttonSaveToFileOddFactorial.Size = new Size(90, 24);
@@ -312,7 +312,7 @@
 			// 
 			// buttonCopyToClipboardOddFactorial
 			// 
-			this.buttonCopyToClipboardOddFactorial.Image = (Image)resources.GetObject("buttonCopyToClipboardOddFactorial.Image");
+			this.buttonCopyToClipboardOddFactorial.Image = Properties.Resources.copy;
 			this.buttonCopyToClipboardOddFactorial.Location = new Point(357, 3);
 			this.buttonCopyToClipboardOddFactorial.Name = "buttonCopyToClipboardOddFactorial";
 			this.buttonCopyToClipboardOddFactorial.Size = new Size(130, 24);
@@ -371,7 +371,7 @@
 			// 
 			// buttonDigitStatisticsEvenFactorial
 			// 
-			this.buttonDigitStatisticsEvenFactorial.Image = (Image)resources.GetObject("buttonDigitStatisticsEvenFactorial.Image");
+			this.buttonDigitStatisticsEvenFactorial.Image = Properties.Resources.chart_pie;
 			this.buttonDigitStatisticsEvenFactorial.Location = new Point(589, 3);
 			this.buttonDigitStatisticsEvenFactorial.Name = "buttonDigitStatisticsEvenFactorial";
 			this.buttonDigitStatisticsEvenFactorial.Size = new Size(119, 24);
@@ -384,7 +384,7 @@
 			// 
 			// buttonSaveToFileEvenFactorial
 			// 
-			this.buttonSaveToFileEvenFactorial.Image = (Image)resources.GetObject("buttonSaveToFileEvenFactorial.Image");
+			this.buttonSaveToFileEvenFactorial.Image = Properties.Resources.save_as;
 			this.buttonSaveToFileEvenFactorial.Location = new Point(493, 3);
 			this.buttonSaveToFileEvenFactorial.Name = "buttonSaveToFileEvenFactorial";
 			this.buttonSaveToFileEvenFactorial.Size = new Size(90, 24);
@@ -397,7 +397,7 @@
 			// 
 			// buttonCopyToClipboardEvenFactorial
 			// 
-			this.buttonCopyToClipboardEvenFactorial.Image = (Image)resources.GetObject("buttonCopyToClipboardEvenFactorial.Image");
+			this.buttonCopyToClipboardEvenFactorial.Image = Properties.Resources.copy;
 			this.buttonCopyToClipboardEvenFactorial.Location = new Point(357, 3);
 			this.buttonCopyToClipboardEvenFactorial.Name = "buttonCopyToClipboardEvenFactorial";
 			this.buttonCopyToClipboardEvenFactorial.Size = new Size(130, 24);
@@ -456,7 +456,7 @@
 			// 
 			// buttonDigitStatisticsPrimeFactorial
 			// 
-			this.buttonDigitStatisticsPrimeFactorial.Image = (Image)resources.GetObject("buttonDigitStatisticsPrimeFactorial.Image");
+			this.buttonDigitStatisticsPrimeFactorial.Image = Properties.Resources.chart_pie;
 			this.buttonDigitStatisticsPrimeFactorial.Location = new Point(589, 3);
 			this.buttonDigitStatisticsPrimeFactorial.Name = "buttonDigitStatisticsPrimeFactorial";
 			this.buttonDigitStatisticsPrimeFactorial.Size = new Size(119, 24);
@@ -469,7 +469,7 @@
 			// 
 			// buttonSaveToFilePrimeFactorial
 			// 
-			this.buttonSaveToFilePrimeFactorial.Image = (Image)resources.GetObject("buttonSaveToFilePrimeFactorial.Image");
+			this.buttonSaveToFilePrimeFactorial.Image = Properties.Resources.save_as;
 			this.buttonSaveToFilePrimeFactorial.Location = new Point(493, 3);
 			this.buttonSaveToFilePrimeFactorial.Name = "buttonSaveToFilePrimeFactorial";
 			this.buttonSaveToFilePrimeFactorial.Size = new Size(90, 24);
@@ -482,7 +482,7 @@
 			// 
 			// buttonCopyToClipboardPrimeFactorial
 			// 
-			this.buttonCopyToClipboardPrimeFactorial.Image = (Image)resources.GetObject("buttonCopyToClipboardPrimeFactorial.Image");
+			this.buttonCopyToClipboardPrimeFactorial.Image = Properties.Resources.copy;
 			this.buttonCopyToClipboardPrimeFactorial.Location = new Point(357, 3);
 			this.buttonCopyToClipboardPrimeFactorial.Name = "buttonCopyToClipboardPrimeFactorial";
 			this.buttonCopyToClipboardPrimeFactorial.Size = new Size(130, 24);
@@ -541,7 +541,7 @@
 			// 
 			// buttonDigitStatisticsSubfactorial
 			// 
-			this.buttonDigitStatisticsSubfactorial.Image = (Image)resources.GetObject("buttonDigitStatisticsSubfactorial.Image");
+			this.buttonDigitStatisticsSubfactorial.Image = Properties.Resources.chart_pie;
 			this.buttonDigitStatisticsSubfactorial.Location = new Point(589, 3);
 			this.buttonDigitStatisticsSubfactorial.Name = "buttonDigitStatisticsSubfactorial";
 			this.buttonDigitStatisticsSubfactorial.Size = new Size(119, 24);
@@ -554,7 +554,7 @@
 			// 
 			// buttonSaveToFileSubfactorial
 			// 
-			this.buttonSaveToFileSubfactorial.Image = (Image)resources.GetObject("buttonSaveToFileSubfactorial.Image");
+			this.buttonSaveToFileSubfactorial.Image = Properties.Resources.save_as;
 			this.buttonSaveToFileSubfactorial.Location = new Point(493, 3);
 			this.buttonSaveToFileSubfactorial.Name = "buttonSaveToFileSubfactorial";
 			this.buttonSaveToFileSubfactorial.Size = new Size(90, 24);
@@ -567,7 +567,7 @@
 			// 
 			// buttonCopyToClipboardSubfactorial
 			// 
-			this.buttonCopyToClipboardSubfactorial.Image = (Image)resources.GetObject("buttonCopyToClipboardSubfactorial.Image");
+			this.buttonCopyToClipboardSubfactorial.Image = Properties.Resources.copy;
 			this.buttonCopyToClipboardSubfactorial.Location = new Point(357, 3);
 			this.buttonCopyToClipboardSubfactorial.Name = "buttonCopyToClipboardSubfactorial";
 			this.buttonCopyToClipboardSubfactorial.Size = new Size(130, 24);
@@ -626,7 +626,7 @@
 			// 
 			// buttonDigitFactorialDoubleFactorial
 			// 
-			this.buttonDigitFactorialDoubleFactorial.Image = (Image)resources.GetObject("buttonDigitFactorialDoubleFactorial.Image");
+			this.buttonDigitFactorialDoubleFactorial.Image = Properties.Resources.chart_pie;
 			this.buttonDigitFactorialDoubleFactorial.Location = new Point(589, 3);
 			this.buttonDigitFactorialDoubleFactorial.Name = "buttonDigitFactorialDoubleFactorial";
 			this.buttonDigitFactorialDoubleFactorial.Size = new Size(119, 24);
@@ -639,7 +639,7 @@
 			// 
 			// buttonSaveToFileDoubleFactorial
 			// 
-			this.buttonSaveToFileDoubleFactorial.Image = (Image)resources.GetObject("buttonSaveToFileDoubleFactorial.Image");
+			this.buttonSaveToFileDoubleFactorial.Image = Properties.Resources.save_as;
 			this.buttonSaveToFileDoubleFactorial.Location = new Point(493, 3);
 			this.buttonSaveToFileDoubleFactorial.Name = "buttonSaveToFileDoubleFactorial";
 			this.buttonSaveToFileDoubleFactorial.Size = new Size(90, 24);
@@ -652,7 +652,7 @@
 			// 
 			// buttonCopyToClipboardDoubleFactorial
 			// 
-			this.buttonCopyToClipboardDoubleFactorial.Image = (Image)resources.GetObject("buttonCopyToClipboardDoubleFactorial.Image");
+			this.buttonCopyToClipboardDoubleFactorial.Image = Properties.Resources.copy;
 			this.buttonCopyToClipboardDoubleFactorial.Location = new Point(357, 3);
 			this.buttonCopyToClipboardDoubleFactorial.Name = "buttonCopyToClipboardDoubleFactorial";
 			this.buttonCopyToClipboardDoubleFactorial.Size = new Size(130, 24);
@@ -732,7 +732,7 @@
 			// 
 			// buttonDigitStatisticsRisingFactorial
 			// 
-			this.buttonDigitStatisticsRisingFactorial.Image = (Image)resources.GetObject("buttonDigitStatisticsRisingFactorial.Image");
+			this.buttonDigitStatisticsRisingFactorial.Image = Properties.Resources.chart_pie;
 			this.buttonDigitStatisticsRisingFactorial.Location = new Point(589, 3);
 			this.buttonDigitStatisticsRisingFactorial.Name = "buttonDigitStatisticsRisingFactorial";
 			this.buttonDigitStatisticsRisingFactorial.Size = new Size(119, 24);
@@ -745,7 +745,7 @@
 			// 
 			// buttonSaveToFileRisingFactorial
 			// 
-			this.buttonSaveToFileRisingFactorial.Image = (Image)resources.GetObject("buttonSaveToFileRisingFactorial.Image");
+			this.buttonSaveToFileRisingFactorial.Image = Properties.Resources.save_as;
 			this.buttonSaveToFileRisingFactorial.Location = new Point(493, 3);
 			this.buttonSaveToFileRisingFactorial.Name = "buttonSaveToFileRisingFactorial";
 			this.buttonSaveToFileRisingFactorial.Size = new Size(90, 24);
@@ -758,7 +758,7 @@
 			// 
 			// buttonCopyToClipboardRisingFactorial
 			// 
-			this.buttonCopyToClipboardRisingFactorial.Image = (Image)resources.GetObject("buttonCopyToClipboardRisingFactorial.Image");
+			this.buttonCopyToClipboardRisingFactorial.Image = Properties.Resources.copy;
 			this.buttonCopyToClipboardRisingFactorial.Location = new Point(357, 3);
 			this.buttonCopyToClipboardRisingFactorial.Name = "buttonCopyToClipboardRisingFactorial";
 			this.buttonCopyToClipboardRisingFactorial.Size = new Size(130, 24);
@@ -838,7 +838,7 @@
 			// 
 			// buttonDigitStatisticsFallingFactorial
 			// 
-			this.buttonDigitStatisticsFallingFactorial.Image = (Image)resources.GetObject("buttonDigitStatisticsFallingFactorial.Image");
+			this.buttonDigitStatisticsFallingFactorial.Image = Properties.Resources.chart_pie;
 			this.buttonDigitStatisticsFallingFactorial.Location = new Point(589, 3);
 			this.buttonDigitStatisticsFallingFactorial.Name = "buttonDigitStatisticsFallingFactorial";
 			this.buttonDigitStatisticsFallingFactorial.Size = new Size(119, 24);
@@ -851,7 +851,7 @@
 			// 
 			// buttonSaveToFileFallingFactorial
 			// 
-			this.buttonSaveToFileFallingFactorial.Image = (Image)resources.GetObject("buttonSaveToFileFallingFactorial.Image");
+			this.buttonSaveToFileFallingFactorial.Image = Properties.Resources.save_as;
 			this.buttonSaveToFileFallingFactorial.Location = new Point(493, 3);
 			this.buttonSaveToFileFallingFactorial.Name = "buttonSaveToFileFallingFactorial";
 			this.buttonSaveToFileFallingFactorial.Size = new Size(90, 24);
@@ -864,7 +864,7 @@
 			// 
 			// buttonCopyToClipboardFallingFactorial
 			// 
-			this.buttonCopyToClipboardFallingFactorial.Image = (Image)resources.GetObject("buttonCopyToClipboardFallingFactorial.Image");
+			this.buttonCopyToClipboardFallingFactorial.Image = Properties.Resources.copy;
 			this.buttonCopyToClipboardFallingFactorial.Location = new Point(357, 3);
 			this.buttonCopyToClipboardFallingFactorial.Name = "buttonCopyToClipboardFallingFactorial";
 			this.buttonCopyToClipboardFallingFactorial.Size = new Size(130, 24);
@@ -946,7 +946,7 @@
 			// 
 			// buttonDigitStatisticsMultiFactorial
 			// 
-			this.buttonDigitStatisticsMultiFactorial.Image = (Image)resources.GetObject("buttonDigitStatisticsMultiFactorial.Image");
+			this.buttonDigitStatisticsMultiFactorial.Image = Properties.Resources.chart_pie;
 			this.buttonDigitStatisticsMultiFactorial.Location = new Point(589, 3);
 			this.buttonDigitStatisticsMultiFactorial.Name = "buttonDigitStatisticsMultiFactorial";
 			this.buttonDigitStatisticsMultiFactorial.Size = new Size(119, 24);
@@ -959,7 +959,7 @@
 			// 
 			// buttonSaveToFileMultiFactorial
 			// 
-			this.buttonSaveToFileMultiFactorial.Image = (Image)resources.GetObject("buttonSaveToFileMultiFactorial.Image");
+			this.buttonSaveToFileMultiFactorial.Image = Properties.Resources.save_as;
 			this.buttonSaveToFileMultiFactorial.Location = new Point(493, 3);
 			this.buttonSaveToFileMultiFactorial.Name = "buttonSaveToFileMultiFactorial";
 			this.buttonSaveToFileMultiFactorial.Size = new Size(90, 24);
@@ -972,7 +972,7 @@
 			// 
 			// buttonCopyToClipboardMultiFactorial
 			// 
-			this.buttonCopyToClipboardMultiFactorial.Image = (Image)resources.GetObject("buttonCopyToClipboardMultiFactorial.Image");
+			this.buttonCopyToClipboardMultiFactorial.Image = Properties.Resources.copy;
 			this.buttonCopyToClipboardMultiFactorial.Location = new Point(357, 3);
 			this.buttonCopyToClipboardMultiFactorial.Name = "buttonCopyToClipboardMultiFactorial";
 			this.buttonCopyToClipboardMultiFactorial.Size = new Size(130, 24);
@@ -1032,7 +1032,7 @@
 			// 
 			// buttonDigitStatisticsSuperfactorial
 			// 
-			this.buttonDigitStatisticsSuperfactorial.Image = (Image)resources.GetObject("buttonDigitStatisticsSuperfactorial.Image");
+			this.buttonDigitStatisticsSuperfactorial.Image = Properties.Resources.chart_pie;
 			this.buttonDigitStatisticsSuperfactorial.Location = new Point(589, 3);
 			this.buttonDigitStatisticsSuperfactorial.Name = "buttonDigitStatisticsSuperfactorial";
 			this.buttonDigitStatisticsSuperfactorial.Size = new Size(119, 24);
@@ -1045,7 +1045,7 @@
 			// 
 			// buttonSaveToFileSuperfactorial
 			// 
-			this.buttonSaveToFileSuperfactorial.Image = (Image)resources.GetObject("buttonSaveToFileSuperfactorial.Image");
+			this.buttonSaveToFileSuperfactorial.Image = Properties.Resources.save_as;
 			this.buttonSaveToFileSuperfactorial.Location = new Point(493, 3);
 			this.buttonSaveToFileSuperfactorial.Name = "buttonSaveToFileSuperfactorial";
 			this.buttonSaveToFileSuperfactorial.Size = new Size(90, 24);
@@ -1058,7 +1058,7 @@
 			// 
 			// buttonCopyToClipboardSuperfactorial
 			// 
-			this.buttonCopyToClipboardSuperfactorial.Image = (Image)resources.GetObject("buttonCopyToClipboardSuperfactorial.Image");
+			this.buttonCopyToClipboardSuperfactorial.Image = Properties.Resources.copy;
 			this.buttonCopyToClipboardSuperfactorial.Location = new Point(357, 3);
 			this.buttonCopyToClipboardSuperfactorial.Name = "buttonCopyToClipboardSuperfactorial";
 			this.buttonCopyToClipboardSuperfactorial.Size = new Size(130, 24);
@@ -1117,7 +1117,7 @@
 			// 
 			// buttonDigitStatisticsHyperfactorial
 			// 
-			this.buttonDigitStatisticsHyperfactorial.Image = (Image)resources.GetObject("buttonDigitStatisticsHyperfactorial.Image");
+			this.buttonDigitStatisticsHyperfactorial.Image = Properties.Resources.chart_pie;
 			this.buttonDigitStatisticsHyperfactorial.Location = new Point(589, 3);
 			this.buttonDigitStatisticsHyperfactorial.Name = "buttonDigitStatisticsHyperfactorial";
 			this.buttonDigitStatisticsHyperfactorial.Size = new Size(119, 24);
@@ -1130,7 +1130,7 @@
 			// 
 			// buttonSaveToFileHyperfactorial
 			// 
-			this.buttonSaveToFileHyperfactorial.Image = (Image)resources.GetObject("buttonSaveToFileHyperfactorial.Image");
+			this.buttonSaveToFileHyperfactorial.Image = Properties.Resources.save_as;
 			this.buttonSaveToFileHyperfactorial.Location = new Point(493, 3);
 			this.buttonSaveToFileHyperfactorial.Name = "buttonSaveToFileHyperfactorial";
 			this.buttonSaveToFileHyperfactorial.Size = new Size(90, 24);
@@ -1143,7 +1143,7 @@
 			// 
 			// buttonCopyToClipboardHyperfactorial
 			// 
-			this.buttonCopyToClipboardHyperfactorial.Image = (Image)resources.GetObject("buttonCopyToClipboardHyperfactorial.Image");
+			this.buttonCopyToClipboardHyperfactorial.Image = Properties.Resources.copy;
 			this.buttonCopyToClipboardHyperfactorial.Location = new Point(357, 3);
 			this.buttonCopyToClipboardHyperfactorial.Name = "buttonCopyToClipboardHyperfactorial";
 			this.buttonCopyToClipboardHyperfactorial.Size = new Size(130, 24);
@@ -1203,7 +1203,7 @@
 			// 
 			// buttonDigitStatisticsSuperduperfactorial
 			// 
-			this.buttonDigitStatisticsSuperduperfactorial.Image = (Image)resources.GetObject("buttonDigitStatisticsSuperduperfactorial.Image");
+			this.buttonDigitStatisticsSuperduperfactorial.Image = Properties.Resources.chart_pie;
 			this.buttonDigitStatisticsSuperduperfactorial.Location = new Point(589, 3);
 			this.buttonDigitStatisticsSuperduperfactorial.Name = "buttonDigitStatisticsSuperduperfactorial";
 			this.buttonDigitStatisticsSuperduperfactorial.Size = new Size(119, 24);
@@ -1229,7 +1229,7 @@
 			// 
 			// buttonCopyToClipboardSuperduperfactorial
 			// 
-			this.buttonCopyToClipboardSuperduperfactorial.Image = (Image)resources.GetObject("buttonCopyToClipboardSuperduperfactorial.Image");
+			this.buttonCopyToClipboardSuperduperfactorial.Image = Properties.Resources.copy;
 			this.buttonCopyToClipboardSuperduperfactorial.Location = new Point(357, 3);
 			this.buttonCopyToClipboardSuperduperfactorial.Name = "buttonCopyToClipboardSuperduperfactorial";
 			this.buttonCopyToClipboardSuperduperfactorial.Size = new Size(130, 24);
