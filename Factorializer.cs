@@ -1285,5 +1285,79 @@ namespace FactorialForge
 			// Return the computed hyperfactorial
 			return result;
 		}
+
+		/// <summary>
+		/// Calculates the superduperfactorial of a non-negative integer n as a <see cref="long"/>.
+		/// The superduperfactorial of n is defined as the product of i^(i!) for i from 1 to n.
+		/// For example, SuperDuperFactorial(3) = 1^(1!) * 2^(2!) * 3^(3!) = 1^1 * 2^2 * 3^6 = 1 * 4 * 729 = 2916.
+		/// </summary>
+		/// <param name="n">The upper bound integer for the superduperfactorial calculation. Must be non-negative.</param>
+		/// <returns>
+		/// The superduperfactorial of <paramref name="n"/> as a <see cref="long"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// The result may overflow for relatively small values of <paramref name="n"/>. Use <see cref="SuperDuperFactorialBig"/> for large n.
+		/// </remarks>
+		public static long SuperDuperFactorial(long n)
+		{
+			// Initialize the result to 1
+			long result = 1;
+			for (long i = 1; i <= n; i++)
+			{
+				long f = Factorial(n: i);// i!
+				result *= (long)Math.Pow(x: i, y: (int)f);// i^(i!)
+			}
+			// Return the computed superduperfactorial
+			return result;
+		}
+
+		/// <summary>
+		/// Calculates the superduperfactorial of a non-negative integer n as a <see cref="BigInteger"/>.
+		/// The superduperfactorial of n is defined as the product of i^(i!) for i from 1 to n.
+		/// For example, SuperDuperFactorialBig(3) = 1^(1!) * 2^(2!) * 3^(3!) = 1^1 * 2^2 * 3^6 = 1 * 4 * 729 = 2916.
+		/// </summary>
+		/// <param name="n">The upper bound integer for the superduperfactorial calculation. Must be non-negative.</param>
+		/// <returns>
+		/// The superduperfactorial of <paramref name="n"/> as a <see cref="BigInteger"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="SuperDuperFactorial"/> when the result may exceed the range of <see cref="long"/>.
+		/// </remarks>
+		public static BigInteger SuperDuperFactorialBig(long n)
+		{
+			// Initialize the result to 1
+			BigInteger result = 1;
+			// Compute the superduperfactorial iteratively
+			// The loop runs from 1 to n, multiplying i^(i!) for each i
+			// This is a straightforward implementation of the superduperfactorial function
+			// It is efficient for reasonably small values of n
+			// For very large n, BigInteger handles the large results without overflow
+			// The time complexity is O(n^2) due to the nested factorial calculations
+			// The space complexity is O(1) since we are using a constant amount of space
+			// The method completes when the superduperfactorial for n has been computed
+			// The loop iterates from 1 to n, calculating the factorial of each i and raising i to that power, then multiplying it to the result
+			// The method returns the computed superduperfactorial
+			// If n is 0, the result remains 1
+			// For n >= 1, the loop computes the product of i^(i!) for i from 1 to n
+			// The method can handle very large values of n, limited only by system memory
+			// The maximum value of n is constrained by practical computation time and memory usage
+			// Use this method for large superduperfactorial calculations where the result exceeds the range of long
+			// The superduperfactorial of n is defined as the product of i^(i!) for i from 1 to n
+			// For example, SuperDuperFactorialBig(3) = 1^(1!) * 2^(2!) * 3^(3!) = 1^1 * 2^2 * 3^6 = 1 * 4 * 729 = 2916
+			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+			// The maximum value of n for which the superduperfactorial fits in a long is relatively small
+			// Beyond that, use SuperDuperFactorialBig for larger results
+			// The method is a simple implementation of the superduperfactorial function using BigInteger
+			// It is suitable for applications requiring high precision and large number handling
+			for (long i = 1; i <= n; i++)
+			{
+				// Calculate i!
+				BigInteger f = FactorialBig(n: i);
+				// Multiply the current result by i^(i!)
+				result *= BigInteger.Pow(value: i, exponent: (int)f);
+			}
+			// Return the computed superduperfactorial
+			return result;
+		}
 	}
 }
