@@ -117,7 +117,7 @@ namespace FactorialForge
 		/// <param name="baseValue">The base value.</param>
 		/// <param name="exp">The exponent (must be non-negative).</param>
 		/// <returns>The result of baseValue raised to the power of exp.</returns>
-		private static long PowInt(long baseValue, long exp)
+		private static long PowLong(long baseValue, long exp)
 		{
 			// Validate that the exponent is non-negative
 			// This method does not handle negative exponents
@@ -155,6 +155,49 @@ namespace FactorialForge
 			{
 				// Multiply the current result by the base value
 				result *= baseValue;
+			}
+			// Return the computed power
+			return result;
+		}
+
+		/// <summary>
+		/// Computes base^exponent for BigInteger base and BigInteger exponent using repeated squaring.
+		/// </summary>
+		/// <param name="baseValue">The base value.</param>
+		/// <param name="exponent">The exponent value.</param>
+		/// <returns>baseValue raised to the power of exponent.</returns>
+		private static BigInteger BigIntegerPow(BigInteger baseValue, BigInteger exponent)
+		{
+			// Validate that the exponent is non-negative
+			if (exponent < 0)
+			{
+				// Throw an exception with a descriptive message
+				throw new ArgumentException(message: "Exponent must be non-negative.", paramName: nameof(exponent));
+			}
+			// Handle special cases
+			if (exponent == 0)
+			{
+				return 1;
+			}
+			// If baseValue is 0 and exponent is positive, the result is 0
+			if (baseValue == 0)
+			{
+				return 0;
+			}
+			// Initialize result to 1 (base case for exponentiation)
+			BigInteger result = 1;
+			// Loop until the exponent is reduced to 0
+			while (exponent > 0)
+			{
+				// If the exponent is odd, multiply the result by the base value
+				if ((exponent & 1) == 1)
+				{
+					// Multiply the current result by the base value
+					result *= baseValue;
+				}
+				// Square the base value and halve the exponent
+				baseValue *= baseValue;
+				exponent >>= 1;
 			}
 			// Return the computed power
 			return result;
@@ -1236,7 +1279,7 @@ namespace FactorialForge
 			for (long i = 1; i <= n; i++)
 			{
 				// Multiply the current result by i^i
-				result *= PowInt(baseValue: i, exp: i);
+				result *= PowLong(baseValue: i, exp: i);
 			}
 			// Return the computed hyperfactorial
 			return result;
@@ -1302,10 +1345,14 @@ namespace FactorialForge
 		{
 			// Initialize the result to 1
 			long result = 1;
+			// Compute the superduperfactorial iteratively
+			// Time complexity: O(n^2) due to nested factorial calculations.
+			// Uses BigInteger to handle very large results.
+			// Example: SuperDuperFactorialBig(3) = 1^(1!) * 2^(2!) * 3^(3!) = 1 * 4 * 729 = 2916
 			for (long i = 1; i <= n; i++)
 			{
 				long f = Factorial(n: i);// i!
-				result *= (long)Math.Pow(x: i, y: (int)f);// i^(i!)
+				result *= PowLong(baseValue: i, exp: f);// i^(i!)
 			}
 			// Return the computed superduperfactorial
 			return result;
@@ -1328,33 +1375,15 @@ namespace FactorialForge
 			// Initialize the result to 1
 			BigInteger result = 1;
 			// Compute the superduperfactorial iteratively
-			// The loop runs from 1 to n, multiplying i^(i!) for each i
-			// This is a straightforward implementation of the superduperfactorial function
-			// It is efficient for reasonably small values of n
-			// For very large n, BigInteger handles the large results without overflow
-			// The time complexity is O(n^2) due to the nested factorial calculations
-			// The space complexity is O(1) since we are using a constant amount of space
-			// The method completes when the superduperfactorial for n has been computed
-			// The loop iterates from 1 to n, calculating the factorial of each i and raising i to that power, then multiplying it to the result
-			// The method returns the computed superduperfactorial
-			// If n is 0, the result remains 1
-			// For n >= 1, the loop computes the product of i^(i!) for i from 1 to n
-			// The method can handle very large values of n, limited only by system memory
-			// The maximum value of n is constrained by practical computation time and memory usage
-			// Use this method for large superduperfactorial calculations where the result exceeds the range of long
-			// The superduperfactorial of n is defined as the product of i^(i!) for i from 1 to n
-			// For example, SuperDuperFactorialBig(3) = 1^(1!) * 2^(2!) * 3^(3!) = 1^1 * 2^2 * 3^6 = 1 * 4 * 729 = 2916
-			// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
-			// The maximum value of n for which the superduperfactorial fits in a long is relatively small
-			// Beyond that, use SuperDuperFactorialBig for larger results
-			// The method is a simple implementation of the superduperfactorial function using BigInteger
-			// It is suitable for applications requiring high precision and large number handling
+			// Time complexity: O(n^2) due to nested factorial calculations.
+			// Uses BigInteger to handle very large results.
+			// Example: SuperDuperFactorialBig(3) = 1^(1!) * 2^(2!) * 3^(3!) = 1 * 4 * 729 = 2916
 			for (long i = 1; i <= n; i++)
 			{
 				// Calculate i!
 				BigInteger f = FactorialBig(n: i);
 				// Multiply the current result by i^(i!)
-				result *= BigInteger.Pow(value: i, exponent: (int)f);
+				result *= BigIntegerPow(baseValue: i, exponent: f);
 			}
 			// Return the computed superduperfactorial
 			return result;
