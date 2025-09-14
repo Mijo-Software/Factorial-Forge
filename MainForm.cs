@@ -56,7 +56,7 @@ namespace FactorialForge
 					digits++;
 				}
 				// Append the digit and its count
-				_ = sb.AppendLine(value: $"{i}: {counts[i]}");
+				_ = sb.AppendLine(value: $"{i}: {counts[i]} ({(double)counts[i] / counts.Sum():P2})");
 			}
 			// Append the total sum of digits
 			_ = sb.AppendLine(value: $"\nΣ: {counts.Sum()}");
