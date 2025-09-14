@@ -1,9 +1,7 @@
 ﻿using System.Numerics;
 
-/// <summary>
-/// The FactorialForge namespace contains classes and logic for advanced factorial calculations,
-/// digit statistics analysis, and user interface components for displaying and exporting results.
-/// </summary>
+// The FactorialForge namespace contains classes and logic for advanced factorial calculations,
+// digit statistics analysis, and user interface components for displaying and exporting results.
 namespace FactorialForge
 {
 	/// <summary>
@@ -1339,16 +1337,16 @@ namespace FactorialForge
 		/// The superduperfactorial of <paramref name="n"/> as a <see cref="long"/>. Returns 1 if n is 0.
 		/// </returns>
 		/// <remarks>
-		/// The result may overflow for relatively small values of <paramref name="n"/>. Use <see cref="SuperDuperFactorialBig"/> for large n.
+		/// The result may overflow for relatively small values of <paramref name="n"/>. Use <see cref="SuperduperfactorialBig"/> for large n.
 		/// </remarks>
-		public static long SuperDuperFactorial(long n)
+		public static long Superduperfactorial(long n)
 		{
 			// Initialize the result to 1
 			long result = 1;
 			// Compute the superduperfactorial iteratively
 			// Time complexity: O(n^2) due to nested factorial calculations.
 			// Uses BigInteger to handle very large results.
-			// Example: SuperDuperFactorialBig(3) = 1^(1!) * 2^(2!) * 3^(3!) = 1 * 4 * 729 = 2916
+			// Example: SuperduperfactorialBig(3) = 1^(1!) * 2^(2!) * 3^(3!) = 1 * 4 * 729 = 2916
 			for (long i = 1; i <= n; i++)
 			{
 				long f = Factorial(n: i);// i!
@@ -1361,23 +1359,23 @@ namespace FactorialForge
 		/// <summary>
 		/// Calculates the superduperfactorial of a non-negative integer n as a <see cref="BigInteger"/>.
 		/// The superduperfactorial of n is defined as the product of i^(i!) for i from 1 to n.
-		/// For example, SuperDuperFactorialBig(3) = 1^(1!) * 2^(2!) * 3^(3!) = 1^1 * 2^2 * 3^6 = 1 * 4 * 729 = 2916.
+		/// For example, SuperduperfactorialBig(3) = 1^(1!) * 2^(2!) * 3^(3!) = 1^1 * 2^2 * 3^6 = 1 * 4 * 729 = 2916.
 		/// </summary>
 		/// <param name="n">The upper bound integer for the superduperfactorial calculation. Must be non-negative.</param>
 		/// <returns>
 		/// The superduperfactorial of <paramref name="n"/> as a <see cref="BigInteger"/>. Returns 1 if n is 0.
 		/// </returns>
 		/// <remarks>
-		/// Use this method instead of <see cref="SuperDuperFactorial"/> when the result may exceed the range of <see cref="long"/>.
+		/// Use this method instead of <see cref="Superduperfactorial(long)"/> when the result may exceed the range of <see cref="long"/>.
 		/// </remarks>
-		public static BigInteger SuperDuperFactorialBig(long n)
+		public static BigInteger SuperduperfactorialBig(long n)
 		{
 			// Initialize the result to 1
 			BigInteger result = 1;
 			// Compute the superduperfactorial iteratively
 			// Time complexity: O(n^2) due to nested factorial calculations.
 			// Uses BigInteger to handle very large results.
-			// Example: SuperDuperFactorialBig(3) = 1^(1!) * 2^(2!) * 3^(3!) = 1 * 4 * 729 = 2916
+			// Example: SuperduperFactorialBig(3) = 1^(1!) * 2^(2!) * 3^(3!) = 1 * 4 * 729 = 2916
 			for (long i = 1; i <= n; i++)
 			{
 				// Calculate i!
