@@ -1,7 +1,9 @@
 ﻿using System.Numerics;
 
-// The FactorialForge namespace contains classes and logic for advanced factorial calculations,
-// digit statistics analysis, and user interface components for displaying and exporting results.
+/// <summary>
+/// The FactorialForge namespace contains classes and logic for advanced factorial calculations,
+/// digit statistics analysis, and user interface components for displaying and exporting results.
+/// </summary>
 namespace FactorialForge
 {
 	/// <summary>
@@ -1346,7 +1348,7 @@ namespace FactorialForge
 			// Compute the superduperfactorial iteratively
 			// Time complexity: O(n^2) due to nested factorial calculations.
 			// Uses BigInteger to handle very large results.
-			// Example: SuperduperfactorialBig(3) = 1^(1!) * 2^(2!) * 3^(3!) = 1 * 4 * 729 = 2916
+			// Example: Superduperfactorial(3) = 1^(1!) * 2^(2!) * 3^(3!) = 1 * 4 * 729 = 2916
 			for (long i = 1; i <= n; i++)
 			{
 				long f = Factorial(n: i);// i!
@@ -1375,7 +1377,7 @@ namespace FactorialForge
 			// Compute the superduperfactorial iteratively
 			// Time complexity: O(n^2) due to nested factorial calculations.
 			// Uses BigInteger to handle very large results.
-			// Example: SuperduperFactorialBig(3) = 1^(1!) * 2^(2!) * 3^(3!) = 1 * 4 * 729 = 2916
+			// Example: SuperduperfactorialBig(3) = 1^(1!) * 2^(2!) * 3^(3!) = 1 * 4 * 729 = 2916
 			for (long i = 1; i <= n; i++)
 			{
 				// Calculate i!
