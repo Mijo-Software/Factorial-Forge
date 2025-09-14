@@ -292,7 +292,7 @@ namespace FactorialForge
 				}
 				// Return the computed factorial
 				return result;
-			});
+			}).ConfigureAwait(continueOnCapturedContext: false);
 		}
 
 		/// <summary>
@@ -390,7 +390,7 @@ namespace FactorialForge
 				}
 				// Return the computed factorial
 				return result;
-			});
+			}).ConfigureAwait(continueOnCapturedContext: false);
 		}
 
 		/// <summary>
