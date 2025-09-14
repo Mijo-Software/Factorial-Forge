@@ -251,6 +251,51 @@ namespace FactorialForge
 		}
 
 		/// <summary>
+		/// Asynchronously computes the factorial of a non-negative integer n.
+		/// </summary>
+		/// <param name="n">The non-negative integer for which to compute the factorial.</param>
+		/// <returns>
+		/// A Task that represents the asynchronous operation. The result contains the factorial of <paramref name="n"/> as a <see cref="long"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="FactorialBig"/> when the result is known to be within the range of <see cref="long"/>.
+		/// </remarks>
+		public static async Task<long> FactorialAsync(long n)
+		{
+			// Compute the factorial asynchronously to avoid blocking the calling thread
+			return await Task.Run(function: () =>
+			{
+				// Validate that n is non-negative
+				CheckNonNegative(n: n);
+				// Initialize the result to 1 (0! = 1)
+				long result = 1;
+				// Compute the factorial iteratively
+				// This avoids the risk of stack overflow from recursion
+				// The loop runs from 2 to n, multiplying the result by each integer
+				// This is a straightforward implementation of the factorial function
+				// It is efficient for reasonably small values of n
+				// For very large n, consider using BigInteger to avoid overflow
+				// The time complexity is O(n), which is acceptable for typical factorial calculations
+				// The space complexity is O(1) since we are using a constant amount of space
+				// The method returns the computed factorial
+				// If n is 0 or 1, the result remains 1
+				// For n >= 2, the loop computes the product
+				// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+				// The maximum value of n for which n! fits in a long is 20
+				// Beyond that, use FactorialBig for larger results
+				// The factorial of n is defined as the product of all positive integers up to n
+				// For example, Factorial(5) = 1 * 2 * 3 * 4 * 5 = 120
+				for (long i = 2; i <= n; i++)
+				{
+					// Multiply the current result by i
+					result *= i;
+				}
+				// Return the computed factorial
+				return result;
+			});
+		}
+
+		/// <summary>
 		/// Computes the factorial of a non-negative integer n using arbitrary-precision arithmetic.
 		/// </summary>
 		/// <param name="n">The non-negative integer for which to compute the factorial.</param>
@@ -295,6 +340,57 @@ namespace FactorialForge
 			}
 			// Return the computed factorial
 			return result;
+		}
+
+		/// <summary>
+		/// Asynchronously computes the factorial of a non-negative integer n using arbitrary-precision arithmetic.
+		/// </summary>
+		/// <param name="n">The non-negative integer for which to compute the factorial.</param>
+		/// <returns>
+		/// A Task that represents the asynchronous operation. The result contains the factorial of <paramref name="n"/> as a <see cref="BigInteger"/>. Returns 1 if n is 0.
+		/// </returns>
+		/// <remarks>
+		/// Use this method instead of <see cref="Factorial"/> when the result may exceed the range of <see cref="long"/>.
+		/// </remarks>
+		public static async Task<BigInteger> FactorialBigAsync(long n)
+		{
+			// Compute the factorial asynchronously to avoid blocking the calling thread
+			return await Task.Run(function: () =>
+			{
+				// Validate that n is non-negative
+				CheckNonNegative(n: n);
+				// Initialize the result to 1 (0! = 1)
+				BigInteger result = BigInteger.One;
+				// Compute the factorial iteratively
+				// This avoids the risk of stack overflow from recursion
+				// The loop runs from 2 to n, multiplying the result by each integer
+				// This is a straightforward implementation of the factorial function
+				// It is efficient for reasonably small values of n
+				// For very large n, BigInteger handles the large results without overflow
+				// The time complexity is O(n), which is acceptable for typical factorial calculations
+				// The space complexity is O(1) since we are using a constant amount of space
+				// The method returns the computed factorial
+				// If n is 0 or 1, the result remains 1
+				// For n >= 2, the loop computes the product
+				// The method can handle very large values of n, limited only by system memory
+				// The maximum value of n is constrained by practical computation time and memory usage
+				// Use this method for large factorial calculations where the result exceeds the range of long
+				// This method is a simple implementation of the factorial function using BigInteger
+				// It is suitable for applications requiring high precision and large number handling
+				// The method completes when all integers up to n have been multiplied
+				// The maximum value of n for which n! fits in a long is 20
+				// Beyond that, use FactorialBig for larger results
+				// The method does not handle overflow; it is the caller's responsibility to ensure n is within a safe range
+				// The factorial of n is defined as the product of all positive integers up to n
+				// For example, FactorialBig(5) = 1 * 2 * 3 * 4 * 5 = 120
+				for (long i = 2; i <= n; i++)
+				{
+					// Multiply the current result by i
+					result *= i;
+				}
+				// Return the computed factorial
+				return result;
+			});
 		}
 
 		/// <summary>
