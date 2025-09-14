@@ -28,23 +28,29 @@ namespace FactorialForge
 		/// <param name="input">The string to analyze for digit frequency.</param>
 		private static void CountDigits(string input)
 		{
+			// Array to hold counts for digits 0-9
 			int[] counts = new int[10];
-
+			// Iterate through each character in the input string
 			foreach (char c in input)
 			{
+				// Check if the character is a digit
 				if (char.IsDigit(c: c))
 				{
+					// Convert character to its corresponding digit value
 					int digit = c - '0';
+					// Increment the count for this digit
 					counts[digit]++;
 				}
 			}
-
+			// Build the result string to display
 			StringBuilder sb = new();
+			// Append each digit and its count to the StringBuilder
 			for (int i = 0; i < counts.Length; i++)
 			{
+				// Append the digit and its count
 				_ = sb.AppendLine(value: $"{i}: {counts[i]}");
 			}
-
+			// Show the digit statistics in a message box
 			_ = MessageBox.Show(text: sb.ToString(), caption: "Digit statistics", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
 
@@ -58,20 +64,30 @@ namespace FactorialForge
 		/// <returns>A Task representing the asynchronous operation.</returns>
 		private async Task CalculateAndDisplayAsync(Func<BigInteger> calculation, TextBox targetTextBox)
 		{
+			// Update status bar and show progress bar
 			toolStripStatusLabelInfo.Text = "Calculating...";
 			toolStripProgressBar.Visible = true;
+			// Perform the calculation asynchronously
 			try
 			{
+				// Restart and stop the stopwatch to measure calculation time
 				watch.Restart();
+				// Run the calculation on a background thread
 				BigInteger result = await Task.Run(function: calculation);
+				// Stop the stopwatch after calculation completes
 				watch.Stop();
+				// Display the result in the target textbox
 				targetTextBox.Text = $"{result}";
+				// Update the status bar with the elapsed time
 				toolStripStatusLabelInfo.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
 			}
+			// Handle any exceptions that occur during calculation
 			catch (Exception ex)
 			{
+				// Show an error message box with the exception details
 				_ = MessageBox.Show(text: $"Error: {ex.Message}");
 			}
+			// Hide the progress bar after calculation is done
 			toolStripProgressBar.Visible = false;
 		}
 
@@ -83,15 +99,21 @@ namespace FactorialForge
 		/// <param name="sourceTextBox">The textbox containing the text to copy.</param>
 		private void CopyToClipboard(TextBox sourceTextBox)
 		{
+			// Check if the textbox is not empty or whitespace
 			if (!string.IsNullOrWhiteSpace(value: sourceTextBox.Text))
 			{
+				// Attempt to copy the text to the clipboard
 				try
 				{
+					// Set the clipboard text to the content of the textbox
 					Clipboard.SetText(sourceTextBox.Text);
+					// Update the status bar to indicate successful copy
 					toolStripStatusLabelInfo.Text = "Copied to clipboard.";
 				}
+				// Handle any exceptions that occur during clipboard operations
 				catch (Exception ex)
 				{
+					// Show an error message box with the exception details
 					_ = MessageBox.Show(text: $"Error copying to clipboard: {ex.Message}", caption: "Clipboard Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 				}
 			}
@@ -106,23 +128,32 @@ namespace FactorialForge
 		/// <param name="title">The title for the SaveFileDialog window.</param>
 		private void SaveToFile(TextBox sourceTextBox, string title)
 		{
+			// Check if the textbox is not empty or whitespace
 			if (!string.IsNullOrWhiteSpace(value: sourceTextBox.Text))
 			{
+				// Create and configure the SaveFileDialog
 				using SaveFileDialog saveFileDialog = new()
 				{
+					// Set the file filter to allow text files and all files
 					Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*",
 					Title = title
 				};
+				// Show the dialog and check if the user confirmed the save operation
 				if (saveFileDialog.ShowDialog() == DialogResult.OK)
 				{
+					// Attempt to write the textbox content to the selected file
 					try
 					{
+						// Write the content of the textbox to the specified file
 						File.WriteAllText(path: saveFileDialog.FileName, contents: sourceTextBox.Text);
+						// Update the status bar to indicate successful save
 						toolStripStatusLabelInfo.Text = $"Saved to {saveFileDialog.FileName}.";
 					}
+					// Handle any exceptions that occur during file operations
 					catch (Exception ex)
 					{
-						_ = MessageBox.Show(text: $"Error saving file: {ex.Message}");
+						// Show an error message box with the exception details
+						_ = MessageBox.Show(text: $"Error saving file: {ex.Message}", caption: "File Save Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 					}
 				}
 			}
@@ -137,12 +168,16 @@ namespace FactorialForge
 		/// <param name="errorMessage">The error message to display if the textbox is empty.</param>
 		private static void ShowDigitStatistics(TextBox sourceTextBox, string errorMessage)
 		{
+			// Check if the textbox is not empty or whitespace
 			if (!string.IsNullOrWhiteSpace(value: sourceTextBox.Text))
 			{
+				// Analyze and display the digit statistics
 				CountDigits(input: sourceTextBox.Text);
 			}
+			// If the textbox is empty, show the provided error message
 			else
 			{
+				// Show an error message box indicating no data to analyze
 				_ = MessageBox.Show(text: errorMessage, caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 			}
 		}
@@ -153,10 +188,14 @@ namespace FactorialForge
 		/// </summary>
 		public MainForm()
 		{
+			// Initialize UI components
 			InitializeComponent();
+			// Start and stop the stopwatch to initialize it
 			watch.Start();
 			watch.Stop();
+			// Set the progress bar to be invisible initially
 			toolStripProgressBar.Visible = false;
+			// Update the status bar to indicate the application is ready
 			toolStripStatusLabelInfo.Text = $"Ready at {DateTime.Now:T}";
 		}
 
@@ -169,6 +208,7 @@ namespace FactorialForge
 		/// <param name="e">The event data.</param>
 		private async void NumericUpDownFactorial_ValueChanged(object? sender, EventArgs e)
 		{
+			// Perform the factorial calculation and display the result
 			await CalculateAndDisplayAsync(
 				calculation: () => Factorializer.FactorialBig(n: (long)numericUpDownFactorial.Value),
 				targetTextBox: textBoxFactorial
@@ -184,6 +224,7 @@ namespace FactorialForge
 		/// <param name="e">The event data.</param>
 		private async void NumericUpDownOddFactorial_ValueChanged(object sender, EventArgs e)
 		{
+			// Perform the odd factorial calculation and display the result
 			await CalculateAndDisplayAsync(
 				calculation: () => Factorializer.OddFactorialBig(n: (long)numericUpDownOddFactorial.Value),
 				targetTextBox: textBoxOddFactorial
@@ -199,6 +240,7 @@ namespace FactorialForge
 		/// <param name="e">The event data.</param>
 		private async void NumericUpDownEvenFactorial_ValueChanged(object sender, EventArgs e)
 		{
+			// Perform the even factorial calculation and display the result
 			await CalculateAndDisplayAsync(
 				calculation: () => Factorializer.EvenFactorialBig(n: (long)numericUpDownEvenFactorial.Value),
 				targetTextBox: textBoxEvenFactorial
@@ -214,6 +256,7 @@ namespace FactorialForge
 		/// <param name="e">The event data.</param>
 		private async void NumericUpDownPrimeFactorial_ValueChanged(object sender, EventArgs e)
 		{
+			// Perform the prime factorial calculation and display the result
 			await CalculateAndDisplayAsync(
 				calculation: () => Factorializer.PrimeFactorialBig(n: (long)numericUpDownPrimeFactorial.Value),
 				targetTextBox: textBoxPrimeFactorial
@@ -229,6 +272,7 @@ namespace FactorialForge
 		/// <param name="e">The event data.</param>
 		private async void NumericUpDownSubfactorial_ValueChanged(object sender, EventArgs e)
 		{
+			// Perform the subfactorial calculation and display the result
 			await CalculateAndDisplayAsync(
 				calculation: () => Factorializer.SubfactorialBig(n: (long)numericUpDownSubfactorial.Value),
 				targetTextBox: textBoxSubfactorial
@@ -244,6 +288,7 @@ namespace FactorialForge
 		/// <param name="e">The event data.</param>
 		private async void NumericUpDownDoubleFactorial_ValueChanged(object sender, EventArgs e)
 		{
+			// Perform the double factorial calculation and display the result
 			await CalculateAndDisplayAsync(
 				calculation: () => Factorializer.DoubleFactorialBig(n: (long)numericUpDownDoubleFactorial.Value),
 				targetTextBox: textBoxDoubleFactorial
@@ -258,6 +303,7 @@ namespace FactorialForge
 		/// <param name="e">The event data.</param>
 		private async void NumericUpDownRisingFactorialX_ValueChanged(object sender, EventArgs e)
 		{
+			// Perform the rising factorial calculation and display the result
 			await CalculateAndDisplayAsync(
 				calculation: () => Factorializer.RisingFactorialBig(x: (long)numericUpDownRisingFactorialX.Value,
 				n: (long)numericUpDownRisingFactorialN.Value),
@@ -273,6 +319,7 @@ namespace FactorialForge
 		/// <param name="e">The event data.</param>
 		private async void NumericUpDownFallingFactorialX_ValueChanged(object sender, EventArgs e)
 		{
+			// Perform the falling factorial calculation and display the result
 			await CalculateAndDisplayAsync(
 				calculation: () => Factorializer.FallingFactorialBig(x: (long)numericUpDownFallingFactorialX.Value,
 				n: (long)numericUpDownFallingFactorialN.Value),
@@ -288,6 +335,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source (numericUpDownRisingFactorialN).</param>
 		/// <param name="e">The event data.</param>
 		private void NumericUpDownRisingFactorialN_ValueChanged(object sender, EventArgs e)
+			// Delegate to the X value changed handler to recalculate
 			=> NumericUpDownRisingFactorialX_ValueChanged(sender: sender, e: e);
 
 		/// <summary>
@@ -298,6 +346,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source (numericUpDownFallingFactorialN).</param>
 		/// <param name="e">The event data.</param>
 		private void NumericUpDownFallingFactorialN_ValueChanged(object sender, EventArgs e)
+			// Delegate to the X value changed handler to recalculate
 			=> NumericUpDownFallingFactorialX_ValueChanged(sender: sender, e: e);
 
 		/// <summary>
@@ -309,6 +358,7 @@ namespace FactorialForge
 		/// <param name="e">The event data.</param>
 		private async void NumericUpDownMultiFactorialX_ValueChanged(object sender, EventArgs e)
 		{
+			// Perform the multi-factorial calculation and display the result
 			await CalculateAndDisplayAsync(
 				calculation: () => Factorializer.MultiFactorialBig(x: (long)numericUpDownMultiFactorialX.Value,
 				n: (long)numericUpDownMultiFactorialN.Value),
@@ -324,6 +374,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source (numericUpDownMultiFactorialN).</param>
 		/// <param name="e">The event data.</param>
 		private void NumericUpDownMultiFactorialN_ValueChanged(object sender, EventArgs e)
+			// Delegate to the X value changed handler to recalculate
 			=> NumericUpDownMultiFactorialX_ValueChanged(sender: sender, e: e);
 
 		/// <summary>
@@ -335,6 +386,7 @@ namespace FactorialForge
 		/// <param name="e">The event data.</param>
 		private async void NumericUpDownSuperfactorial_ValueChanged(object sender, EventArgs e)
 		{
+			// Perform the superfactorial calculation and display the result
 			await CalculateAndDisplayAsync(
 				calculation: () => Factorializer.SuperfactorialBig(n: (long)numericUpDownSuperfactorial.Value),
 				targetTextBox: textBoxSuperfactorial
@@ -350,6 +402,7 @@ namespace FactorialForge
 		/// <param name="e">The event data.</param>
 		private async void NumericUpDownHyperfactorial_ValueChanged(object sender, EventArgs e)
 		{
+			// Perform the hyperfactorial calculation and display the result
 			await CalculateAndDisplayAsync(
 				calculation: () => Factorializer.HyperfactorialBig(n: (long)numericUpDownHyperfactorial.Value),
 				targetTextBox: textBoxHyperfactorial
@@ -364,6 +417,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonCopyToClipboardFactorial_Click(object sender, EventArgs e)
+			// Copy the factorial result to the clipboard
 			=> CopyToClipboard(sourceTextBox: textBoxFactorial);
 
 		/// <summary>
@@ -374,6 +428,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonCopyToClipboardOddFactorial_Click(object sender, EventArgs e)
+			// Copy the odd factorial result to the clipboard
 			=> CopyToClipboard(sourceTextBox: textBoxOddFactorial);
 
 		/// <summary>
@@ -384,6 +439,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonCopyToClipboardEvenFactorial_Click(object sender, EventArgs e)
+			// Copy the even factorial result to the clipboard
 			=> CopyToClipboard(sourceTextBox: textBoxEvenFactorial);
 
 		/// <summary>
@@ -394,6 +450,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonCopyToClipboardPrimeFactorial_Click(object sender, EventArgs e)
+			// Copy the prime factorial result to the clipboard
 			=> CopyToClipboard(sourceTextBox: textBoxPrimeFactorial);
 
 		/// <summary>
@@ -404,6 +461,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonCopyToClipboardSubfactorial_Click(object sender, EventArgs e)
+			// Copy the subfactorial result to the clipboard
 			=> CopyToClipboard(sourceTextBox: textBoxSubfactorial);
 
 		/// <summary>
@@ -414,6 +472,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonCopyToClipboardDoubleFactorial_Click(object sender, EventArgs e)
+			// Copy the double factorial result to the clipboard
 			=> CopyToClipboard(sourceTextBox: textBoxDoubleFactorial);
 
 		/// <summary>
@@ -424,6 +483,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonCopyToClipboardRisingFactorial_Click(object sender, EventArgs e)
+			// Copy the rising factorial result to the clipboard
 			=> CopyToClipboard(sourceTextBox: textBoxRisingFactorial);
 
 		/// <summary>
@@ -434,6 +494,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonCopyToClipboardFallingFactorial_Click(object sender, EventArgs e)
+			 // Copy the falling factorial result to the clipboard
 			 => CopyToClipboard(sourceTextBox: textBoxFallingFactorial);
 
 		/// <summary>
@@ -444,6 +505,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonCopyToClipboardMultiFactorial_Click(object sender, EventArgs e)
+			// Copy the multi factorial result to the clipboard
 			=> CopyToClipboard(sourceTextBox: textBoxMultiFactorial);
 
 		/// <summary>
@@ -454,6 +516,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonCopyToClipboardSuperfactorial_Click(object sender, EventArgs e)
+			// Copy the superfactorial result to the clipboard
 			=> CopyToClipboard(sourceTextBox: textBoxSuperfactorial);
 
 		/// <summary>
@@ -464,6 +527,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonCopyToClipboardHyperfactorial_Click(object sender, EventArgs e)
+			// Copy the hyperfactorial result to the clipboard
 			=> CopyToClipboard(sourceTextBox: textBoxHyperfactorial);
 
 		/// <summary>
@@ -474,6 +538,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonSaveToFileFactorial_Click(object sender, EventArgs e)
+			// Save the factorial result to a file
 			=> SaveToFile(sourceTextBox: textBoxFactorial, title: "Save Factorial Result");
 
 		/// <summary>
@@ -484,6 +549,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonSaveToFileOddFactorial_Click(object sender, EventArgs e)
+			// Save the odd factorial result to a file
 			=> SaveToFile(sourceTextBox: textBoxOddFactorial, title: "Save Odd Factorial Result");
 
 		/// <summary>
@@ -494,6 +560,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonSaveToFileEvenFactorial_Click(object sender, EventArgs e)
+			// Save the even factorial result to a file
 			=> SaveToFile(sourceTextBox: textBoxEvenFactorial, title: "Save Even Factorial Result");
 
 		/// <summary>
@@ -505,6 +572,7 @@ namespace FactorialForge
 		/// <param name="e">The event data.</param>
 
 		private void ButtonSaveToFilePrimeFactorial_Click(object sender, EventArgs e)
+			// Save the prime factorial result to a file
 			=> SaveToFile(sourceTextBox: textBoxPrimeFactorial, title: "Save Prime Factorial Result");
 
 		/// <summary>
@@ -515,6 +583,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonSaveToFileSubfactorial_Click(object sender, EventArgs e)
+			// Save the subfactorial result to a file
 			=> SaveToFile(sourceTextBox: textBoxSubfactorial, title: "Save Subfactorial Result");
 
 		/// <summary>
@@ -525,6 +594,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonSaveToFileDoubleFactorial_Click(object sender, EventArgs e)
+			// Save the double factorial result to a file
 			=> SaveToFile(sourceTextBox: textBoxDoubleFactorial, title: "Save Double Factorial Result");
 
 		/// <summary>
@@ -535,6 +605,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonSaveToFileRisingFactorial_Click(object sender, EventArgs e)
+			// Save the rising factorial result to a file
 			=> SaveToFile(sourceTextBox: textBoxRisingFactorial, title: "Save Rising Factorial Result");
 
 		/// <summary>
@@ -545,6 +616,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonSaveToFileFallingFactorial_Click(object sender, EventArgs e)
+			// Save the falling factorial result to a file
 			=> SaveToFile(sourceTextBox: textBoxFallingFactorial, title: "Save Falling Factorial Result");
 
 		/// <summary>
@@ -555,6 +627,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonSaveToFileMultiFactorial_Click(object sender, EventArgs e)
+			// Save the multi factorial result to a file
 			=> SaveToFile(sourceTextBox: textBoxMultiFactorial, title: "Save Multi Factorial Result");
 
 		/// <summary>
@@ -565,6 +638,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonSaveToFileSuperfactorial_Click(object sender, EventArgs e)
+			// Save the superfactorial result to a file
 			=> SaveToFile(sourceTextBox: textBoxSuperfactorial, title: "Save Superfactorial Result");
 
 		/// <summary>
@@ -575,6 +649,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonSaveToFileHyperfactorial_Click(object sender, EventArgs e)
+			// Save the hyperfactorial result to a file
 			=> SaveToFile(sourceTextBox: textBoxHyperfactorial, title: "Save Hyperfactorial Result");
 
 		/// <summary>
@@ -585,6 +660,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonDigitStatisticsFactorial_Click(object sender, EventArgs e)
+			// Show digit statistics for the factorial result
 			=> ShowDigitStatistics(sourceTextBox: textBoxFactorial, errorMessage: "No factorial result to analyze.");
 
 		/// <summary>
@@ -595,6 +671,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonDigitStatisticsOddFactorial_Click(object sender, EventArgs e)
+			// Show digit statistics for the odd factorial result
 			=> ShowDigitStatistics(sourceTextBox: textBoxOddFactorial, errorMessage: "No odd factorial result to analyze.");
 
 		/// <summary>
@@ -605,6 +682,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonDigitStatisticsEvenFactorial_Click(object sender, EventArgs e)
+			// Show digit statistics for the even factorial result
 			=> ShowDigitStatistics(sourceTextBox: textBoxEvenFactorial, errorMessage: "No even factorial result to analyze.");
 
 		/// <summary>
@@ -615,6 +693,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonDigitStatisticsPrimeFactorial_Click(object sender, EventArgs e)
+			// Show digit statistics for the prime factorial result
 			=> ShowDigitStatistics(sourceTextBox: textBoxPrimeFactorial, errorMessage: "No prime factorial result to analyze.");
 
 		/// <summary>
@@ -625,6 +704,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonDigitStatisticsSubfactorial_Click(object sender, EventArgs e)
+			// Show digit statistics for the subfactorial result
 			=> ShowDigitStatistics(sourceTextBox: textBoxSubfactorial, errorMessage: "No subfactorial result to analyze.");
 
 		/// <summary>
@@ -635,6 +715,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonDigitFactorialDoubleFactorial_Click(object sender, EventArgs e)
+			// Show digit statistics for the double factorial result
 			=> ShowDigitStatistics(sourceTextBox: textBoxDoubleFactorial, errorMessage: "No double factorial result to analyze.");
 
 		/// <summary>
@@ -645,6 +726,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonDigitStatisticsRisingFactorial_Click(object sender, EventArgs e)
+			// Show digit statistics for the rising factorial result
 			=> ShowDigitStatistics(sourceTextBox: textBoxRisingFactorial, errorMessage: "No rising factorial result to analyze.");
 
 		/// <summary>
@@ -655,6 +737,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonDigitStatisticsFallingFactorial_Click(object sender, EventArgs e)
+			// Show digit statistics for the falling factorial result
 			=> ShowDigitStatistics(sourceTextBox: textBoxFallingFactorial, errorMessage: "No falling factorial result to analyze.");
 
 		/// <summary>
@@ -665,6 +748,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonDigitStatisticsMultiFactorial_Click(object sender, EventArgs e)
+			// Show digit statistics for the multi factorial result
 			=> ShowDigitStatistics(sourceTextBox: textBoxMultiFactorial, errorMessage: "No multi factorial result to analyze.");
 
 		/// <summary>
@@ -675,6 +759,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonDigitStatisticsSuperfactorial_Click(object sender, EventArgs e)
+			// Show digit statistics for the superfactorial result
 			=> ShowDigitStatistics(sourceTextBox: textBoxSuperfactorial, errorMessage: "No superfactorial result to analyze.");
 
 		/// <summary>
@@ -685,6 +770,7 @@ namespace FactorialForge
 		/// <param name="sender">The event source.</param>
 		/// <param name="e">The event data.</param>
 		private void ButtonDigitStatisticsHyperfactorial_Click(object sender, EventArgs e)
+			// Show digit statistics for the hyperfactorial result
 			=> ShowDigitStatistics(sourceTextBox: textBoxHyperfactorial, errorMessage: "No hyperfactorial result to analyze.");
 	}
 }
