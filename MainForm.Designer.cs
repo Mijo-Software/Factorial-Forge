@@ -242,9 +242,9 @@
 			this.labelFactorial.AutoSize = true;
 			this.labelFactorial.Location = new Point(8, 8);
 			this.labelFactorial.Name = "labelFactorial";
-			this.labelFactorial.Size = new Size(66, 15);
+			this.labelFactorial.Size = new Size(72, 15);
 			this.labelFactorial.TabIndex = 3;
-			this.labelFactorial.Text = "x[0..99999]:";
+			this.labelFactorial.Text = "x[0..999999]:";
 			// 
 			// textBoxFactorial
 			// 
@@ -261,7 +261,7 @@
 			// numericUpDownFactorial
 			// 
 			this.numericUpDownFactorial.Location = new Point(81, 3);
-			this.numericUpDownFactorial.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownFactorial.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
 			this.numericUpDownFactorial.Name = "numericUpDownFactorial";
 			this.numericUpDownFactorial.Size = new Size(69, 23);
 			this.numericUpDownFactorial.TabIndex = 0;
@@ -328,9 +328,9 @@
 			this.labelOddFactorial.AutoSize = true;
 			this.labelOddFactorial.Location = new Point(8, 8);
 			this.labelOddFactorial.Name = "labelOddFactorial";
-			this.labelOddFactorial.Size = new Size(66, 15);
+			this.labelOddFactorial.Size = new Size(72, 15);
 			this.labelOddFactorial.TabIndex = 6;
-			this.labelOddFactorial.Text = "x[0..99999]:";
+			this.labelOddFactorial.Text = "x[0..999999]:";
 			// 
 			// textBoxOddFactorial
 			// 
@@ -347,7 +347,7 @@
 			// numericUpDownOddFactorial
 			// 
 			this.numericUpDownOddFactorial.Location = new Point(81, 3);
-			this.numericUpDownOddFactorial.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownOddFactorial.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
 			this.numericUpDownOddFactorial.Name = "numericUpDownOddFactorial";
 			this.numericUpDownOddFactorial.Size = new Size(69, 23);
 			this.numericUpDownOddFactorial.TabIndex = 4;
@@ -413,9 +413,9 @@
 			this.labelEvenFactorial.AutoSize = true;
 			this.labelEvenFactorial.Location = new Point(8, 8);
 			this.labelEvenFactorial.Name = "labelEvenFactorial";
-			this.labelEvenFactorial.Size = new Size(66, 15);
+			this.labelEvenFactorial.Size = new Size(72, 15);
 			this.labelEvenFactorial.TabIndex = 9;
-			this.labelEvenFactorial.Text = "x[0..99999]:";
+			this.labelEvenFactorial.Text = "x[0..999999]:";
 			// 
 			// textBoxEvenFactorial
 			// 
@@ -432,7 +432,7 @@
 			// numericUpDownEvenFactorial
 			// 
 			this.numericUpDownEvenFactorial.Location = new Point(81, 3);
-			this.numericUpDownEvenFactorial.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownEvenFactorial.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
 			this.numericUpDownEvenFactorial.Name = "numericUpDownEvenFactorial";
 			this.numericUpDownEvenFactorial.Size = new Size(69, 23);
 			this.numericUpDownEvenFactorial.TabIndex = 7;
@@ -498,9 +498,9 @@
 			this.labelPrimeFactorial.AutoSize = true;
 			this.labelPrimeFactorial.Location = new Point(8, 8);
 			this.labelPrimeFactorial.Name = "labelPrimeFactorial";
-			this.labelPrimeFactorial.Size = new Size(66, 15);
+			this.labelPrimeFactorial.Size = new Size(72, 15);
 			this.labelPrimeFactorial.TabIndex = 6;
-			this.labelPrimeFactorial.Text = "x[0..99999]:";
+			this.labelPrimeFactorial.Text = "x[0..999999]:";
 			// 
 			// textBoxPrimeFactorial
 			// 
@@ -517,7 +517,7 @@
 			// numericUpDownPrimeFactorial
 			// 
 			this.numericUpDownPrimeFactorial.Location = new Point(81, 3);
-			this.numericUpDownPrimeFactorial.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownPrimeFactorial.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
 			this.numericUpDownPrimeFactorial.Name = "numericUpDownPrimeFactorial";
 			this.numericUpDownPrimeFactorial.Size = new Size(69, 23);
 			this.numericUpDownPrimeFactorial.TabIndex = 4;
@@ -583,9 +583,9 @@
 			this.labelSubfactorial.AutoSize = true;
 			this.labelSubfactorial.Location = new Point(8, 8);
 			this.labelSubfactorial.Name = "labelSubfactorial";
-			this.labelSubfactorial.Size = new Size(66, 15);
+			this.labelSubfactorial.Size = new Size(72, 15);
 			this.labelSubfactorial.TabIndex = 6;
-			this.labelSubfactorial.Text = "x[0..99999]:";
+			this.labelSubfactorial.Text = "x[0..999999]:";
 			// 
 			// textBoxSubfactorial
 			// 
@@ -602,7 +602,7 @@
 			// numericUpDownSubfactorial
 			// 
 			this.numericUpDownSubfactorial.Location = new Point(81, 3);
-			this.numericUpDownSubfactorial.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownSubfactorial.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
 			this.numericUpDownSubfactorial.Name = "numericUpDownSubfactorial";
 			this.numericUpDownSubfactorial.Size = new Size(69, 23);
 			this.numericUpDownSubfactorial.TabIndex = 4;
@@ -668,9 +668,9 @@
 			this.labelDoubleFactorial.AutoSize = true;
 			this.labelDoubleFactorial.Location = new Point(8, 8);
 			this.labelDoubleFactorial.Name = "labelDoubleFactorial";
-			this.labelDoubleFactorial.Size = new Size(66, 15);
+			this.labelDoubleFactorial.Size = new Size(72, 15);
 			this.labelDoubleFactorial.TabIndex = 6;
-			this.labelDoubleFactorial.Text = "x[0..99999]:";
+			this.labelDoubleFactorial.Text = "x[0..999999]:";
 			// 
 			// textBoxDoubleFactorial
 			// 
@@ -687,7 +687,7 @@
 			// numericUpDownDoubleFactorial
 			// 
 			this.numericUpDownDoubleFactorial.Location = new Point(81, 3);
-			this.numericUpDownDoubleFactorial.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownDoubleFactorial.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
 			this.numericUpDownDoubleFactorial.Name = "numericUpDownDoubleFactorial";
 			this.numericUpDownDoubleFactorial.Size = new Size(69, 23);
 			this.numericUpDownDoubleFactorial.TabIndex = 4;
@@ -716,14 +716,14 @@
 			this.labelRisingFactorialN.AutoSize = true;
 			this.labelRisingFactorialN.Location = new Point(156, 8);
 			this.labelRisingFactorialN.Name = "labelRisingFactorialN";
-			this.labelRisingFactorialN.Size = new Size(67, 15);
+			this.labelRisingFactorialN.Size = new Size(73, 15);
 			this.labelRisingFactorialN.TabIndex = 2;
-			this.labelRisingFactorialN.Text = "n[0..99999]:";
+			this.labelRisingFactorialN.Text = "n[0..999999]:";
 			// 
 			// numericUpDownRisingFactorialN
 			// 
 			this.numericUpDownRisingFactorialN.Location = new Point(229, 3);
-			this.numericUpDownRisingFactorialN.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownRisingFactorialN.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
 			this.numericUpDownRisingFactorialN.Name = "numericUpDownRisingFactorialN";
 			this.numericUpDownRisingFactorialN.Size = new Size(69, 23);
 			this.numericUpDownRisingFactorialN.TabIndex = 3;
@@ -774,9 +774,9 @@
 			this.labelRisingFactorialX.AutoSize = true;
 			this.labelRisingFactorialX.Location = new Point(8, 8);
 			this.labelRisingFactorialX.Name = "labelRisingFactorialX";
-			this.labelRisingFactorialX.Size = new Size(66, 15);
+			this.labelRisingFactorialX.Size = new Size(72, 15);
 			this.labelRisingFactorialX.TabIndex = 0;
-			this.labelRisingFactorialX.Text = "x[0..99999]:";
+			this.labelRisingFactorialX.Text = "x[0..999999]:";
 			// 
 			// textBoxRisingFactorial
 			// 
@@ -793,7 +793,7 @@
 			// numericUpDownRisingFactorialX
 			// 
 			this.numericUpDownRisingFactorialX.Location = new Point(81, 3);
-			this.numericUpDownRisingFactorialX.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownRisingFactorialX.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
 			this.numericUpDownRisingFactorialX.Name = "numericUpDownRisingFactorialX";
 			this.numericUpDownRisingFactorialX.Size = new Size(69, 23);
 			this.numericUpDownRisingFactorialX.TabIndex = 1;
@@ -822,14 +822,14 @@
 			this.labelFallingFactorialN.AutoSize = true;
 			this.labelFallingFactorialN.Location = new Point(156, 8);
 			this.labelFallingFactorialN.Name = "labelFallingFactorialN";
-			this.labelFallingFactorialN.Size = new Size(67, 15);
+			this.labelFallingFactorialN.Size = new Size(73, 15);
 			this.labelFallingFactorialN.TabIndex = 2;
-			this.labelFallingFactorialN.Text = "n[0..99999]:";
+			this.labelFallingFactorialN.Text = "n[0..999999]:";
 			// 
 			// numericUpDownFallingFactorialN
 			// 
 			this.numericUpDownFallingFactorialN.Location = new Point(229, 3);
-			this.numericUpDownFallingFactorialN.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownFallingFactorialN.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
 			this.numericUpDownFallingFactorialN.Name = "numericUpDownFallingFactorialN";
 			this.numericUpDownFallingFactorialN.Size = new Size(69, 23);
 			this.numericUpDownFallingFactorialN.TabIndex = 3;
@@ -880,9 +880,9 @@
 			this.labelFallingFactorialX.AutoSize = true;
 			this.labelFallingFactorialX.Location = new Point(8, 8);
 			this.labelFallingFactorialX.Name = "labelFallingFactorialX";
-			this.labelFallingFactorialX.Size = new Size(66, 15);
+			this.labelFallingFactorialX.Size = new Size(72, 15);
 			this.labelFallingFactorialX.TabIndex = 0;
-			this.labelFallingFactorialX.Text = "x[0..99999]:";
+			this.labelFallingFactorialX.Text = "x[0..999999]:";
 			// 
 			// textBoxFallingFactorial
 			// 
@@ -899,7 +899,7 @@
 			// numericUpDownFallingFactorialX
 			// 
 			this.numericUpDownFallingFactorialX.Location = new Point(81, 3);
-			this.numericUpDownFallingFactorialX.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownFallingFactorialX.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
 			this.numericUpDownFallingFactorialX.Name = "numericUpDownFallingFactorialX";
 			this.numericUpDownFallingFactorialX.Size = new Size(69, 23);
 			this.numericUpDownFallingFactorialX.TabIndex = 1;
@@ -929,14 +929,14 @@
 			this.labelMultiFactorialN.AutoSize = true;
 			this.labelMultiFactorialN.Location = new Point(156, 8);
 			this.labelMultiFactorialN.Name = "labelMultiFactorialN";
-			this.labelMultiFactorialN.Size = new Size(67, 15);
+			this.labelMultiFactorialN.Size = new Size(73, 15);
 			this.labelMultiFactorialN.TabIndex = 10;
-			this.labelMultiFactorialN.Text = "n[0..99999]:";
+			this.labelMultiFactorialN.Text = "n[0..999999]:";
 			// 
 			// numericUpDownMultiFactorialN
 			// 
 			this.numericUpDownMultiFactorialN.Location = new Point(229, 3);
-			this.numericUpDownMultiFactorialN.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownMultiFactorialN.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
 			this.numericUpDownMultiFactorialN.Name = "numericUpDownMultiFactorialN";
 			this.numericUpDownMultiFactorialN.Size = new Size(69, 23);
 			this.numericUpDownMultiFactorialN.TabIndex = 11;
@@ -988,9 +988,9 @@
 			this.labelMultiFactorialX.AutoSize = true;
 			this.labelMultiFactorialX.Location = new Point(8, 8);
 			this.labelMultiFactorialX.Name = "labelMultiFactorialX";
-			this.labelMultiFactorialX.Size = new Size(66, 15);
+			this.labelMultiFactorialX.Size = new Size(72, 15);
 			this.labelMultiFactorialX.TabIndex = 8;
-			this.labelMultiFactorialX.Text = "x[0..99999]:";
+			this.labelMultiFactorialX.Text = "x[0..999999]:";
 			// 
 			// textBoxMultiFactorial
 			// 
@@ -1007,7 +1007,7 @@
 			// numericUpDownMultiFactorialX
 			// 
 			this.numericUpDownMultiFactorialX.Location = new Point(81, 3);
-			this.numericUpDownMultiFactorialX.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownMultiFactorialX.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
 			this.numericUpDownMultiFactorialX.Name = "numericUpDownMultiFactorialX";
 			this.numericUpDownMultiFactorialX.Size = new Size(69, 23);
 			this.numericUpDownMultiFactorialX.TabIndex = 9;
@@ -1074,9 +1074,9 @@
 			this.labelSuperfactorial.AutoSize = true;
 			this.labelSuperfactorial.Location = new Point(8, 8);
 			this.labelSuperfactorial.Name = "labelSuperfactorial";
-			this.labelSuperfactorial.Size = new Size(66, 15);
+			this.labelSuperfactorial.Size = new Size(72, 15);
 			this.labelSuperfactorial.TabIndex = 16;
-			this.labelSuperfactorial.Text = "x[0..99999]:";
+			this.labelSuperfactorial.Text = "x[0..999999]:";
 			// 
 			// textBoxSuperfactorial
 			// 
@@ -1093,7 +1093,7 @@
 			// numericUpDownSuperfactorial
 			// 
 			this.numericUpDownSuperfactorial.Location = new Point(81, 3);
-			this.numericUpDownSuperfactorial.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownSuperfactorial.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
 			this.numericUpDownSuperfactorial.Name = "numericUpDownSuperfactorial";
 			this.numericUpDownSuperfactorial.Size = new Size(69, 23);
 			this.numericUpDownSuperfactorial.TabIndex = 17;
@@ -1159,9 +1159,9 @@
 			this.labelHyperfactorial.AutoSize = true;
 			this.labelHyperfactorial.Location = new Point(8, 8);
 			this.labelHyperfactorial.Name = "labelHyperfactorial";
-			this.labelHyperfactorial.Size = new Size(66, 15);
+			this.labelHyperfactorial.Size = new Size(72, 15);
 			this.labelHyperfactorial.TabIndex = 24;
-			this.labelHyperfactorial.Text = "x[0..99999]:";
+			this.labelHyperfactorial.Text = "x[0..999999]:";
 			// 
 			// textBoxHyperfactorial
 			// 
@@ -1178,7 +1178,7 @@
 			// numericUpDownHyperfactorial
 			// 
 			this.numericUpDownHyperfactorial.Location = new Point(81, 3);
-			this.numericUpDownHyperfactorial.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownHyperfactorial.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
 			this.numericUpDownHyperfactorial.Name = "numericUpDownHyperfactorial";
 			this.numericUpDownHyperfactorial.Size = new Size(69, 23);
 			this.numericUpDownHyperfactorial.TabIndex = 25;
@@ -1245,9 +1245,9 @@
 			this.labelSuperduperfactorial.AutoSize = true;
 			this.labelSuperduperfactorial.Location = new Point(8, 8);
 			this.labelSuperduperfactorial.Name = "labelSuperduperfactorial";
-			this.labelSuperduperfactorial.Size = new Size(66, 15);
+			this.labelSuperduperfactorial.Size = new Size(72, 15);
 			this.labelSuperduperfactorial.TabIndex = 30;
-			this.labelSuperduperfactorial.Text = "x[0..99999]:";
+			this.labelSuperduperfactorial.Text = "x[0..999999]:";
 			// 
 			// textBoxSuperduperfactorial
 			// 
@@ -1264,7 +1264,7 @@
 			// numericUpDownSuperduperfactorial
 			// 
 			this.numericUpDownSuperduperfactorial.Location = new Point(81, 3);
-			this.numericUpDownSuperduperfactorial.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+			this.numericUpDownSuperduperfactorial.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
 			this.numericUpDownSuperduperfactorial.Name = "numericUpDownSuperduperfactorial";
 			this.numericUpDownSuperduperfactorial.Size = new Size(69, 23);
 			this.numericUpDownSuperduperfactorial.TabIndex = 31;
