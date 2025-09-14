@@ -134,17 +134,14 @@ namespace FactorialForge
 				// Stop the stopwatch after calculation completes
 				watch.Stop();
 				// Ensure UI updates happen on the UI thread
-				await Task.Run(action: () =>
+				// Use Invoke to update the UI components safely
+				this.Invoke(method: new Action(() =>
 				{
-					// Use Invoke to update the UI components safely
-					this.Invoke(method: new Action(() =>
-					{
-						// Display the result in the target textbox
-						targetTextBox.Text = $"{result}";
-						// Update the status bar with the elapsed time
-						toolStripStatusLabelInfo.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
-					}));
-				});
+					// Display the result in the target textbox
+					targetTextBox.Text = $"{result}";
+					// Update the status bar with the elapsed time
+					toolStripStatusLabelInfo.Text = $"Calculation completed in {watch.ElapsedMilliseconds} ms.";
+				}));
 			}
 			// Handle any exceptions that occur during calculation
 			catch (Exception ex)
