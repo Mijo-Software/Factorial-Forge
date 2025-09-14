@@ -61,8 +61,15 @@ namespace FactorialForge
 			// Append the total sum of digits
 			_ = sb.AppendLine(value: $"\nΣ: {counts.Sum()}");
 			// Calculate and append the mean of the digits
-			int mean = counts.Sum() / digits;
-			_ = sb.AppendLine(value: $"⌀: {mean}");
+			if (digits > 0)
+			{
+				double mean = (double)counts.Sum() / digits;
+				_ = sb.AppendLine(value: $"⌀: {mean:F2}");
+			}
+			else
+			{
+				_ = sb.AppendLine(value: "⌀: N/A (no digits found)");
+			}
 			// Show the digit statistics in a message box
 			_ = MessageBox.Show(text: sb.ToString(), caption: "Digit statistics", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
